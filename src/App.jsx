@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <BrowserRouter basename='https://petition-pearl.vercel.app'>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Page />} />
           <Route exact path="/petitions" element={<Petition />} />
