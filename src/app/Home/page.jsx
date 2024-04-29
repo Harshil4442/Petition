@@ -26,7 +26,7 @@ export default function IndexMarketing(){
 
                     <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 align-items-center justify-content-center" >
                         <div className="ms-lg-5 align-items-center justify-content-center">
-                            <div className="position-relative align-items-center justify-content-center">
+                            <div className="position-relative align-items-center justify-content-center" style={{display:'flex', margin:'2rem'}}>
                                 <img src='/images/petition.jpg'   style={{maxWidth:'93vw',width:'350px', height:'300px',borderRadius:'1rem',boxShadow: '0 10px 9px rgba(0,0,0,0.2)'}} className="img-fluid" alt=""/>
                                 {/* <Modal/> */}
                             </div>
@@ -35,11 +35,7 @@ export default function IndexMarketing(){
                 </div>
             </div>
         </section>
-        {/* <section className="py-5 bg-primary">
-            <div className="container">
-                <Counter/>
-            </div>
-        </section> */}
+        
         <section className="section" id="features">
             <div className="container position-relative">
                 <div className="row">
