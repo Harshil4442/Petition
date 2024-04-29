@@ -15,7 +15,12 @@ export default function Petitions() {
     const [clicked, setc] = useState(true);
     const [clickedLikes, setClickedLikes] = useState(Array(petitionData.length).fill(false));
     const [clickedDisLikes, setClickedDisLikes] = useState(Array(petitionData.length).fill(false));
+    const [redirectToHome, setRedirectToHome] = useState(false);
 
+    useEffect(() => {
+        // Redirect to home page on component mount (refresh)
+        setRedirectToHome(true);
+    }, []);
 
     useEffect(() => {
         // Initialize the petitions state with like and dislike counts from petitionData
@@ -71,6 +76,7 @@ export default function Petitions() {
 
     return (
         <>
+            {redirectToHome && <Link to="/" />}
             <MarketingNavbar handleSearch={handleSearch} />
             <section className="bg-half-170 d-flex align-items-center" id="home">
                 <div className="container">

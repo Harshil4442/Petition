@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <BrowserRouter>
+      <BrowserRouter basename='/'>
         <Routes>
           <Route path="/" element={<Page />} />
           <Route path="/petitions" element={<Petition />} />
