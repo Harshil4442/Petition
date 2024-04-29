@@ -1,0 +1,50 @@
+//
+// _restaurant.scss
+//
+/*********************************/
+/*         Restaurant            */
+/*===============================*/
+body {
+    &.restaurant-scss {
+        font-family: var(--font-poppins) !important;
+    }
+}
+
+.restaurant-scss {
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: var(--font-lora) !important;
+        line-height: 1.2 !important;
+        font-weight: 600 !important;
+    }
+
+    #topnav .navigation-menu > li > a,
+    .btn {
+        font-family: var(--font-lora) !important;
+    }
+
+    .menu-food {
+        &:hover {
+            img {
+                animation: spinner-border 10s linear infinite !important;
+            }
+        }
+    }
+
+    .container-filter {
+        li {
+            margin: 0px 15px 10px !important;
+            font-size: 14px;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            color: $muted !important;
+            border-bottom: 1px solid transparent;
+            font-weight: 500;
+            &.active,
+            &:hover {
+                color: $dark !important;
+                border-bottom-color: $dark;
+            }
+        }
+    }
+}

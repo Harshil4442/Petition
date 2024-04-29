@@ -1,0 +1,33 @@
+//
+// _restaurant.scss
+//
+
+/*********************************/
+/*         Restaurant            */
+/*===============================*/
+
+
+body {
+    &.restaurant-scss {
+        font-family: var(--font-poppins) !important;
+    }
+}
+
+.restaurant-scss {
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: var(--font-lora) !important;
+        line-height: 1.2 !important;
+        font-weight: 600 !important;
+    }
+
+    .container-filter {
+        li {
+            color: $muted !important;
+            &.active,
+            &:hover {
+                color: $dark !important;
+                border-bottom-color: $dark;
+            }
+        }
+    }
+}
