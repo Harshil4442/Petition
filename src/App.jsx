@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter basename='/'>
         <Routes>
           <Route path="/" element={<Page />} />
-          <Route path="/petitions" element={<Petition />} />
-          <Route path="/create-petition" element={<CreatePetition />} />
+          <Route exact path="/petitions" element={<Petition />} />
+          <Route exact path="/create-petition" element={<CreatePetition />} />
           <Route exact path="/petition-details/:id" element={<PetitionDetails />} />
         </Routes>
       </BrowserRouter>
