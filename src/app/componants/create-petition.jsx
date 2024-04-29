@@ -1,5 +1,5 @@
 import React from "react";
-import MarketingNavbar from "../componants/navbar/marketingNavbar";
+import MarketingNavbar from "../componants/navbar/marketingNavbarHome";
 import FooterFour from "../componants/footer/footerFour";
 import ScrollTop from "../componants/scrollTop";
 import Form from './form/form1';

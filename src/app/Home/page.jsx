@@ -1,5 +1,5 @@
 import React from "react";
-import MarketingNavbar from "../componants/navbar/marketingNavbar";
+import MarketingNavbar from "../componants/navbar/marketingNavbarHome";
 import FooterFour from "../componants/footer/footerFour";
 import ScrollTop from "../componants/scrollTop";
 
@@ -12,7 +12,7 @@ export default function IndexMarketing(){
 
     return(
         <>
-        <MarketingNavbar/>
+        <MarketingNavbar flag={true} />
         <section className="bg-half-170 bg-soft-primary d-flex align-items-center" id="home">
             <div className="container" >
                 <div className="row align-items-center" >
