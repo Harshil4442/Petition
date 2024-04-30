@@ -50,9 +50,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 
 .section {
-  background: rgb(238,174,202);
-background: linear-gradient(90deg, rgba(238,174,202,0.5160189075630253) 17%, rgba(148,187,233,1) 100%);
-  padding: 70px 0;
+  /* background: rgb(238,174,202); */
+  /* background: linear-gradient(90deg, rgba(238,174,202,0.5160189075630253) 17%, rgba(148,187,233,1) 100%); */
+  padding: 60px 0px;
   position: relative;
 }
 
@@ -667,8 +667,6 @@ h6, .fs-6, .h6, .fs-6 {
 }
 
 .bg-soft-primary {
-  background: linear-gradient(90deg, rgba(238,174,202,0.5) 17%, rgba(148,187,233,1) 100%) !important;
-  /* background-color: rgba(42, 82, 195, 0.05) !important; */
   color: #2a52c3 !important;
 }
 
@@ -810,7 +808,7 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .text-dark {
-  color: #3c4858 !important;
+  color: #2a2d30 !important;
 }
 
 a.text-dark:hover, a.text-dark:focus {
@@ -832,7 +830,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #8492a6 !important;
+  color: #535961 !important;
 }
 
 a.text-muted:hover, a.text-muted:focus {
@@ -1219,7 +1217,7 @@ video:focus {
 }
 
 .btn-soft-primary {
-  background-color: rgba(42, 82, 195, 0.05) !important;
+  background-color: rgba(248, 248, 255, 0.703) !important;
   border: 1px solid rgba(42, 82, 195, 0.05) !important;
   color: #2a52c3 !important;
   box-shadow: 0 3px 5px 0 rgba(42, 82, 195, 0.1);
@@ -3620,9 +3618,11 @@ button:not(:disabled) {
 }
 
 .bg-half-170 {
-  background: rgb(238,174,202);
-background: linear-gradient(90deg, rgba(238,174,202,0.5160189075630253) 17%, rgba(148,187,233,1) 100%);
-  padding: 120px ;
+  /* background: rgb(238,174,202);
+background: linear-gradient(90deg, rgba(238,174,202,0.5160189075630253) 17%, rgba(148,187,233,1) 100%); */
+  padding-left: 30;
+  padding-right: 30;
+  padding-top: 120px;
   background-size: cover !important;
   align-self: center;
   position: relative;
@@ -6754,7 +6754,7 @@ footer .border {
 /*         Restaurant            */
 /*===============================*/
 body.restaurant-scss {
-  font-family: "Poppins", sans-serif !important;
+  font-family: sans-serif !important;
 }
 
 .restaurant-scss h1, .restaurant-scss h2, .restaurant-scss h3, .restaurant-scss h4, .restaurant-scss h5, .restaurant-scss h6, .restaurant-scss .h1, .restaurant-scss .h2, .restaurant-scss .h3, .restaurant-scss .h4, .restaurant-scss .h5, .restaurant-scss .h6 {
@@ -6861,3 +6861,28 @@ body.gym-scss {
    /* Add a smooth transition effect */
 }
 
+.container1 {
+  width: 100%;
+  height: 80%;
+  display: grid;
+  overflow: hidden;
+  margin: 0;
+  list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+  padding: 25px;
+  padding-bottom: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
+@media (max-width: 768px) {
+  .li,ul {
+    padding-left: 0rem !important;
+  }
+}
+
+.btn{
+  padding: 3px 10px !important;
+}

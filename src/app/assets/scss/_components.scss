@@ -376,7 +376,7 @@ $value in $colors {
             content: "\F0142" !important;
             font-size: 14px;
             color: $dark; 
-            font-family: 'Material Design Icons';
+            font-family: 'googlesans, sans-serif';
             padding-left: 5px;
         }     
         &:last-child {
@@ -490,7 +490,7 @@ $value in $colors {
             &:before {
                 content: '\F0143';
                 display: block;
-                font-family: 'Material Design Icons';
+                font-family: 'googlesans, sans-serif';
                 font-size: 16px;
                 position: absolute;
                 right: 20px;

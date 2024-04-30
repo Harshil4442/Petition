@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import petitionData from '../../data/petitionData';
-
-
+import { motion } from "framer-motion";
 
 
 
 
 
 export default function MarketingNavbar({ handleSearch }) {
-
-
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredPetitions, setFilteredPetitions] = useState([]);
 
@@ -79,21 +76,29 @@ export default function MarketingNavbar({ handleSearch }) {
                         </a>
                     </div>
                 </div>
-
+                
 
                 <ul className="buy-button list-inline mb-0" style={{ height: '100%', paddingTop: '2 px' }}>
                     <li className="list-inline-item ps-1 mb-0" style={{ fontSize: '20%', height: '100%', display: 'flex', alignItems: 'center' }}>
                         {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
                         {
                             isMobile ?
-                                <button type="submit" className="btn" style={{ color: 'white', height: '2.5rem', width: '8rem', fontFamily: 'sans-serif', borderRadius: '3rem', fontSize: '0.75rem', boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)' }} onClick={handlePetition}> Create petition</button>
+                                <motion.div whileHover={{ scale: 1.1}}
+                                    whileTap={{
+                                        scale: 0.3,
+                                        borderRadius: "100%"
+                                    }} type="submit" className="btn" style={{display:'flex',alignItems:'center',justifyContent:'center', color: 'white', height: '2.5rem', width: '8rem', fontFamily: 'sans-serif', borderRadius: '3rem', fontSize: '0.75rem', boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)' }} onClick={handlePetition}> Create petition</motion.div>
                                 :
-                                <button type="submit" className="btn" style={{ color: 'white', fontFamily: 'sans-serif', borderRadius: '2rem', fontSize: '1rem', boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)' }} onClick={handlePetition}>Create petition</button>
+                                <motion.div whileHover={{ scale: 1.1}}
+                                    whileTap={{
+                                        scale: 0.6,
+                                        borderRadius: "100%"
+                                    }} type="submit" className="btn" style={{display:'flex',alignItems:'center',justifyContent:'center', color: 'white',height:'2.2rem', fontFamily: 'sans-serif', borderRadius: '2rem', fontSize: '1rem', boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)' }} onClick={handlePetition}>Create petition</motion.div>
                         }
 
                     </li>
                 </ul>
-
+                
 
 
                 <ul className="buy-button list-inline mb-0" style={{ height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -131,7 +136,7 @@ export default function MarketingNavbar({ handleSearch }) {
 
                 <div id="navigation" style={{ display: isMenu ? 'block' : 'none', height: '100%' }}>
                     <ul className="navigation-menu" id="navmenu-nav" style={{ height: '100%', display: 'flex', paddingLeft: '0px 15px', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <li className="list-inline-item ps-1 mb-0" style={{ height: '100%', display: 'flex',  alignItems: 'center',paddingLeft:'2rem' }}>
+                        <li className="list-inline-item ps-1 mb-0" style={{ height: '100%', display: 'flex', alignItems: 'center', paddingLeft: '2rem' }}>
 
                             {
                                 isMobile ?
@@ -144,7 +149,7 @@ export default function MarketingNavbar({ handleSearch }) {
                                                 fontSize: '0.8rem',
                                                 paddingLeft: '30px',
                                                 paddingRight: '3px',
-                                                marginLeft:'20px',
+                                                marginLeft: '20px',
                                                 paddingTop: '2px',
                                                 borderRadius: '2rem',
                                                 borderColor: 'lightgrey',

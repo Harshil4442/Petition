@@ -18,14 +18,14 @@ export default function petitionDetails(props) {
         <>
             <MarketingNavbar />
 
-            <section className="section" id="features">
+            <section style={{background: 'linear-gradient(138deg, rgba(177,221,255,0.9) 19%, rgba(232,185,255,0.8) 38%, rgba(255,170,247,0.7) 62%, rgba(253,201,255,0.6) 96%)'}} className="section" id="features">
                 <div className="container position-relative" style={{display:'flex', justifyContent:'center'}}>
                     <div className="row" style={{width:'99%', marginTop:'2rem',display:'flex', justifyContent:'center'}}>
                         <div className="col-lg-8" style={{width:'99%',display:'flex', justifyContent:'center'}}>
                             <div className="row" style={{width:'99%',display:'flex', justifyContent:'center'}}>
                                 <div className="mt-4 pt-2" style={{ textDecoration: 'none',width:'99%',display:'flex', justifyContent:'center' }}>
                                     <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{
-                                        backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),url(/images/form-back.jpg)', // Specify the path to your background image
+                                        backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85)),url(/images/form-back.jpg)', // Specify the path to your background image
                                         backgroundSize: 'cover', // Ensure the image covers the entire background
                                         backgroundPosition: 'center', // Center the image
                                         backgroundRepeat: 'no-repeat',

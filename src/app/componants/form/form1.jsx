@@ -1,6 +1,7 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 // import '../../assets/css/style.css';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Form1() {
   const [formData, setFormData] = useState({
