@@ -105,7 +105,7 @@ export default function Petitions() {
                                                         <h5>{generateShortDescription(petition.title)}</h5>
                                                         <h6>{generateShortDescription(petition.municipality)}</h6>
                                                         <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
-                                                        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+                                                        <div style={{ marginBottom:'1rem',display: 'flex', width: '100%', justifyContent: 'space-between' }}>
                                                             <div style={{width:'50%',display:'flex',flexDirection:'row', justifyContent:'start'}}>
                                                                 <span style={{width:'3.5rem',display:'flex',justifyContent:'start',alignItems:'center'}}>
                                                                 <img
