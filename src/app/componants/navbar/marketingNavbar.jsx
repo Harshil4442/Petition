@@ -86,13 +86,15 @@ export default function MarketingNavbar({handleSearch}){
                             {
                                 isMobile?
                                 <div style={{ position: 'relative', display: 'inline-block',paddingTop:'3px' }}>
-                                    <img src="/images/svg/search.svg"  style={{ opacity:'0.6',position: 'absolute', top: '53%', left: '10px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
+                                    <img src="/images/svg/search.svg"  style={{ opacity:'0.6',position: 'absolute', top: '57%', left: '10px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
                                     <input 
                                         style={{
                                             width:'80px',
                                             height:'28px',
                                             fontSize:'0.8rem',
                                             paddingLeft:'30px',
+                                            paddingRight:'3px',
+                                            paddingTop:'2px',
                                             borderRadius:'2rem',
                                             borderColor:'lightgrey',
                                             boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)'

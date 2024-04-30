@@ -1,5 +1,5 @@
 import React from "react";
-import MarketingNavbar from "../componants/navbar/marketingNavbar";
+import MarketingNavbar from "../componants/navbar/marketingNavbarHome";
 import FooterFour from "../componants/footer/footerFour";
 import ScrollTop from "../componants/scrollTop";
 import { useParams } from 'react-router-dom';
@@ -29,8 +29,9 @@ export default function petitionDetails(props) {
                                         backgroundSize: 'cover', // Ensure the image covers the entire background
                                         backgroundPosition: 'center', // Center the image
                                         backgroundRepeat: 'no-repeat',
+                                        margin:'-1.3rem'
                                     }}> {isMobile?
-                                            <div className="content mt-4" style={{padding:'1rem', lineHeight:'1.6rem'}}>
+                                            <div className="content mt-4" style={{padding:'0.2rem', lineHeight:'1.6rem'}}>
                                                 <h4>Title:  {petition.title}</h4>
                                                 <p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p>
                                                 <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p className="text-muted mt-3">{petition.description}</p></div>
@@ -40,7 +41,7 @@ export default function petitionDetails(props) {
                                                 <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p className="text-muted mt-3">{petition.contact}</p></div>
                                                 <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p className="text-muted mt-3">{petition.email}</p></div>
                                             </div>
-                                            :<div className="content mt-4" style={{padding:'3rem', lineHeight:'1.6rem'}}>
+                                            :<div className="content mt-4" style={{padding:'3.5rem', lineHeight:'1.6rem'}}>
                                                 <h4>Title:  {petition.title}</h4>
                                                 <p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p>
                                                 <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p className="text-muted mt-3">{petition.description}</p></div>
