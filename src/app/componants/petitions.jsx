@@ -99,11 +99,11 @@ export default function Petitions() {
                             <div className="row" style={{ width: '99%', display: 'flex', justifyContent: 'space-between' }}>
                                 {isMobile ?
                                     (petitions ? petitions : petitionData).filter(petition => filpetitions.some(p => p.id === petition.id)).map((petition, index) => (
-                                            <div key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none' }}>
-                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
-                                                    <div className="content mt-4">
-                                                        <h5>{petition.title}</h5>
-                                                        <h6>{petition.municipality}</h6>
+                                            <div key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none' ,height:'25rem'}}>
+                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{height:'100%'}}>
+                                                    <div className="content mt-4" style={{height:'100%', display:'flex', flexDirection:'column',justifyContent:'space-between'}}>
+                                                        <h5>{generateShortDescription(petition.title)}</h5>
+                                                        <h6>{generateShortDescription(petition.municipality)}</h6>
                                                         <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
                                                         <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
                                                             <div>
@@ -115,6 +115,7 @@ export default function Petitions() {
                                                                 />
                                                                 {/* const petition = petitionData.find(petition => petition.id === id); */}
                                                                 {petition.like}
+                                                                <span style={{display:'flex',justifyContent:'space-between'}}>
                                                                 <img
                                                                     src={clickedDisLikes[petition.id] ? '/images/negative-vote-filled.png' : '/images/negative-vote.png'}
                                                                     onClick={() => handleDisLike(petition.id)}
@@ -122,9 +123,10 @@ export default function Petitions() {
                                                                     alt=""
                                                                 />
                                                                 {petition.dislike}
+                                                                </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
-                                                                <p style={{ margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></p>
+                                                                <button style={{borderStyle:"hidden",backgroundColor:'#F0EBE3',borderRadius:'0.7rem',paddingLeft:'0.7rem',paddingRight:'0.7rem',padding:'0.3rem', margin: '0.5rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></button>
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -133,13 +135,13 @@ export default function Petitions() {
                                             
                                     ))
                                     : (petitions ? petitions : petitionData).filter(petition => filpetitions.some(p => p.id === petition.id)).map((petition, index) => (
-                                        <div key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%' }}>
-                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
-                                                    <div className="content mt-4">
-                                                        <h5>{petition.title}</h5>
-                                                        <h6>{petition.municipality}</h6>
+                                        <div key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%',height:'23rem' }}>
+                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{height:'100%'}}>
+                                                    <div className="content mt-4" style={{height:'100%', display:'flex', flexDirection:'column',justifyContent:'space-between'}}>
+                                                        <h5>{generateShortDescription(petition.title)}</h5>
+                                                        <h6>{generateShortDescription(petition.municipality)}</h6>
                                                         <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
-                                                        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+                                                        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
                                                             <div>
                                                                 <img
                                                                     src={clickedLikes[petition.id] ? '/images/thumbs-up-filled.png' : '/images/thumbs-up.png'}
@@ -157,12 +159,12 @@ export default function Petitions() {
                                                                 {petition.dislike}
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
-                                                                <p style={{ margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></p>
+                                                                <button style={{borderStyle:"hidden",backgroundColor:'#F0EBE3',borderRadius:'0.7rem',paddingLeft:'0.7rem',paddingRight:'0.7rem',padding:'0.3rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></button>
                                                             </Link>
                                                         </div>
                                                     </div>
 
-                                                </div> : <div></div>
+                                                </div> 
                                             
                                         </div>
                                     ))}

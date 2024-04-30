@@ -68,8 +68,8 @@ export default function MarketingNavbar({handleSearch}){
                     <img src='/images/petition_transparent.png'  height={28} className="logo-dark-mode" alt=""/>
                 </a>
                 
-                <div className="menu-extras">
-                    <div className="menu-item">
+                <div className="menu-extras" style={{height:'100%', display:'flex', alignItems:'center'}}>
+                    <div className="menu-item" style={{height:'100%', display:'flex', alignItems:'center'}}>
                         <a href="#" className={`navbar-toggle ${isMenu ? 'open' : ''}`} id="isToggle" onClick={() => toggleMenu()}>
                             <div className="lines">
                                 <span></span>
@@ -80,18 +80,18 @@ export default function MarketingNavbar({handleSearch}){
                     </div>
                 </div>
                 
-                <ul className="buy-button list-inline mb-0" style={{height:'100%',display:'flex',justifyContent:'center'}}>
+                <ul className="buy-button list-inline mb-0" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <li className="list-inline-item ps-1 mb-0" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                             
                             {
                                 isMobile?
-                                <div style={{ position: 'relative', display: 'inline-block' }}>
+                                <div style={{ position: 'relative', display: 'inline-block',paddingTop:'3px' }}>
                                     <img src="/images/svg/search.svg"  style={{ opacity:'0.6',position: 'absolute', top: '53%', left: '10px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
                                     <input 
                                         style={{
                                             width:'80px',
-                                            height:'38px',
-                                            fontSize:'0.9rem',
+                                            height:'28px',
+                                            fontSize:'0.8rem',
                                             paddingLeft:'30px',
                                             borderRadius:'2rem',
                                             borderColor:'lightgrey',
@@ -100,11 +100,11 @@ export default function MarketingNavbar({handleSearch}){
                                         value={searchTerm}
                                         onChange={handlepSearch}
                                         type="text"
-                                        placeholder="Sear.."
+                                        placeholder="Search"
                                     ></input>
                                 </div>
                                 :
-                                <div style={{ position: 'relative', display: 'inline-block' }}>
+                                <div style={{ position: 'relative', display: 'inline-block',paddingTop:'3px' }}>
                                     <img src="/images/svg/search.svg"  style={{ opacity:'0.6',position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
                                     <input 
                                         style={{
@@ -126,14 +126,14 @@ export default function MarketingNavbar({handleSearch}){
                             
                         </li>
                 </ul>
-                <ul className="buy-button list-inline mb-0" style={{height:'100%'}}>
+                <ul className="buy-button list-inline mb-0" style={{height:'100%',paddingTop:'2 px'}}>
                     <li className="list-inline-item ps-1 mb-0" style={{fontSize:'20%',height:'100%', display:'flex',alignItems:'center'}}>
                             {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
                             {
                                 isMobile?
-                                <button type="submit" className="btn" style={{color:'white',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>+ Cre..</button>
+                                <button type="submit" className="btn" style={{color:'white',width:'5.7rem',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'0.4rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}> Create petition</button>
                                 :
-                                <button type="submit" className="btn" style={{color:'white',fontFamily:'sans-serif',borderRadius:'2rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>+ Create petition</button>
+                                <button type="submit" className="btn" style={{color:'white',fontFamily:'sans-serif',borderRadius:'2rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>Create petition</button>
                             }
                             
                         </li>
