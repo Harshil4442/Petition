@@ -34,7 +34,7 @@
 $value in $colors {
     .btn-#{$name} {
         background-color: #{$value} !important;
-        border: 1px solid #{$value} !important;
+        border: 2px solid #{$value} !important;
         color: $white !important;
         box-shadow: 0 3px 5px 0 rgba($value, 0.1);
         &:hover, &:focus, &:active, &.active, &.focus{
@@ -45,12 +45,12 @@ $value in $colors {
     }
 
     .btn-soft-#{$name} {
-        background-color: rgba($value, 0.05) !important;
+        background-color: rgba($value, 1) !important;
         border: 1px solid rgba($value, 0.05) !important;
-        color: #{$value} !important;
-        box-shadow: 0 3px 5px 0 rgba($value, 0.1);
+        color: $white !important;
+        box-shadow: 0 3px 5px 0 rgba($value, 0.5);
         &:hover, &:focus, &:active, &.active, &.focus{
-            background-color: #{$value} !important;
+            background-color: rgba($value, 0.8) !important;
             border-color: #{$value} !important;
             color: $white !important;
         }

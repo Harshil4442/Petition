@@ -20,7 +20,7 @@ export default function IndexMarketing(){
                         <div className="title-heading">
                             <h6 className="fw-normal">Welcome to our municipal app</h6>
                             <h4 className="heading fw-semibold text-dark mb-4">Empower Your Community with Our Municipal Petition Platform</h4>
-                            <p className="text-muted para-desc mb-0">Discover a streamlined way to advocate for your community's needs and foster civic engagement without the hassle of logging in.</p>
+                            <p className="text-muted para-desc mb-0" >Discover a streamlined way to advocate for your community's needs and foster civic engagement without the hassle of logging in.</p>
                         </div>
                     </div>
 

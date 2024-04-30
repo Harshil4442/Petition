@@ -2469,11 +2469,14 @@ button:not(:disabled) {
 }
 
 .form-control {
-  border: 1px solid #dee2e6;
+  border-bottom: 1px solid black !important;
   font-size: 14px;
   line-height: 26px;
   background-color: #ffffff;
   border-radius: 6px;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
 }
 
 .form-control:focus {
@@ -6853,7 +6856,7 @@ body.gym-scss {
 }
 
 .img-fluid:hover {
-  transform: scale(1.1); /* Increase the size of the image on hover */
+  transform: scale(1.03) !important; /* Increase the size of the image on hover */
   transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
 

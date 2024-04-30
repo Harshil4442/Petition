@@ -61,83 +61,83 @@ export default function Form1() {
     <form onSubmit={handleSubmit}>
       <h3 style={{marginBottom:'2rem',marginTop:'1rem'}}>Create Petition Request</h3>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Title<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Title<span className="text-danger">*</span></h6></label>
         <input
           type="text"
           value={formData.title}
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="title"
           onChange={handleChange}
         />
       {showErrors && formData.title === "" && <small className="text-danger">This field is required</small>}      </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlTextarea1" style={{marginBottom:'0.8rem'}}><h6>Description<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlTextarea1" style={{marginBottom:'0.3rem'}}><h6>Description<span className="text-danger">*</span></h6></label>
         <textarea
           value={formData.description}
-          className="form-control bg-transparent border-b border-secondary"
+          className="form-control bg-transparent border-b"
           id="description"
           onChange={handleChange}
-          rows="3"
+          rows="2"
         ></textarea>
         {showErrors && formData.description === "" && <small className="text-danger">This field is required</small>}
       </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Name of Municipal Corporation<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Name of Municipal Corporation<span className="text-danger">*</span></h6></label>
         <input
         value={formData.municipalCorpName}
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="municipalCorpName"
           onChange={handleChange}
         />
         {showErrors && formData.municipalCorpName === "" && <small className="text-danger">This field is required</small>}
       </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Address<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Address<span className="text-danger">*</span></h6></label>
         <input
         value={formData.address}
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="address"
           onChange={handleChange}
         />
         {showErrors && formData.address === "" && <small className="text-danger">This field is required</small>}
       </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Category<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Category<span className="text-danger">*</span></h6></label>
         <input
         value={formData.category}
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="category"
           onChange={handleChange}
         />
         {showErrors && formData.category === "" && <small className="text-danger">This field is required</small>}
       </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Name<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Name<span className="text-danger">*</span></h6></label>
         <input
         value={formData.name}
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="name"
           onChange={handleChange}
         />
         {showErrors && formData.name === "" && <small className="text-danger">This field is required</small>}
       </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Contact number<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Contact number<span className="text-danger">*</span></h6></label>
         <input
         value={formData.contactNumber}
           type='tel'
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="contactNumber"
           onChange={handleChange}
         />
         {showErrors && formData.contactNumber === "" && <small className="text-danger">This field is required</small>}
       </div>
       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
-        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.8rem'}}><h6>Email<span className="text-danger">*</span></h6></label>
+        <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Email<span className="text-danger">*</span></h6></label>
         <input
         value={formData.email}
           type="email"
-          className="form-control bg-transparent border-bottom border-secondary"
+          className="form-control bg-transparent"
           id="email"
           onChange={handleChange}
         />
