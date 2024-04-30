@@ -80,30 +80,28 @@ export default function MarketingNavbar({handleSearch}){
                     </div>
                 </div>
                 
-                <ul className="buy-button list-inline mb-0" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <li className="list-inline-item ps-1 mb-0" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                
+                <ul className="buy-button list-inline mb-0" style={{height:'100%',paddingTop:'2 px'}}>
+                    <li className="list-inline-item ps-1 mb-0" style={{fontSize:'20%',height:'100%', display:'flex',alignItems:'center'}}>
+                            {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
+                            {
+                                isMobile?
+                                <button type="submit" className="btn" style={{color:'white',height:'2.5rem',width:'8rem',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'0.75rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}> Create petition</button>
+                                :
+                                <button type="submit" className="btn" style={{color:'white',fontFamily:'sans-serif',borderRadius:'2rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>Create petition</button>
+                            }
+                            
+                        </li>
+                </ul>
+                
+                
+
+                <ul className="buy-button list-inline mb-0" style={{height:'100%',display:'flex',justifyContent:'flex-start',alignItems:'center'}}>
+                <li className="list-inline-item ps-1 mb-0" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                             
                             {
                                 isMobile?
-                                <div style={{ position: 'relative', display: 'inline-block',paddingTop:'3px' }}>
-                                    <img src="/images/svg/search.svg"  style={{ opacity:'0.6',position: 'absolute', top: '57%', left: '10px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
-                                    <input 
-                                        style={{
-                                            width:'80px',
-                                            height:'28px',
-                                            fontSize:'0.8rem',
-                                            paddingLeft:'30px',
-                                            paddingRight:'3px',
-                                            paddingTop:'2px',
-                                            borderRadius:'2rem',
-                                            borderColor:'lightgrey',
-                                            boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)'
-                                        }}
-                                        value={searchTerm}
-                                        onChange={handlepSearch}
-                                        type="text"
-                                        placeholder="Search"
-                                    ></input>
+                                <div>
                                 </div>
                                 :
                                 <div style={{ position: 'relative', display: 'inline-block',paddingTop:'3px' }}>
@@ -128,33 +126,50 @@ export default function MarketingNavbar({handleSearch}){
                             
                         </li>
                 </ul>
-                <ul className="buy-button list-inline mb-0" style={{height:'100%',paddingTop:'2 px'}}>
-                    <li className="list-inline-item ps-1 mb-0" style={{fontSize:'20%',height:'100%', display:'flex',alignItems:'center'}}>
-                            {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
-                            {
-                                isMobile?
-                                <button type="submit" className="btn" style={{color:'white',width:'5.7rem',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'0.4rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}> Create petition</button>
-                                :
-                                <button type="submit" className="btn" style={{color:'white',fontFamily:'sans-serif',borderRadius:'2rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>Create petition</button>
-                            }
-                            
-                        </li>
-                </ul>
-                
-                
-
                 
                 
         
                 <div id="navigation" style={{ display: isMenu ? 'block' : 'none', height:'100%' }}> 
-                    <ul className="navigation-menu" id="navmenu-nav" style={{height:'100%',display:'flex',alignItems:'center',justifyContent:'end'}}>
+                    <ul className="navigation-menu" id="navmenu-nav" style={{height:'100%',display:'flex',paddingLeft:'0px 15px',alignItems:'center', justifyContent:'space-between'}}>
+                    <li className="list-inline-item ps-1 mb-0" style={{height:'100%',display:'flex',justifyContent:'start',alignItems:'center'}}>
+                        
+                            {
+                                isMobile?
+                                <div style={{ position: 'relative', display: 'inline-block',paddingTop:'3px' }}>
+                                    <img src="/images/svg/search.svg"  style={{ opacity:'0.6',position: 'absolute', top: '57%', left: '10px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
+                                    <input 
+                                        style={{
+                                            width:'99px',
+                                            height:'38px',
+                                            fontSize:'0.8rem',
+                                            paddingLeft:'30px',
+                                            paddingRight:'3px',
+                                            paddingTop:'2px',
+                                            borderRadius:'2rem',
+                                            borderColor:'lightgrey',
+                                            boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)'
+                                        }}
+                                        value={searchTerm}
+                                        onChange={handlepSearch}
+                                        type="text"
+                                        placeholder="Search"
+                                    ></input>
+                                </div>
+                                :
+                                <div>
+                                </div>
+                            }
+                            
+                        </li>
+                        <ul className="navigation-menu" id="navmenu-nav" style={{height:'100%',display:'flex',alignItems:'center'}}>
+
                         <li className="has-submenu">
                             <Link to="/" activeclass="active"  spy="true" smooth="true" duration={500} className="sub-menu-item" style={{textDecoration:'none', textTransform: 'capitalize',fontSize:'0.9rem'}}>Home</Link>
                         </li>
                         <li className="has-submenu">
                             <Link to="/petitions" activeclass="active"  spy="true" smooth="true" duration={500} className="sub-menu-item"  style={{textDecoration:'none', textTransform: 'capitalize',fontSize:'0.9rem'}}>Petitions</Link>
                         </li>
-                        
+                        </ul>
                     </ul>
                 </div>
             </div>

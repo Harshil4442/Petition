@@ -6857,6 +6857,7 @@ body.gym-scss {
 
 .img-fluid:hover {
   transform: scale(1.03) !important; /* Increase the size of the image on hover */
-  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  transition: transform 0.3s ease;
+   /* Add a smooth transition effect */
 }
 
