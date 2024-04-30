@@ -133,7 +133,7 @@ export default function MarketingNavbar({handleSearch}){
                             {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
                             {
                                 isMobile?
-                                <button type="submit" className="btn" style={{color:'white',width:'5.7rem',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'0.4rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}> Create petition</button>
+                                <button type="submit" className="btn" style={{color:'white',width:'5.7rem',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'0.405rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}> Create petition</button>
                                 :
                                 <button type="submit" className="btn" style={{color:'white',fontFamily:'sans-serif',borderRadius:'2rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>Create petition</button>
                             }
