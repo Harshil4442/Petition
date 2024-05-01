@@ -68,6 +68,17 @@ export default function Petitions() {
             const newClickedLikes = [...clickedLikes];
             newClickedLikes[index] = true;
             setClickedLikes(newClickedLikes);
+
+            if(clickedDisLikes[index]){
+                const newPetitions1 = [...petitions];
+                newPetitions1[index].dislike -= 1;
+                setPetitions(newPetitions1);
+                const newClickedDisLikes1 = [...clickedDisLikes];
+                newClickedDisLikes1[index] = false;
+                setClickedDisLikes(newClickedDisLikes1);
+            }else{
+                return;
+            }
         }
     };
 
@@ -79,6 +90,15 @@ export default function Petitions() {
             const newClickedDisLikes = [...clickedDisLikes];
             newClickedDisLikes[index] = true;
             setClickedDisLikes(newClickedDisLikes);
+
+            if(clickedLikes[index]){
+                const newPetitions1 = [...petitions];
+                newPetitions1[index].like -= 1;
+                setPetitions(newPetitions1);
+                const newClickedLikes1 = [...clickedLikes];
+                newClickedLikes1[index] = false;
+                setClickedLikes(newClickedLikes1);
+            }
         }
     };
 
