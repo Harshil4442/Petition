@@ -212,6 +212,11 @@ export default function Petitions() {
                                                         <div style={{ marginBottom: '1rem', display: 'flex', width: '100%', justifyContent: 'space-between' }}>
                                                             <div style={{ width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'start' }}>
                                                                 <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                    whileTap={{
+                                                                        scale: 0.9,
+                                                                        borderRadius: "50%"
+                                                                    }}>
                                                                     <img
                                                                         src={clickedLikes[petition.id] ? '/images/thumbs-up-filled.png' : '/images/thumbs-up.png'}
                                                                         onClick={() => handleLike(petition.id)}
@@ -220,8 +225,14 @@ export default function Petitions() {
                                                                     />
                                                                     {/* const petition = petitionData.find(petition => petition.id === id); */}
                                                                     {petition.like}
+                                                                    </motion.div>
                                                                 </span>
                                                                 <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                    whileTap={{
+                                                                        scale: 0.9,
+                                                                        borderRadius: "50%"
+                                                                    }}>
                                                                     <img
                                                                         src={clickedDisLikes[petition.id] ? '/images/negative-vote-filled.png' : '/images/negative-vote.png'}
                                                                         onClick={() => handleDisLike(petition.id)}
@@ -229,6 +240,7 @@ export default function Petitions() {
                                                                         alt=""
                                                                     />
                                                                     {petition.dislike}
+                                                                    </motion.div>
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
@@ -254,6 +266,11 @@ export default function Petitions() {
                                                         <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
                                                             <div style={{ width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'start' }}>
                                                                 <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                    whileTap={{
+                                                                        scale: 0.9,
+                                                                        borderRadius: "50%"
+                                                                    }}>
                                                                     <img
                                                                         src={clickedLikes[petition.id] ? '/images/thumbs-up-filled.png' : '/images/thumbs-up.png'}
                                                                         onClick={() => handleLike(petition.id)}
@@ -262,8 +279,14 @@ export default function Petitions() {
                                                                     />
                                                                     {/* const petition = petitionData.find(petition => petition.id === id); */}
                                                                     {petition.like}
+                                                                    </motion.div>
                                                                 </span>
                                                                 <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                    whileTap={{
+                                                                        scale: 0.9,
+                                                                        borderRadius: "50%"
+                                                                    }}>
                                                                     <img
                                                                         src={clickedDisLikes[petition.id] ? '/images/negative-vote-filled.png' : '/images/negative-vote.png'}
                                                                         onClick={() => handleDisLike(petition.id)}
@@ -271,6 +294,7 @@ export default function Petitions() {
                                                                         alt=""
                                                                     />
                                                                     {petition.dislike}
+                                                                    </motion.div>
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
