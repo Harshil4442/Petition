@@ -5,6 +5,7 @@ import ScrollTop from "../componants/scrollTop";
 import { useParams } from 'react-router-dom';
 import petitionData from '../data/petitionData';
 import { useMediaQuery } from 'react-responsive';
+import { Fade } from "react-awesome-reveal";
 
 
 
@@ -32,24 +33,24 @@ export default function petitionDetails(props) {
                                         margin:'-1.3rem'
                                     }}> {isMobile?
                                             <div className="content mt-4" style={{padding:'0.2rem', lineHeight:'1.6rem'}}>
-                                                <h4>Title:  {petition.title}</h4>
-                                                <p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p>
-                                                <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.description}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.category}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.name}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.address}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.contact}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.email}</p></div>
+                                                <Fade direction="down"><h4>Title:  {petition.title}</h4></Fade>
+                                                <Fade direction="down"><p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.description}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.category}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.name}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.address}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.contact}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.email}</p></div></Fade>
                                             </div>
                                             :<div className="content mt-4" style={{padding:'3.5rem', lineHeight:'1.6rem'}}>
-                                                <h4>Title:  {petition.title}</h4>
-                                                <p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p>
-                                                <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.description}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.category}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.name}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.address}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.contact}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.email}</p></div>
+                                                <Fade direction="down"><h4>Title:  {petition.title}</h4></Fade>
+                                                <Fade direction="down"><p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.description}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.category}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.name}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.address}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.contact}</p></div></Fade>
+                                                <Fade direction="down"><div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.email}</p></div></Fade>
                                             </div>
                                         }
                                     </div>
@@ -69,19 +70,19 @@ export default function petitionDetails(props) {
                     <div className="row align-items-center">
 
 
-                        <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
+                        <Fade direction="left" className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
                             <div className="section-title">
                                 <h6 className="fw-normal text-primary">Explore all petitions</h6>
                                 <h4 className="title mb-4">Discover Change-Makers: Browse and Support Petitions Today </h4>
 
                                 <p className="text-muted">Explore a diverse range of petitions crafted by passionate individuals dedicated to making a difference in their communities. With just a few clicks, you can support causes that resonate with you and contribute to positive change.</p>
                             </div>
-                        </div>
-                        <div className="col-md-6 order-2 order-md-2">
-                            <div className="text-lg-end align-items-center">
+                        </Fade>
+                        <Fade direction="right" className="col-md-6 order-2 order-md-2" style={{display:'flex',justifyContent:'center'}}>
+                            <div className="text-lg-end align-items-center justify-content-center">
                                 <img src='/images/petition3.jpg' style={{ maxWidth: '93vw', width: '400px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                             </div>
-                        </div>
+                        </Fade>
                     </div>
                 </div>
             </section>

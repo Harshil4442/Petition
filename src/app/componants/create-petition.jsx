@@ -4,6 +4,7 @@ import FooterFour from "../componants/footer/footerFour";
 import ScrollTop from "../componants/scrollTop";
 import Form from './form/form1';
 // import '../assets/css/style.css';
+import {Fade} from 'react-awesome-reveal';
 
 
 
@@ -17,7 +18,7 @@ export default function IndexMarketing() {
         <>
             <MarketingNavbar />
             <section className="bg-half-170 d-flex align-items-center"  style={{paddingBottom:'4rem',background:'linear-gradient(138deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.9557948179271709) 38%, rgba(255,170,247,1) 62%, rgba(253,201,255,0.9277836134453782) 96%)'}} id="home">
-                <div className="container align-items-center" >
+                <Fade direction="down" className="container align-items-center" >
                     <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <div className="col-12 col-md-10 col-lg-10" style={{ position: 'relative', display: 'inline-block' }}>
 
@@ -40,9 +41,8 @@ export default function IndexMarketing() {
                         </div>
                     </div> */}
                     </div>
-                </div>
+            </Fade>
             </section>
-
 
             <FooterFour />
             <ScrollTop />

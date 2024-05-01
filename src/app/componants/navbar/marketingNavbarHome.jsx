@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 
 
 
-
-
 export default function MarketingNavbar({handleSearch}){
    
     let [scroll, setScroll] = useState(false);
