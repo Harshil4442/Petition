@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MarketingNavbar from "../componants/navbar/marketingNavbar";
+import MarketingNavbar from "../componants/navbar/marketingNavbarHome";
 import FooterFour from "../componants/footer/footerFour";
 import ScrollTop from "../componants/scrollTop";
 import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import petitionData from '../data/petitionData';
 import { MdArrowForward, MdModelTraining } from "react-icons/md";
 import { useMediaQuery } from 'react-responsive';
 import { motion } from "framer-motion";
+import { AnimatedOnScroll } from "react-animated-css-onscroll";
 
 
 export default function Petitions() {
@@ -36,6 +37,7 @@ export default function Petitions() {
     const [clicked, setc] = useState(true);
     const [clickedLikes, setClickedLikes] = useState(Array(petitionData.length).fill(false));
     const [clickedDisLikes, setClickedDisLikes] = useState(Array(petitionData.length).fill(false));
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         // Initialize the petitions state with like and dislike counts from petitionData
@@ -89,33 +91,100 @@ export default function Petitions() {
         setFilPetitions(initializedPetitions);
     };
 
+    const handlepSearch = (e) => {
+        setSearchTerm(e.target.value);
+        const filteredData = petitionData.filter(petition => {
+            return petition.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+                petition.municipality.toLowerCase().includes(e.target.value.toLowerCase()) ||
+                petition.description.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+        handleSearch(filteredData);
+    };
+
     return (
         <>
             <MarketingNavbar handleSearch={handleSearch} />
-            <div style={{ background: 'linear-gradient(138deg, rgba(177,221,255,0.9) 19%, rgba(232,185,255,0.8) 38%, rgba(255,170,247,0.7) 62%, rgba(253,201,255,0.6) 96%)' }}>
-                <section className="bg-half-170 d-flex align-items-center" id="home">
-                    <div className="container">
-                        <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none' }} className="row align-items-center">
-                            <motion.li variants={item} className="col-md-6">
-                                <div className="title-heading">
-                                    <h6 className="fw-normal" style={{ color: 'darkblue' }}>Browse Petitions</h6>
-                                    <h4 className="heading fw-semibold text-dark mb-4">Stand Up for What Matters in Your Community</h4>
-                                    <p className="text-muted para-desc mb-0">Browse through a curated collection of petitions addressing a wide range of community concerns. From advocating for safer streets to protecting the environment, discover opportunities to lend your voice and make a difference. </p>
+            <section style={{ boxShadow: ' inset 0px -50px 100px rgba(255, 255, 255, 1)', paddingBottom: '3rem', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 d-flex align-items-center" id="home">
+                <div className="container">
+                    <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none' }} className="row align-items-center">
+                        <motion.li variants={item} className="col-md-6">
+                            <div className="title-heading">
+                                <h6 className="fw-normal" style={{ color: 'darkblue' }}>Browse Petitions</h6>
+                                <h4 className="heading fw-semibold text-dark mb-4">Stand Up for What Matters in Your Community</h4>
+                                <p className="text-muted para-desc mb-0">Browse through a curated collection of petitions addressing a wide range of community concerns. From advocating for safer streets to protecting the environment, discover opportunities to lend your voice and make a difference. </p>
+                            </div>
+                        </motion.li>
+                        <motion.li variants={item} className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                            <div className="ms-lg-5">
+                                <div className="text-lg-end">
+                                    <img src='/images/petition3.jpg' style={{ maxWidth: '100%', scale: '0.95', width: '100%', height: '100%', borderRadius: '1rem', boxShadow: '0 0 7px 1px rgba(0, 0, 0, 0.05)' }} className="img-fluid" alt="" />
                                 </div>
-                            </motion.li>
-                            <motion.li variants={item} className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                                <div className="ms-lg-5">
-                                    <div className="text-lg-end">
-                                        <img src='/images/petition4.jpg' style={{ maxWidth: '100%', scale: '0.9', width: '100%', height: '100%', borderRadius: '1rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
+                            </div>
+                        </motion.li>
+                    </motion.ul>
+                </div>
+            </section>
+            <AnimatedOnScroll
+                animationIn="fadeInUpBig"
+                className="fade-in-custom"
+                style={{
+                    marginTop: "80px",
+                }}
+            >
+                {
+                    isMobile ?
+                        <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                            <motion.li variants={item} style={{ position: 'relative', display: 'inline-block', paddingTop: '3px' }}>
+                                <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
+                                <input
+                                    style={{
+                                        width: '270px',
+                                        height: '38px',
+                                        fontSize: '0.9rem',
+                                        paddingLeft: '35px',
+                                        borderRadius: '2rem',
+                                        borderColor: 'lightgrey',
+                                        boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)'
+                                    }}
+                                    value={searchTerm}
+                                    onChange={handlepSearch}
+                                    type="text"
+                                    placeholder="Search"
+                                ></input>
                             </motion.li>
                         </motion.ul>
-                    </div>
-                </section>
-
-                <section className="section" id="features">
-                    <div className="container position-relative" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                        :
+                        <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none', width: '100%', display: 'flex', paddingLeft: '8rem', paddingRight: '3rem', justifyContent: 'start' }}>
+                            <motion.li variants={item} style={{ position: 'relative', display: 'inline-block', paddingTop: '3px' }}>
+                                <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
+                                <input
+                                    style={{
+                                        width: '200px',
+                                        height: '38px',
+                                        fontSize: '0.9rem',
+                                        paddingLeft: '35px',
+                                        borderRadius: '2rem',
+                                        borderColor: 'lightgrey',
+                                        boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)'
+                                    }}
+                                    value={searchTerm}
+                                    onChange={handlepSearch}
+                                    type="text"
+                                    placeholder="Search"
+                                ></input>
+                            </motion.li>
+                        </motion.ul>
+                }
+            </AnimatedOnScroll>
+            <section className="section" id="features">
+                <AnimatedOnScroll
+                    animationIn="fadeInUpBig"
+                    className="fade-in-custom"
+                    style={{
+                        marginTop: "80px",
+                    }}
+                >
+                    <div className="container position-relative" style={{ background: 'radial-gradient(circle, rgba(249,128,255,0.2417892156862745) 0%, rgba(255,255,255,1) 47%)', width: '100%', display: 'flex', justifyContent: 'center' }}>
                         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                             <div className="col-lg-8" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                                 <motion.ul variants={container} initial="hidden" animate="visible" className="row" style={{ listStyle: 'none', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
@@ -150,11 +219,11 @@ export default function Petitions() {
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
-                                                            <motion.div whileHover={{ scale: 1.05 }}
+                                                                <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
                                                                         scale: 0.9,
                                                                         borderRadius: "50%"
-                                                                    }} style={{color:'black',borderStyle: "hidden", backgroundColor: '#F0EBE3', borderRadius: '0.7rem', paddingLeft: '0.7rem', paddingRight: '0.7rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></motion.div>
+                                                                    }} style={{ color: 'black', borderStyle: "hidden", backgroundColor: '#F0EBE3', borderRadius: '0.7rem', paddingLeft: '0.7rem', paddingRight: '0.7rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></motion.div>
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -196,9 +265,9 @@ export default function Petitions() {
                                                                     whileTap={{
                                                                         scale: 0.9,
                                                                         borderRadius: "50%"
-                                                                    }} style={{color:'black', borderStyle: "hidden", backgroundColor: '#F0EBE3', borderRadius: '0.7rem', paddingLeft: '0.7rem', paddingRight: '0.7rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></motion.div>
+                                                                    }} style={{ color: 'black', borderStyle: "hidden", backgroundColor: '#F0EBE3', borderRadius: '0.7rem', paddingLeft: '0.7rem', paddingRight: '0.7rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></motion.div>
                                                             </Link>
-                                                        </div>                                                 
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -208,11 +277,19 @@ export default function Petitions() {
                             </div>
                         </div>
 
-                        <img src='/images/square/square-warning.png' width={500} height={500} className="img-fluid rounded-pill bg-image-position" alt="" />
-                        <img src='/images/square/square-success.png' width={140} height={140} className="img-fluid rounded-lg avatar avatar-large bg-image-position-2 spin-anything" alt="" />
+                        {/* <img src='/images/square/square-warning.png' width={500} height={500} className="img-fluid rounded-pill bg-image-position" alt="" />
+                        <img src='/images/square/square-success.png' width={140} height={140} className="img-fluid rounded-lg avatar avatar-large bg-image-position-2 spin-anything" alt="" /> */}
 
                     </div>
-                    <div className="container mt-100 mt-60">
+                </AnimatedOnScroll>
+                <AnimatedOnScroll
+                    animationIn="fadeInUpBig"
+                    className="fade-in-custom"
+                    style={{
+                        marginTop: "80px",
+                    }}
+                >
+                    <div style={{ boxShadow: ' inset 0px -100px 100px rgba(255, 255, 255, 1), inset 0px 100px 100px rgba(255, 255, 255, 1)', background: ' linear-gradient(30deg, rgba(255,255,255,1) 9%, rgba(100,230,243,0.269432773109244) 10%, rgba(255,255,255,1) 89%)' }} className="container mt-100 mt-60">
                         <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none' }} className="row align-items-center">
                             <motion.li variants={item} className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
                                 <div className="section-title">
@@ -223,13 +300,13 @@ export default function Petitions() {
                             </motion.li>
                             <motion.li variants={item} className="col-md-6 order-2 order-md-2">
                                 <div className="text-lg-end align-items-center" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <img src='/images/petition3.jpg' style={{ maxWidth: '100%', width: '480px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
+                                    <img src='/images/petition4.jpg' style={{ maxWidth: '100%', width: '480px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                                 </div>
                             </motion.li>
                         </motion.ul>
                     </div>
-                </section>
-            </div>
+                </AnimatedOnScroll>
+            </section>
             <FooterFour />
             <ScrollTop />
         </>

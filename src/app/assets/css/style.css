@@ -1069,7 +1069,7 @@ video:focus {
 .card {
   color: #3c4858;
   border: none;
-  background-color: #fffbf7;
+  background-color: rgb(254, 252, 247);
 }
 
 .card .card-body {
@@ -6885,4 +6885,8 @@ body.gym-scss {
 
 .btn{
   padding: 3px 10px !important;
+}
+
+.fade-in-custom{
+  animation-duration: 0.5s !important; /* Adjust the duration as needed */
 }
