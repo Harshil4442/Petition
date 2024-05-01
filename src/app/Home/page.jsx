@@ -57,8 +57,7 @@ export default function IndexMarketing() {
             <MarketingNavbar flag={true} />
             <div style={{ listStyle: 'none' }}>
                 <section style={{ paddingBottom: '10rem', boxShadow: ' inset 0px -100px 100px rgba(255, 255, 255, 1)', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 bg-soft-primary d-flex align-items-center justify-content-center" id="home">
-                    <Fade direction="down">
-                        <div className="container" >
+                        <Fade direction="down" className="container" >
                             <div className="row align-items-center justify-content-between" variants={container1} initial="hidden" animate="visible" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 <div variants={item1} className="col-md-6" >
                                     <div className="title-heading">
@@ -77,7 +76,6 @@ export default function IndexMarketing() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </Fade>
                 </section>
 
