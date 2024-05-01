@@ -322,20 +322,16 @@ export default function Petitions() {
                     <div style={{ boxShadow: ' inset 0px -100px 100px rgba(255, 255, 255, 1), inset 0px 100px 100px rgba(255, 255, 255, 1)', background: ' linear-gradient(30deg, rgba(255,255,255,1) 9%, rgba(100,230,243,0.269432773109244) 10%, rgba(255,255,255,1) 89%)' }} className="container mt-100 mt-60">
                         <div style={{ listStyle: 'none', display:'flex', flexDirection:'row' }} className="row align-items-center">
                             <Fade direction="left" className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
-                            <div >
                                 <div className="section-title">
                                     <h6 className="fw-normal text-primary">Explore all petitions</h6>
                                     <h4 className="title mb-4">Discover Change-Makers: Browse and Support Petitions Today </h4>
                                     <p className="text-muted">Explore a diverse range of petitions crafted by passionate individuals dedicated to making a difference in their communities. With just a few clicks, you can support causes that resonate with you and contribute to positive change.</p>
                                 </div>
-                            </div>
                             </Fade>
                             <Fade direction="right" className="col-md-6 order-2 order-md-2">
-                            <div >
-                                <div className="text-lg-end align-items-center" style={{paddingBottom:'1.5rem',paddingTop:'1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '280px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
+                                <div className="text-lg-end align-items-center" style={{paddingBottom:'3.8rem',paddingTop:'1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                                 </div>
-                            </div>
                             </Fade>
                         </div>
                     </div>
