@@ -149,6 +149,8 @@ export default function Petitions() {
                 className="fade-in-custom"
                 style={{
                     marginTop: "80px",
+                    display:'flex',
+                    justifyContent:'center'
                 }}
             >
                 {
@@ -169,18 +171,19 @@ export default function Petitions() {
                                     value={searchTerm}
                                     onChange={handlepSearch}
                                     type="text"
-                                    placeholder="Search"
+                                    placeholder="Search petitions"
                                 ></input>
                             </motion.li>
                         </motion.ul>
                         :
-                        <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none', width: '100%', display: 'flex', paddingLeft: '8rem', paddingRight: '3rem', justifyContent: 'start' }}>
-                            <motion.li variants={item} style={{ position: 'relative', display: 'inline-block', paddingTop: '3px' }}>
+                        <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none',width:'100%' }}>
+                            <motion.li variants={item} className="col-md-6 mt-4 pt-2" style={{ width:'48%', position: 'relative', display: 'flex', paddingLeft:'10%',paddingTop: '3px',justifyContent:'start' }}>
+                                <div style={{position: 'relative', display: 'inline-block'}}>
                                 <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
                                 <input
                                     style={{
-                                        width: '200px',
-                                        height: '38px',
+                                        width: '230px',
+                                        height: '45px',
                                         fontSize: '0.9rem',
                                         paddingLeft: '35px',
                                         borderRadius: '2rem',
@@ -190,8 +193,9 @@ export default function Petitions() {
                                     value={searchTerm}
                                     onChange={handlepSearch}
                                     type="text"
-                                    placeholder="Search"
+                                    placeholder="Search petitions"
                                 ></input>
+                                </div>
                             </motion.li>
                         </motion.ul>
                 }
