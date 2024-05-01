@@ -223,14 +223,14 @@ export default function Petitions() {
                                                                         style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
                                                                         alt=""
                                                                     />
+                                                                    </motion.div>
                                                                     {/* const petition = petitionData.find(petition => petition.id === id); */}
                                                                     {petition.like}
-                                                                    </motion.div>
                                                                 </span>
                                                                 <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
-                                                                        scale: 0.9,
+                                                                        scale: 0.85,
                                                                         borderRadius: "50%"
                                                                     }}>
                                                                     <img
@@ -238,15 +238,15 @@ export default function Petitions() {
                                                                         onClick={() => handleDisLike(petition.id)}
                                                                         style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
                                                                         alt=""
-                                                                    />
+                                                                        />
+                                                                        </motion.div>
                                                                     {petition.dislike}
-                                                                    </motion.div>
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
-                                                                        scale: 0.9,
+                                                                        scale: 0.85,
                                                                         borderRadius: "50%"
                                                                     }} style={{ color: 'black', borderStyle: "hidden", backgroundColor: '#F0EBE3', borderRadius: '0.7rem', paddingLeft: '0.7rem', paddingRight: '0.7rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', justifyContent: 'end', alignItems: 'end' }} >view more<MdArrowForward /></motion.div>
                                                             </Link>
@@ -268,7 +268,7 @@ export default function Petitions() {
                                                                 <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
-                                                                        scale: 0.9,
+                                                                        scale: 0.85,
                                                                         borderRadius: "50%"
                                                                     }}>
                                                                     <img
@@ -278,13 +278,13 @@ export default function Petitions() {
                                                                         alt=""
                                                                     />
                                                                     {/* const petition = petitionData.find(petition => petition.id === id); */}
-                                                                    {petition.like}
                                                                     </motion.div>
+                                                                    {petition.like}
                                                                 </span>
                                                                 <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
-                                                                        scale: 0.9,
+                                                                        scale: 0.85,
                                                                         borderRadius: "50%"
                                                                     }}>
                                                                     <img
@@ -293,8 +293,8 @@ export default function Petitions() {
                                                                         style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
                                                                         alt=""
                                                                     />
-                                                                    {petition.dislike}
                                                                     </motion.div>
+                                                                    {petition.dislike}
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
