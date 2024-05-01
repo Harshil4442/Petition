@@ -104,7 +104,7 @@ export default function Petitions() {
     return (
         <>
             <MarketingNavbar handleSearch={handleSearch} />
-            <section style={{ boxShadow: ' inset 0px -50px 100px rgba(255, 255, 255, 1)', paddingBottom: '3rem', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 d-flex align-items-center" id="home">
+            <section style={{ boxShadow: ' inset 0px -50px 100px rgba(255, 255, 255, 1)', paddingBottom: '3.5rem', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 d-flex align-items-center" id="home">
                 <div className="container">
                     <motion.ul variants={container} initial="hidden" animate="visible" style={{ listStyle: 'none' }} className="row align-items-center">
                         <motion.li variants={item} className="col-md-6">
@@ -176,7 +176,7 @@ export default function Petitions() {
                         </motion.ul>
                 }
             </AnimatedOnScroll>
-            <section className="section" id="features">
+            <section className="section-petition" id="features">
                 <AnimatedOnScroll
                     animationIn="fadeInUpBig"
                     className="fade-in-custom"
@@ -233,7 +233,7 @@ export default function Petitions() {
                                         ))
                                         : (petitions ? petitions : petitionData).filter(petition => filpetitions.some(p => p.id === petition.id)).map((petition, index) => (
                                             <motion.li variants={item} key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '23rem' }}>
-                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%' }}>
+                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%',boxShadow: '0 0 17px 10px rgba(0, 0, 0, 1)' }}>
                                                     <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
                                                         <h5>{generateShortDescription(petition.title)}</h5>
                                                         <h6>{generateShortDescription(petition.municipality)}</h6>

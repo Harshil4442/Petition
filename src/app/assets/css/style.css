@@ -1069,7 +1069,7 @@ video:focus {
 .card {
   color: #3c4858;
   border: none;
-  background-color: rgb(254, 252, 247);
+  background-color: rgb(254, 252, 250);
 }
 
 .card .card-body {
@@ -1852,7 +1852,7 @@ button:not(:disabled) {
 }
 
 .shadow {
-  box-shadow: 0 0 3px rgba(60, 72, 88, 0.15) !important;
+  box-shadow: 0 3 9px rgba(60, 72, 88, 0.15) !important;
 }
 
 .shadow-lg {
@@ -6888,5 +6888,5 @@ body.gym-scss {
 }
 
 .fade-in-custom{
-  animation-duration: 0.5s !important; /* Adjust the duration as needed */
+  animation-duration: 0.2s !important; /* Adjust the duration as needed */
 }
