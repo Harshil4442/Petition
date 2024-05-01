@@ -209,13 +209,13 @@ export default function IndexMarketing() {
                                             <li className="mb-1"><span className="text-primary h5 me-2"><AiOutlineCheckCircle className="align-middle" /></span>Enhanced Community Engagement</li>
                                         </ul>
 
-                                        <div className="mt-4">
+                                        {/* <div className="mt-4">
                                             <motion.div whileHover={{ scale: 1.05 }}
                                                 whileTap={{
                                                     scale: 0.8,
                                                     borderRadius: "100%"
                                                 }} href="#" className="btn btn-pills btn-soft-primary" style={{ backgroundColor: '#00215E' }}>Get Started</motion.div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

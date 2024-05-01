@@ -300,7 +300,7 @@ export default function Petitions() {
                             </motion.li>
                             <motion.li variants={item} className="col-md-6 order-2 order-md-2">
                                 <div className="text-lg-end align-items-center" style={{paddingBottom:'1.5rem',paddingTop:'1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '480px', height: '280px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
+                                    <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '280px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                                 </div>
                             </motion.li>
                         </motion.ul>
