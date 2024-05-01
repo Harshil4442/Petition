@@ -34,22 +34,22 @@ export default function petitionDetails(props) {
                                             <div className="content mt-4" style={{padding:'0.2rem', lineHeight:'1.6rem'}}>
                                                 <h4>Title:  {petition.title}</h4>
                                                 <p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p>
-                                                <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p className="text-muted mt-3">{petition.description}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p className="text-muted mt-3">{petition.category}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p className="text-muted mt-3">{petition.name}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p className="text-muted mt-3">{petition.address}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p className="text-muted mt-3">{petition.contact}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p className="text-muted mt-3">{petition.email}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.description}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.category}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.name}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.address}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.contact}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.email}</p></div>
                                             </div>
                                             :<div className="content mt-4" style={{padding:'3.5rem', lineHeight:'1.6rem'}}>
                                                 <h4>Title:  {petition.title}</h4>
                                                 <p style={{fontSize:'1.1rem', marginTop:'1rem'}}>{petition.municipality}</p>
-                                                <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p className="text-muted mt-3">{petition.description}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p className="text-muted mt-3">{petition.category}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p className="text-muted mt-3">{petition.name}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p className="text-muted mt-3">{petition.address}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p className="text-muted mt-3">{petition.contact}</p></div>
-                                                <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p className="text-muted mt-3">{petition.email}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Description<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.description}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Category<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.category}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Name<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.name}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Address<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.address}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Contact No.<br/></b><p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.contact}</p></div>
+                                                <div style={{marginTop:'2.5rem'}}><b>Email ID<br/></b> <p style={{padding:'6px',borderRadius:'0.4rem',backgroundColor:'white',boxShadow:'0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)'}} className="text-muted mt-3">{petition.email}</p></div>
                                             </div>
                                         }
                                     </div>
