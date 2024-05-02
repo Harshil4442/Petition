@@ -50,6 +50,19 @@ const petitionData = [
       email:"mail id",
       like:0,
       dislike:0
+    },
+    {
+      id:'4',
+      title: "Preserve Green Spaces in Our Community",
+      municipality: "Surat Municipal Corporation",
+      description: "This petition seeks to protect and preserve green spaces in our community threatened by development projects",
+      address: "Your Address",
+      category: "Category of the petition",
+      name:"Your name",
+      contact:"Mobile number",
+      email:"mail id",
+      like:0,
+      dislike:0
     }
   ];
   

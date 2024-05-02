@@ -7,12 +7,25 @@ import petitionData from '../data/petitionData';
 import { useMediaQuery } from 'react-responsive';
 import { motion } from "framer-motion";
 import { Fade } from 'react-awesome-reveal';
-import { AiOutlineCheckCircle } from "../assets/icons/vander"
-// import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { AiOutlineCheckCircle } from "../assets/icons/vander";
+import Drawer from '@mui/joy/Drawer';
+import Box from '@mui/joy/Box';
+import List from '@mui/joy/List';
+import Divider from '@mui/joy/Divider';
+import ListItem from '@mui/joy/ListItem';
+import ListItemButton from '@mui/joy/ListItemButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { display, height, width } from "@mui/system";
 
+
+
+
+// import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+// import Filter from "./filter";
 
 
 export default function Petitions() {
+
     const container = {
         hidden: { opacity: 1, scale: 0 },
         visible: {
@@ -115,25 +128,25 @@ export default function Petitions() {
 
     const handlepSearch = (e) => {
         setSearchTerm(e.target.value);
-        const filteredData = petitionData.filter(petition => {
+        const filteredData = (petitions ? petitions : petitionData).filter(petition => {
             return petition.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
                 petition.municipality.toLowerCase().includes(e.target.value.toLowerCase()) ||
                 petition.description.toLowerCase().includes(e.target.value.toLowerCase());
         });
         handleSearch(filteredData);
-        setFilterCriteria(e.target.value.toLowerCase()); // Set filter criteria
-        handleFilter(filteredData); // Filter petitions based on search term
+
     };
 
-    const [filterCriteria, setFilterCriteria] = useState('');
 
-    const handleFilter = (filteredData) => {
-        if (filterCriteria === '') {
-            setFilPetitions([...petitionData]); // Reset to original data if no filter criteria
-        } else {
-            setFilPetitions(filteredData); // Update filpetitions with filtered data
-        }
+    const [showPopup, setShowPopup] = useState(false);
+
+    const togglePopup = () => {
+        setShowPopup(!showPopup);
     };
+
+    const category = Array.from(new Array(petitionData.map(item => item.category)));
+    const municipality = Array.from(new Array(petitionData.map(item => item.municipality)));
+    const name = Array.from(new Array(petitionData.map(item => item.name)));
 
 
     return (
@@ -197,9 +210,184 @@ export default function Petitions() {
                                     placeholder="Search petitions"
                                 ></input>
                             </div>
+                            {/* <div className="" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
+                                <motion.div whileHover={{ scale: 1.05 }}
+                                    whileTap={{
+                                        scale: 0.8,
+                                        borderRadius: "50%"
+                                    }}
+                                >
+                                    <img src="/images/setting.png" onClick={togglePopup} style={{ height: '45px', width: '45px', cursor: 'pointer' }}></img>
+                                </motion.div>
+                            </div>
+                            <Drawer open={showPopup} onClose={togglePopup}>
+                                <Box
+                                    style={{ width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    role="presentation"
+
+                                >
+
+                                    <Dropdown onClick={togglePopup} onKeyDown={togglePopup} style={{ display: 'flex', justifyContent: 'end' }}>
+                                        <motion.div whileHover={{ scale: 1.05 }}
+                                            whileTap={{
+                                                scale: 0.8,
+                                                borderRadius: "50%"
+                                            }}
+                                        >
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(210,47,47,1) 30%, rgba(219,64,64,0.9305847338935574) 18%, rgba(255,115,0,0.9616771708683473) 100%)' }} id="dropdown-basic">
+                                                X
+                                            </Dropdown.Toggle>
+                                        </motion.div>
+                                    </Dropdown>
+
+                                    <Box
+                                        style={{ paddingTop: '3rem', width: '100%', height: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}
+                                        role="presentation"
+                                    >
+                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '12%' }}>
+
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '90%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
+                                                <strong>Category</strong>
+                                            </Dropdown.Toggle>
+
+
+                                            <Dropdown.Menu
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: '10rem',
+                                                    overflow: 'auto',
+                                                    paddingTop: '0px',
+                                                    paddingBottom: '0px'
+                                                }}
+                                            >
+                                                {
+                                                    category[0].map((item, id) => (
+                                                        <motion.div whileHover={{ scale: 1.05 }}
+                                                            whileTap={{
+                                                                scale: 0.9,
+                                                                borderRadius: "50%"
+                                                            }}
+                                                        >
+                                                            <Dropdown.Item
+                                                                key={id}
+                                                                style={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column',
+                                                                    justifyContent: 'center',
+                                                                    alignItems: 'center',
+                                                                    overflowX: 'hidden scroll',
+                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
+                                                                    borderRadius: '0.3rem',
+                                                                }}
+                                                                value={searchTerm}
+                                                                onChange={handlepSearch}
+                                                            >
+                                                                {item}
+                                                                <Divider style={{ border: '1px solid lightgrey' }} />
+                                                            </Dropdown.Item>
+                                                        </motion.div>
+                                                    ))
+                                                }
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                        <Divider />
+                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '12%' }}>
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '80%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
+                                                <strong>Municipality</strong>
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: '10rem',
+                                                    overflow: 'auto',
+                                                    paddingTop: '0px',
+                                                    paddingBottom: '0px'
+                                                }}
+                                            >
+                                                {
+                                                    municipality[0].map((item, id) => (
+                                                        <motion.div whileHover={{ scale: 1.05 }}
+                                                            whileTap={{
+                                                                scale: 0.9,
+                                                                borderRadius: "50%"
+                                                            }}
+                                                        >
+                                                            <Dropdown.Item
+                                                                key={id}
+                                                                style={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column',
+                                                                    justifyContent: 'center',
+                                                                    alignItems: 'center',
+                                                                    overflowX: 'hidden scroll',
+                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
+                                                                    borderRadius: '0.3rem'
+                                                                }}
+                                                                value={searchTerm}
+                                                                onChange={handlepSearch}
+                                                            >
+                                                                {item}
+                                                                <Divider style={{ border: '1px solid lightgrey' }} />
+                                                            </Dropdown.Item>
+                                                        </motion.div>
+                                                    ))
+                                                }
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                        <Divider />
+                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '12%' }}>
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '90%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
+                                                <strong>Name</strong>
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: '10rem',
+                                                    overflow: 'auto',
+                                                    paddingTop: '0px',
+                                                    paddingBottom: '0px'
+                                                }}
+                                            >
+                                                {
+                                                    name[0].map((item, id) => (
+                                                        <motion.div whileHover={{ scale: 1.05 }}
+                                                            whileTap={{
+                                                                scale: 0.9,
+                                                                borderRadius: "50%"
+                                                            }}
+                                                        >
+                                                            <Dropdown.Item
+                                                                key={id}
+                                                                style={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column',
+                                                                    justifyContent: 'center',
+                                                                    alignItems: 'center',
+                                                                    overflowX: 'hidden scroll',
+                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
+                                                                    borderRadius: '0.3rem'
+                                                                }}
+                                                                value={searchTerm}
+                                                                onChange={handlepSearch}
+                                                            >
+                                                                {item}
+                                                            </Dropdown.Item>
+                                                        </motion.div>
+                                                    ))
+                                                }
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </Box>
+                                </Box>
+                            </Drawer> */}
                         </div>
                         :
-                        <div style={{ listStyle: 'none', width: '100%', marginTop: '4rem' }}>
+                        <div style={{ listStyle: 'none', width: '100%', marginTop: '4rem', display: 'flex' }}>
                             <div className="col-md-6 mt-4 pt-2" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'start' }}>
                                 <div style={{ position: 'relative', display: 'inline-block' }}>
                                     <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
@@ -222,11 +410,185 @@ export default function Petitions() {
                                     ></input>
                                 </div>
                             </div>
-                            {/* <DataGrid
-                                filterModel={{
-                                    items: [{ field: 'rating', operator: '>', value: '2.5' }],
-                                }}
-                            /> */}
+
+                            {/* <div className="col-md-6 mt-4 pt-2" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
+                                <motion.div whileHover={{ scale: 1.05 }}
+                                    whileTap={{
+                                        scale: 0.8,
+                                        borderRadius: "50%"
+                                    }}
+                                >
+                                    <img src="/images/setting.png" onClick={togglePopup} style={{ height: '45px', width: '45px', cursor: 'pointer' }}></img>
+                                </motion.div>
+                            </div>
+                            <Drawer open={showPopup} onClose={togglePopup}>
+                                <Box
+                                    style={{ width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    role="presentation"
+
+                                >
+
+                                    <Dropdown onClick={togglePopup} onKeyDown={togglePopup} style={{ display: 'flex', justifyContent: 'end' }}>
+                                        <motion.div whileHover={{ scale: 1.05 }}
+                                            whileTap={{
+                                                scale: 0.8,
+                                                borderRadius: "50%"
+                                            }}
+                                        >
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(210,47,47,1) 30%, rgba(219,64,64,0.9305847338935574) 18%, rgba(255,115,0,0.9616771708683473) 100%)' }} id="dropdown-basic">
+                                                X
+                                            </Dropdown.Toggle>
+                                        </motion.div>
+                                    </Dropdown>
+
+                                    <Box
+                                        style={{ paddingTop: '3rem', width: '100%', height: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}
+                                        role="presentation"
+                                    >
+                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '18%' }}>
+
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '100%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
+                                                <strong>Category</strong>
+                                            </Dropdown.Toggle>
+
+
+                                            <Dropdown.Menu
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: '10rem',
+                                                    overflow: 'auto',
+                                                    paddingTop: '0px',
+                                                    paddingBottom: '0px'
+                                                }}
+                                            >
+                                                {
+                                                    category[0].map((item, id) => (
+                                                        <motion.div whileHover={{ scale: 1.05 }}
+                                                            whileTap={{
+                                                                scale: 0.9,
+                                                                borderRadius: "50%"
+                                                            }}
+                                                        >
+                                                            <Dropdown.Item
+                                                                key={id}
+                                                                style={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column',
+                                                                    justifyContent: 'center',
+                                                                    alignItems: 'center',
+                                                                    overflowX: 'hidden scroll',
+                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
+                                                                    borderRadius: '0.3rem',
+                                                                }}
+                                                                value={searchTerm}
+                                                                onChange={handlepSearch}
+                                                            >
+                                                                {item}
+                                                                <Divider style={{ border: '1px solid lightgrey' }} />
+                                                            </Dropdown.Item>
+                                                        </motion.div>
+                                                    ))
+                                                }
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                        <Divider />
+                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '18%' }}>
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '100%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
+                                                Municipality
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: '10rem',
+                                                    overflow: 'auto',
+                                                    paddingTop: '0px',
+                                                    paddingBottom: '0px'
+                                                }}
+
+                                            >
+                                                {
+                                                    municipality[0].map((item, id) => (
+                                                        <motion.div whileHover={{ scale: 1.05 }}
+                                                            whileTap={{
+                                                                scale: 0.9,
+                                                                borderRadius: "50%"
+                                                            }}
+                                                        >
+                                                            <Dropdown.Item
+                                                                key={id}
+                                                                style={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column',
+                                                                    justifyContent: 'center',
+                                                                    alignItems: 'center',
+                                                                    overflowX: 'hidden scroll',
+                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
+                                                                    borderRadius: '0.3rem'
+                                                                }}
+                                                                value={searchTerm}
+                                                                onClick={handlepSearch}
+
+                                                            >
+                                                                {item}
+                                                                <Divider style={{ border: '1px solid lightgrey' }} />
+                                                            </Dropdown.Item>
+                                                        </motion.div>
+                                                    ))
+                                                }
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                        <Divider />
+                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '18%' }}>
+                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '100%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
+                                                Name
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: '10rem',
+                                                    overflow: 'auto',
+                                                    paddingTop: '0px',
+                                                    paddingBottom: '0px'
+                                                }}
+                                                value={searchTerm}
+                                                onChange={handlepSearch}
+                                            >
+                                                {
+                                                    name[0].map((item, id) => (
+                                                        <motion.div whileHover={{ scale: 1.05 }}
+                                                            whileTap={{
+                                                                scale: 0.9,
+                                                                borderRadius: "50%"
+                                                            }}
+                                                        >
+                                                            <Dropdown.Item
+                                                                key={id}
+                                                                style={{
+                                                                    width: '100%',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column',
+                                                                    justifyContent: 'center',
+                                                                    alignItems: 'center',
+                                                                    overflowX: 'hidden scroll',
+                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
+                                                                    borderRadius: '0.3rem'
+                                                                }}
+
+                                                            >
+                                                                {item}
+                                                            </Dropdown.Item>
+                                                        </motion.div>
+                                                    ))
+                                                }
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </Box>
+                                </Box>
+                            </Drawer> */}
 
                         </div>
                 }
