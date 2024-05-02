@@ -57,7 +57,7 @@ export default function IndexMarketing() {
             <MarketingNavbar flag={true} />
             <div style={{ listStyle: 'none' }}>
                 <section style={{ paddingBottom: '10rem', boxShadow: ' inset 0px -100px 100px rgba(255, 255, 255, 1)', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 bg-soft-primary d-flex align-items-center justify-content-center" id="home">
-                        <Fade direction="down" className="container" >
+                        <Fade direction="down" damping={0.7} triggerOnce className="container" >
                             <div className="row align-items-center justify-content-between" variants={container1} initial="hidden" animate="visible" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 <div variants={item1} className="col-md-6" >
                                     <div className="title-heading">
@@ -84,8 +84,8 @@ export default function IndexMarketing() {
                         <div className="container position-relative">
                             <div className="row">
                                 <div style={{ background: 'radial-gradient(circle, rgba(249,128,255,0.2417892156862745) 0%, rgba(255,255,255,1) 47%)' }} className="col-lg-8">
-                                    <Fade direction="up">
-                                    <div style={{ listStyle: 'none', padding: 0, marginLeft: "13px" }} className="section-title mb-4 pb-2">
+                                    <Fade direction="up" damping={0.7} triggerOnce>
+                                     <div style={{ listStyle: 'none', padding: 0, marginLeft: "13px" }} className="section-title mb-4 pb-2">
                                         <div>
                                             <h4 className="title mb-4">Empower Your Voice <br /> Shape Your Community</h4>
                                             <p className="text-muted para-desc mb-0">Join our platform to amplify your voice, spark change, and shape the future of your municipality.</p>
@@ -93,7 +93,7 @@ export default function IndexMarketing() {
                                     </div>
                                     </Fade>
                                     <div className="row" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                    <Fade direction="left" className="col-md-6 mt-4 pt-2">
+                                    <Fade direction="left" damping={0.7} triggerOnce className="col-md-6 mt-4 pt-2">
                                         <div >
                                             <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
                                                 <FiCodesandbox className="fea icon-lg fea-icon" />
@@ -106,7 +106,7 @@ export default function IndexMarketing() {
                                             </div>
                                         </div>
                                     </Fade>
-                                    <Fade direction="left" className="col-md-6 mt-4 pt-2">
+                                    <Fade direction="left" damping={0.7} triggerOnce className="col-md-6 mt-4 pt-2">
 
                                         <div >
                                             <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
@@ -120,7 +120,7 @@ export default function IndexMarketing() {
                                             </div>
                                         </div>
                                     </Fade>
-                                    <Fade direction="left" className="col-md-6 mt-4 pt-2">
+                                    <Fade direction="left" damping={0.7} triggerOnce className="col-md-6 mt-4 pt-2">
 
                                         <div>
                                             <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
@@ -134,7 +134,7 @@ export default function IndexMarketing() {
                                             </div>
                                         </div>
                                     </Fade>
-                                    <Fade direction="left" className="col-md-6 mt-4 pt-2">
+                                    <Fade direction="left" damping={0.7} triggerOnce className="col-md-6 mt-4 pt-2">
                                         <div >
                                             <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
                                                 <FiBookmark className="fea icon-lg fea-icon" />
@@ -150,7 +150,7 @@ export default function IndexMarketing() {
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
-                                <Fade direction="right">
+                                <Fade direction="right" damping={0.7} triggerOnce>
                                     <div className="row" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                         <div className="col-lg-12 col-md-6 mt-4 pt-2">
                                             <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
@@ -185,7 +185,7 @@ export default function IndexMarketing() {
                         </div>
 
                     <div style={{ boxShadow: 'inset 0px -100px 100px rgba(255, 255, 255, 1), inset 0px 100px 100px rgba(255, 255, 255, 1)', background: ' linear-gradient(30deg, rgba(255,255,255,1) 9%, rgba(100,230,243,0.269432773109244) 19%, rgba(255,255,255,1) 70%)' }}>
-                        <Fade direction="up">
+                        <Fade direction="up" damping={0.7} triggerOnce >
                             <div className="container mt-100 mt-60">
                                 <div className="row align-items-center">
                                     <div className="col-md-6 order-1 order-md-2" style={{ marginBottom: '2rem' }}>
