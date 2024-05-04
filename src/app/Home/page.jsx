@@ -14,6 +14,7 @@ import { useMediaQuery } from 'react-responsive';
 
 export default function IndexMarketing() {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isTab = useMediaQuery({ query: '(max-width: 1201)' });
 
 
     const handlePetition = (e) => {
@@ -26,31 +27,45 @@ export default function IndexMarketing() {
             <section style={{ width: '100%', marginTop: '5.5rem', marginBottom: '0rem', paddingBottom: '6rem', paddingTop: '6rem', backgroundImage: 'linear-gradient(120deg, #b1ecff, #ffbef9 50%, #faf8f1)' }} className="bg-half-170 bg-soft-primary d-flex align-items-center justify-content-center" id="home">
                 <Fade direction="down" damping={0.7} triggerOnce style={{ width: '100%', marginLeft: '6.1%', marginRight: '6.1%' }} >
                     <div className="row align-items-center justify-content-between" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                        <div className="col-md-6" >
-                            <div className="title-heading">
-                                <h6 className="fw-normal" >Welcome to our municipal app</h6>
-                                <b className="heading mb-4">Empower Your Community with Our Municipal Petition Platform</b>
+                        {/* <div className="col-md-12" style={{display:'flex',alignItems:'center',justifyContent:`${isTab?'center':'start'}`,flexDirection:`${isTab?'column':'row'}`}}> */}
+                        <div className='col-md-6' >
+                            <div className="title-heading" style={{ width: '100%', justifyContent: 'center', textAlign: 'center' }}>
+                                <div style={{ display: 'flex', justifyContent:`${isMobile? 'center':'start'}`,alignItems:'center', color: '#616161' }}>
+                                    <img
+                                        src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/653a1fa7a889c0a4df8213d7_whatsapp-icon.svg"
+                                        loading="eager"
+                                        alt="whatsapp logo with transparent background"
+                                        className="whatsapp-api-icon"
+                                        style={{paddingRight:'0.3rem'}}
+                                    />
+
+                                    <h5 className="fw-normal" style={{ display: 'flex', justifySelf: 'center', textAlign: `${isMobile ? 'center' : 'start'}` }}>Welcome to our municipal app</h5>
+                                </div>
+                                <b className="heading mb-4" style={{ display: 'flex', textAlign: `${isMobile ? 'center' : 'start'}` }}>Empower Your Community with Our Platform</b>
                             </div>
                         </div>
                         <div className="col-md-6" >
                             <div className="title-heading">
-                                <p style={{ paddingBottom: '4%' }} className="text-muted para-desc mb-0" >Discover a streamlined way to advocate for your community's needs and foster civic engagement without the hassle of logging in. Engage effortlessly with a platform designed to amplify your voice and connect you with like-minded individuals.</p>
-                                {
-                                    isMobile ?
-                                        <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
-                                            whileTap={{
-                                                scale: 0.8,
-                                                borderRadius: "50%"
-                                            }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
-                                        :
-                                        <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
-                                            whileTap={{
-                                                scale: 0.8,
-                                                borderRadius: "50%"
-                                            }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
-                                }
+                                <p style={{ paddingBottom: '4%', justifyContent: `${isMobile ? 'center' : 'start'}`, textAlign: `${isMobile ? 'center' : 'start'}` }} className="text-muted para-desc mb-0" >Discover a streamlined way to advocate for your community's needs and foster civic engagement without the hassle of logging in. Engage effortlessly with a platform designed to amplify your voice and connect you with like-minded individuals.</p>
+                                <div style={{ display: 'flex', justifyContent:`${isMobile? 'center':'start'}`}}>
+                                    {
+                                        isMobile ?
+                                            <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
+                                                whileTap={{
+                                                    scale: 0.8,
+                                                    borderRadius: "50%"
+                                                }} type="submit" className="" style={{ marginBottom: '2rem', color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
+                                            :
+                                            <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
+                                                whileTap={{
+                                                    scale: 0.8,
+                                                    borderRadius: "50%"
+                                                }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
+                                    }
+                                </div>
                             </div>
                         </div>
+                        {/* </div> */}
 
                         <div className="col-md-12 mt-4 pt-2 mt-sm-0 pt-sm-0 align-items-center justify-content-center" >
                             {isMobile ?
@@ -60,13 +75,15 @@ export default function IndexMarketing() {
                                     sizes="100vw"
                                     srcSet="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6578581b5b392936003da540_mobile%20visual-p-500.webp 500w, https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6578581b5b392936003da540_mobile%20visual-p-800.webp 800w, https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6578581b5b392936003da540_mobile%20visual.webp 903w"
                                     alt="BusinessChat dashboard displaying features like chatbot, helpdesk, and WhatsApp Marketing"
-                                    className="img-fluid"
+                                    // className="hide-desktop"
+                                    style={{ margin: '-24px' }}
                                 />
                                 :
                                 <img
-                                    className="img-fluid"
+                                    className="hide-mobile-landscape home-page-hero image-hero-home"
                                     src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/65784ee7f2fdefdc299e7c78_Hero%20image.webp"
                                     loading="eager"
+                                    style={{ margin: '0px -29px', scale: '1.01' }}
                                     sizes="(max-width: 479px) 99vw, (max-width: 767px) 752.4125366210938px, (max-width: 991px) 99vw, (max-width: 1439px) 95vw, (max-width: 1919px) 86vw, 73vw"
                                     srcSet="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/65784ee7f2fdefdc299e7c78_Hero%20image-p-500.webp 500w, https://assets-global.website-files.com/64649e6768f2f33bbec372fd/65784ee7f2fdefdc299e7c78_Hero%20image-p-800.webp 800w, https://assets-global.website-files.com/64649e6768f2f33bbec372fd/65784ee7f2fdefdc299e7c78_Hero%20image-p-1080.webp 1080w, https://assets-global.website-files.com/64649e6768f2f33bbec372fd/65784ee7f2fdefdc299e7c78_Hero%20image-p-1600.webp 1600w, https://assets-global.website-files.com/64649e6768f2f33bbec372fd/65784ee7f2fdefdc299e7c78_Hero%20image.webp 1920w"
                                     alt="Businesschat platform interface"
@@ -558,7 +575,7 @@ export default function IndexMarketing() {
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center justify-content-center" style={{ backgroundColor: 'transparent' }}>
 
-                                <div className="col-md-11 order-1 order-md-1 blue-pink-gradient" style={{display:'flex',flexDirection:'row', borderRadius: '3rem', padding: `${isMobile ? '2rem' : '3rem'}` }} >
+                                <div className="col-md-11 order-1 order-md-1 blue-pink-gradient" style={{ display: 'flex', flexDirection: 'row', borderRadius: '3rem', padding: `${isMobile ? '2rem' : '3rem'}` }} >
                                     <div className="section-title" style={{ backgroundColor: 'transparent', display: 'flex', flexDirection: `column`, justifyContent: 'space-around' }}>
                                         <h2 style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0rem' }}>Join the Conversation</h2>
                                         <b style={{ color: 'grey', display: 'flex', justifyContent: 'start' }}>Running great Ads is no longer enough.</b>
@@ -591,7 +608,7 @@ export default function IndexMarketing() {
                 </div>
             </section>
 
-            
+
 
             <FooterFour />
             <ScrollTop />

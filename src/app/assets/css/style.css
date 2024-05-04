@@ -224,12 +224,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 120% !important;
   font-weight: 650 !important;
 }
-
 @media (max-width: 768px) {
   .title-heading .heading {
     font-size: 2.75rem !important;
   }
 }
+
 
 .title-heading .heading.sub-heading {
   font-size: 32px !important;
@@ -1836,7 +1836,7 @@ video:focus {
 }
 
 .btn {
-  padding: 8px 20px;
+  padding: 14px 32px;
   outline: none;
   text-decoration: none;
   font-size: 16px;
@@ -7600,4 +7600,74 @@ html.w-mod-touch * {
   .image-join-us {
       width: 360px;
   }
+}
+
+.hide-mobile-landscape.home-page-hero.image-hero-home {
+  width: 107%;
+  max-width: none;
+  margin-top: -1.5rem;
+  display: block;
+  overflow: visible;
+}
+
+@media screen and (max-width: 991px) {
+  .hide-mobile-landscape.home-page-hero, .hide-mobile-landscape.feature-page-hero {
+      max-width: 100%;
+  }
+}
+.hide-mobile-landscape.home-page-hero {
+  width: auto;
+  max-width: 130%;
+  display: block;
+}
+html.w-mod-touch * {
+  background-attachment: scroll !important;
+}
+@media screen and (max-width: 991px) {
+  .hide-mobile-landscape {
+      width: 50%;
+  }
+}
+.hide-mobile-landscape {
+  width: 70%;
+}
+
+.hide-mobile-landscape.home-page-hero.image-hero-home {
+  width: 107%;
+  max-width: none;
+  margin-top: -1.5rem;
+  display: block;
+  overflow: visible;
+}
+
+@media screen and (max-width: 991px) {
+  .hide-mobile-landscape.home-page-hero, .hide-mobile-landscape.feature-page-hero {
+      max-width: 100%;
+  }
+}
+.hide-mobile-landscape.home-page-hero {
+  width: auto;
+  max-width: 130%;
+  display: block;
+}
+html.w-mod-touch * {
+  background-attachment: scroll !important;
+}
+@media screen and (max-width: 767px) {
+  .hide-mobile-landscape {
+      display: none !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hide-mobile-landscape {
+      display: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .hide-mobile-landscape {
+      width: 50%;
+  }
+}
+.hide-mobile-landscape {
+  width: 70%;
 }
