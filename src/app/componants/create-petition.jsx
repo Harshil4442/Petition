@@ -33,13 +33,7 @@ export default function IndexMarketing() {
                             </div>
                         </div>
 
-                        {/* <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0" >
-                        <div className="ms-lg-5">
-                        <div className="text-lg-end">
-                            <img src='/images/form-image.jpg'   style={{maxWidth:'93vw',scale:'0.7',width:'400px', height:'350px',borderRadius:'1rem',boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)'}} className="img-fluid" alt=""/>
-                        </div>
-                        </div>
-                    </div> */}
+                        
                     </div>
             </Fade>
             </section>

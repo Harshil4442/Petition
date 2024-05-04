@@ -42,7 +42,7 @@ export default function MarketingNavbar({handleSearch}){
         navigate('/create-petition');
     }
     return(
-        <header id="topnav" className={`${scroll ? "nav-sticky" :""} defaultscroll sticky`}>
+        <header id="topnav" className={`${scroll ? "nav-sticky" :"nav-sticky"} defaultscroll sticky`}>
             <div className="container" style={{height:'100%'}}>
 				<a className="logo" href="/">
                     <img src='/images/petition_transparent.png'  height={90} className="logo-light-mode" alt=""/>
@@ -66,20 +66,22 @@ export default function MarketingNavbar({handleSearch}){
                 <ul className="buy-button list-inline mb-0" style={{height:'100%',paddingTop:'2px'}}>
                     <li className="list-inline-item ps-1 mb-0" style={{fontSize:'20%',height:'100%', display:'flex',alignItems:'center'}}>
                             {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
+                       
+                            
                             {
-                                isMobile?
-                                <motion.div whileHover={{ scale: 1.05}}
-                                    whileTap={{
-                                        scale: 0.8,
-                                        borderRadius: "100%"
-                                    }} type="submit" className="btn" style={{display:'flex',alignItems:'center',justifyContent:'center',height:'2.5rem',color:'white',width:'7.7rem',fontFamily:'sans-serif',borderRadius:'3rem',fontSize:'0.7rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>Create petition</motion.div>
-                                :
-                                <motion.div whileHover={{ scale: 1.05}}
-                                    whileTap={{
-                                        scale: 0.8,
-                                        borderRadius: "100%"
-                                    }} type="submit" className="btn" style={{display:'flex',alignItems:'center',justifyContent:'center',height:'2.2rem',color:'white',fontFamily:'sans-serif',borderRadius:'2rem',fontSize:'1rem',boxShadow: 'inset 0 0 2px 3px rgba(255, 255, 255, 0.1)', background: 'linear-gradient(90deg, rgba(90,100,255,1) 3%, rgba(90,130,255,1) 97%)'}} onClick={handlePetition}>Create petition</motion.div>
-                            }
+                                    isMobile ?
+                                        <motion.div whileHover={{ scale: 1.05,backgroundColor:'#8B93FF', color:'#242424' }}
+                                            whileTap={{
+                                                scale: 0.8,
+                                                borderRadius: "50%"
+                                            }} type="submit" className="btn" style={{fontWeight:'500' ,color: '#fff', backgroundColor: '#242424', display: 'flex',height:'2.5rem',width:'7.7rem', borderStyle: 'none', borderRadius: '50px',fontSize:'0.7rem', flex: '0 auto', order: '0', alignItems:'center',justifyContent:'center', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
+                                        :
+                                        <motion.div whileHover={{ scale: 1.05 ,backgroundColor:'#8B93FF', color:'#242424'}}
+                                            whileTap={{
+                                                scale: 0.8,
+                                                borderRadius: "50%"
+                                            }} type="submit" className="btn" style={{fontWeight:'500' , color: '#fff', backgroundColor: '#242424', display: 'flex',height:'2.2rem', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize:'1rem',order: '0', alignItems:'center', padding: '0.875rem 2rem',justifyContent:'center', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
+                                }
                             
                         </li>
                 </ul>
