@@ -24,7 +24,7 @@ export default function IndexMarketing() {
     return (
         <>
             <MarketingNavbar flag={true} />
-            <section style={{ width: '100%', marginTop: '5.5rem', marginBottom: '0rem', paddingBottom: '6rem', paddingTop: '6rem', backgroundImage: 'linear-gradient(120deg, #b1ecff, #ffbef9 50%, #faf8f1)' }} className="bg-half-170 bg-soft-primary d-flex align-items-center justify-content-center" id="home">
+            <section style={{ width: '100%', marginTop: '5.5rem', marginBottom: '0rem', paddingBottom: '3rem', paddingTop: '6rem', backgroundImage: 'linear-gradient(120deg, #b1ecff, #ffbef9 50%, #faf8f1)' }} className="bg-half-170 bg-soft-primary d-flex align-items-center justify-content-center" id="home">
                 <Fade direction="down" damping={0.7} triggerOnce style={{ width: '100%', marginLeft: '6.1%', marginRight: '6.1%' }} >
                     <div className="row align-items-center justify-content-between" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                         {/* <div className="col-md-12" style={{display:'flex',alignItems:'center',justifyContent:`${isTab?'center':'start'}`,flexDirection:`${isTab?'column':'row'}`}}> */}
@@ -95,7 +95,7 @@ export default function IndexMarketing() {
                 </Fade>
             </section>
 
-            <section style={{ height: '17rem', paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%' }} className="section" id="features">
+            <section style={{ height: '17rem', paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%' }} className="section" id="features">
                 <div className="adv" style={{ width: '87.8%', marginLeft: '6.1%', marginRight: '6.1%' }}>
                     <div className="div-block-39">
                         <div className="brand-wrap" style={{ width: '100%', transform: 'translate3d(100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', willChange: 'transform' }}>
@@ -123,7 +123,7 @@ export default function IndexMarketing() {
 
             </section>
 
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%' }} className="section" id="features">
                 <div className="brodcast-line2">
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
@@ -233,7 +233,7 @@ export default function IndexMarketing() {
 
 
 
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
                 <div className="brodcast-line2">
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
@@ -290,8 +290,7 @@ export default function IndexMarketing() {
                 </div>
             </section>
 
-
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
 
                 <div class="background-mesh-3" style={{ width: '30%' }}>
                     <div class="mesh-purple-3"></div>
@@ -350,13 +349,12 @@ export default function IndexMarketing() {
                 </div>
             </section>
 
-
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
                 <div className="brodcast-line2">
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
                 <div className="">
-                    <Fade direction="up" damping={0.7} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.5} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center justify-content-center" style={{ backgroundColor: 'transparent' }}>
                                 <h2 style={{ display: 'flex', justifyContent: 'center', paddingBottom: '2rem' }}>Whatsapp Marketing in numbers</h2>
@@ -394,7 +392,7 @@ export default function IndexMarketing() {
                 </div>
             </section>
 
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
                 <div className="brodcast-line2">
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
@@ -459,7 +457,7 @@ export default function IndexMarketing() {
                 </div>
             </section>
 
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
 
                 <div>
                     <Fade direction="up" damping={0.7} triggerOnce style={{ backgroundColor: 'transparent' }}>
@@ -566,7 +564,7 @@ export default function IndexMarketing() {
             </Fade>
 
 
-            <section style={{ paddingTop: '6rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
+            <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
                 <div className="brodcast-line2">
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
