@@ -56,6 +56,8 @@ export default function Petitions() {
 
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
+    const isMini = useMediaQuery({ query: '(max-width: 450px)' });
+
     const generateShortDescription = (description) => {
         const short = description.length > 50 ? `${description.substring(0, 50)}...` : description;
         return short;
@@ -143,15 +145,18 @@ export default function Petitions() {
         borderRadius: 4,
     }));
     const Item1 = styled('div')(({ theme }) => ({
-        height:'100%',
+        height:'auto',
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         border: '1px solid',
         borderColor: theme.palette.mode === 'dark' ? '#444d58' : '#ced7e0',
-        padding: theme.spacing(2),
-        borderRadius: '4px',
+        padding: theme.spacing(1),
+        borderRadius: '40px',
         textAlign: 'center',
         cursor:'pointer',
-        fontFamily:'Google sans, sans-serif'
+        fontFamily:'Google sans, sans-serif',
+        flex:'0 0 auto',
+        margin:'0.3rem',
+        width:'auto'
     }));
 
     const [categorybutton, setCategorybutton] = useState(Array(category.length).fill(false));
@@ -196,7 +201,7 @@ export default function Petitions() {
             <MarketingNavbar handleSearch={handleSearch} />
             <section style={{ boxShadow: ' inset 0px -50px 100px rgba(255, 255, 255, 1)', paddingBottom: '3.5rem', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 d-flex align-items-center" id="home">
                 <div className="container">
-                    <Fade direction="down" damping={0.7} triggerOnce>
+                    <Fade direction="down" damping={0.5} triggerOnce>
                         <div style={{ listStyle: 'none' }} className="row align-items-center">
                             <div className="col-md-6">
                                 <div className="title-heading">
@@ -216,8 +221,9 @@ export default function Petitions() {
                     </Fade>
                 </div>
             </section>
+
             <section className="container">
-                <div className="section-title" style={{ marginLeft: '13px' }}>
+                <Fade direction="up" damping={0.5} triggerOnce className="section-title" style={{ marginLeft: '13px' }}>
                     <h4 className="title mb-4">Browse Petitions </h4>
                     <p className="text-muted">Search petitions by entering any of the following data:</p>
                     <ul className="list-unstyled text-muted">
@@ -226,19 +232,19 @@ export default function Petitions() {
                         <li className="mb-1"><span className="text-primary h5 me-2"><AiOutlineCheckCircle className="align-middle" /></span>Other details like name of the writer, deiscription, category etc.</li>
                     </ul>
 
-                </div>
+                </Fade>
             </section>
 
 
-            <Fade className="container" direction="left" damping={0.7} triggerOnce style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'space-between' }}>
+            <Fade className="container" direction="up" damping={0.5} triggerOnce style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
                 {
                     isMobile ?
                         <div style={{ listStyle: 'none', width: '100%', display: 'flex', justifyContent: 'center', marginTop: '4.5rem' }}>
-                            <div style={{ position: 'relative', display: 'inline-block', paddingTop: '3px' }}>
+                            <div style={{width:'80%', position: 'relative', display: 'inline-block', paddingTop: '3px' }}>
                                 <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
                                 <input
                                     style={{
-                                        width: '270px',
+                                        width: '100%',
                                         height: '38px',
                                         fontSize: '0.9rem',
                                         paddingLeft: '35px',
@@ -253,7 +259,7 @@ export default function Petitions() {
                                     placeholder="Search petitions"
                                 ></input>
                             </div>
-                            <div className="" style={{ width: '40%', position: 'relative', display: 'flex', paddingLeft: '1%', paddingTop: '3px', justifyContent: 'end' }}>
+                            <div className="" style={{ position: 'relative', display: 'flex', paddingLeft: '1%', paddingTop: '3px', justifyContent: 'end' }}>
                                 <motion.div whileHover={{ scale: 1.05 }}
                                     whileTap={{
                                         scale: 0.9,
@@ -262,7 +268,7 @@ export default function Petitions() {
                                     <img src="/images/setting.png" onClick={togglePopup} style={{ height: '40px', width: '40px', cursor: 'pointer' }}></img>
                                 </motion.div>
                             </div>
-                            <Drawer open={showPopup} onClose={togglePopup}>
+                            <Drawer size="lg"  open={showPopup} onClose={togglePopup}>
                                 <Box
                                     style={{fontSize:'16px', width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
@@ -281,39 +287,48 @@ export default function Petitions() {
                                         </motion.div>
                                     </Dropdown>
 
-                                    <Box sx={{ overflowY: 'scroll',scrollbarWidth:'none',msOverflowStyle:'none', width: '100%', height: '100%' }}>
-                                        <Stack spacing={1}>
+                                    <Box sx={{marginLeft:'-2.3rem', overflowY: 'scroll',scrollbarWidth:'none',msOverflowStyle:'none', height: '100%' }}>
+                                        <Stack spacing={1} >
                                             <Item>
-                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
-                                                    <button className="button w-button"  style={{backgroundColor:'#404040',color:'white'}}>
-                                                        Category
-                                                    </button>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0.7rem' }}>
+                                                    <b>Category</b>
                                                 </div>
-                                                <Box>
-                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                    <Divider sx={{ marginBottom:'1rem'}}/>
+                                                <Box sx={{display:'flex',flexWrap:'wrap'}}>
                                                         {category.map((cat, index) => (
-                                                            <Grid xs={6} sm={6} md={4} key={index}>
-                                                                <Item1 onClick={() => handleFilterCat(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${categorybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
-                                                            </Grid>
+                                                            <Item1 onClick={() => handleFilterCat(cat, index)} style={{flexWrap:'wrap', fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${categorybutton[index]?'inset 0 0 4px 1px #524A4E':' 0 0 4px 1px #524A4E'}` ,backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#F5F7F8'}` }}>
+                                                                <img
+                                                                    src={categorybutton[index]?'/images/check.png':'/images/uncheck.png'}
+                                                                    style={{
+                                                                        width:'1rem',
+                                                                        marginRight:'0.3rem'
+                                                                    }}
+                                                                ></img>
+                                                                {cat}
+                                                            </Item1>
                                                         ))}
-                                                    </Grid>
                                                 </Box>
                                                 <Divider />
                                             </Item>
                                             <Item>
-                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
-                                                    <button className="button w-button" style={{backgroundColor:'#404040',color:'white'}}>
-                                                        Municipality
-                                                    </button>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0.7rem' }}>
+                                                    <b>Municipality</b>
                                                 </div>
-                                                <Box>
-                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                <Divider sx={{ marginBottom:'1rem'}}/>
+
+                                                <Box sx={{display:'flex',flexWrap:'wrap'}}>
                                                         {municipality.map((cat, index) => (
-                                                            <Grid xs={6} sm={6} md={4} key={index}>
-                                                                <Item1 onClick={() => handleFilterMun(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${municipalitybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
-                                                            </Grid>
+                                                            <Item1 onClick={() => handleFilterMun(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${municipalitybutton[index]?'inset 0 0 4px 1px #524A4E':' 0 0 4px 1px #524A4E'}` ,backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#F5F7F8'}` }}>
+                                                                <img
+                                                                    src={municipalitybutton[index]?'/images/check.png':'/images/uncheck.png'}
+                                                                    style={{
+                                                                        width:'1rem',
+                                                                        marginRight:'0.3rem'
+                                                                    }}
+                                                                ></img>
+                                                                {cat}
+                                                                </Item1>
                                                         ))}
-                                                    </Grid>
                                                 </Box>
                                                 <Divider />
                                             </Item>
@@ -327,16 +342,16 @@ export default function Petitions() {
                            
                         </div>
                         :
-                        <div style={{ listStyle: 'none', width: '100%', marginTop: '4rem', display: 'flex' }}>
-                            <div className="col-md-6 mt-4 pt-2" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'start' }}>
-                                <div style={{ position: 'relative', display: 'inline-block' }}>
-                                    <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '15px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
+                        <div style={{ listStyle: 'none', width: '100%', marginTop: '4rem', display: 'flex',justifyContent:'center' }}>
+                            <div className="" style={{width:'60%',  position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'center' }}>
+                                <div style={{width:'100%', position: 'relative', display: 'inline-block' }}>
+                                    <img src="/images/svg/search.svg" style={{ opacity: '0.6', position: 'absolute', top: '53%', left: '19px', transform: 'translateY(-50%)', width: '16px', height: 'auto', zIndex: '1' }}></img>
                                     <input
                                         style={{
-                                            width: '350px',
+                                            width: '100%',
                                             height: '45px',
                                             fontSize: '0.9rem',
-                                            paddingLeft: '35px',
+                                            paddingLeft: '45px',
                                             borderRadius: '2rem',
                                             borderColor: 'transparent',
                                             backgroundColor:'#F4F4F4',
@@ -351,7 +366,7 @@ export default function Petitions() {
                                 </div>
                             </div>
 
-                            <div className="col-md-6 mt-4 pt-2" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
+                            <div className="" style={{  position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
                                 <motion.div whileHover={{ scale: 1.05 }}
                                     whileTap={{
                                         scale: 0.9,
@@ -360,7 +375,7 @@ export default function Petitions() {
                                     <img src="/images/setting.png" onClick={togglePopup} style={{ height: '45px', width: '45px', cursor: 'pointer' }}></img>
                                 </motion.div>
                             </div>
-                            <Drawer open={showPopup} onClose={togglePopup}>
+                            <Drawer size="lg" open={showPopup} onClose={togglePopup}>
                                 <Box
                                     style={{fontSize:'16px', width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
@@ -382,36 +397,45 @@ export default function Petitions() {
                                     <Box sx={{ overflowY: 'scroll',scrollbarWidth:'none',msOverflowStyle:'none', width: '100%', height: '100%' }}>
                                         <Stack spacing={1}>
                                             <Item>
-                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
-                                                    <button className="button w-button"  style={{backgroundColor:'#404040',color:'white'}}>
-                                                        Category
-                                                    </button>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0.7rem' }}>
+                                                    <b>Category</b>
                                                 </div>
-                                                <Box>
-                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                    <Divider sx={{ marginBottom:'1rem'}}/>
+                                                <Box sx={{display:'flex',flexWrap:'wrap'}}>
                                                         {category.map((cat, index) => (
-                                                            <Grid xs={12} sm={6} md={6} key={index}>
-                                                                <Item1 onClick={() => handleFilterCat(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${categorybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
-                                                            </Grid>
+                                                            <Item1 onClick={() => handleFilterCat(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${categorybutton[index]?'inset 0 0 4px 1px #524A4E':' 0 0 4px 1px #524A4E'}` ,backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#F5F7F8'}` }}>
+                                                                <img
+                                                                    src={categorybutton[index]?'/images/check.png':'/images/uncheck.png'}
+                                                                    style={{
+                                                                        width:'1rem',
+                                                                        marginRight:'0.3rem'
+                                                                    }}
+                                                                ></img>
+                                                                {cat}
+                                                            </Item1>
                                                         ))}
-                                                    </Grid>
                                                 </Box>
                                                 <Divider />
                                             </Item>
                                             <Item>
-                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
-                                                    <button className="button w-button" style={{backgroundColor:'#404040',color:'white'}}>
-                                                        Municipality
-                                                    </button>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0.7rem' }}>
+                                                    <b>Municipality</b>
                                                 </div>
-                                                <Box>
-                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                <Divider sx={{ marginBottom:'1rem'}}/>
+
+                                                <Box sx={{display:'flex',flexWrap:'wrap'}}>
                                                         {municipality.map((cat, index) => (
-                                                            <Grid xs={12} sm={6} md={6} key={index}>
-                                                                <Item1 onClick={() => handleFilterMun(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${municipalitybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
-                                                            </Grid>
+                                                            <Item1 onClick={() => handleFilterMun(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${municipalitybutton[index]?'inset 0 0 4px 1px #524A4E':' 0 0 4px 1px #524A4E'}` ,backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#F5F7F8'}` }}>
+                                                                <img
+                                                                    src={municipalitybutton[index]?'/images/check.png':'/images/uncheck.png'}
+                                                                    style={{
+                                                                        width:'1rem',
+                                                                        marginRight:'0.3rem'
+                                                                    }}
+                                                                ></img>
+                                                                {cat}
+                                                                </Item1>
                                                         ))}
-                                                    </Grid>
                                                 </Box>
                                                 <Divider />
                                             </Item>
@@ -440,7 +464,7 @@ export default function Petitions() {
                                         (filpetitionsCat.length===0?filpetitions:filpetitionsCat).some(p => p.category === pt.category) &&
                                         (filpetitionsMun.length===0?filpetitions:filpetitionsMun).some(p => p.municipality === pt.municipality))
                                         .map((petition, index) => (
-                                            <Fade direction="up" damping={0.7} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', height: '22rem' }}>
+                                            <Fade direction="up" damping={0.5} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', height: '22rem' }}>
                                                 <div className="card features feature-primary feature-clean feature-transition p-4 py-2 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%' }}>
                                                     <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                                         <b style={{fontSize:'22px'}}>{generateShortDescription(petition.title)}</b>
@@ -482,7 +506,7 @@ export default function Petitions() {
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} className="button w-button" style={{marginTop:'0.3rem',backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.4rem',width:'6rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.1rem',fontFamily:'Google sans,sans-serif',fontSize:'14px', display: 'flex', alignItems: 'center' }}> view more</p></motion.div>
+                                                                    }} className="button w-button" style={{marginTop:'0.3rem',backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.4rem',width:'6rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.1rem',fontFamily:'Google sans,sans-serif',fontSize:'14px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
                                                             </Link>
                                                             
                                                         </div>
@@ -497,7 +521,7 @@ export default function Petitions() {
                                         (filpetitionsCat.length===0?filpetitions:filpetitionsCat).some(p => p.category === pt.category) &&
                                         (filpetitionsMun.length===0?filpetitions:filpetitionsMun).some(p => p.municipality === pt.municipality))
                                         .map((petition, index) => (
-                                            <Fade direction="up" damping={0.7} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '25rem' }}>
+                                            <Fade direction="up" damping={0.5} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '25rem' }}>
                                                 <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%', boxShadow: '0 0 17px 10px rgba(0, 0, 0, 1)' }}>
                                                     <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                                         <b style={{fontSize:'23px'}}>{generateShortDescription(petition.title)}</b>
@@ -539,7 +563,7 @@ export default function Petitions() {
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} className="button w-button" style={{backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.7rem',width:'7rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.2rem',fontFamily:'Google sans,sans-serif',fontSize:'16px', display: 'flex', alignItems: 'center' }}> view more</p></motion.div>
+                                                                    }} className="button w-button" style={{backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.7rem',width:'7rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.2rem',fontFamily:'Google sans,sans-serif',fontSize:'16px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -558,14 +582,14 @@ export default function Petitions() {
 
                 <div style={{ boxShadow: ' inset 0px -100px 100px rgba(255, 255, 255, 1), inset 0px 100px 100px rgba(255, 255, 255, 1)', background: ' linear-gradient(30deg, rgba(255,255,255,1) 9%, rgba(100,230,243,0.269432773109244) 10%, rgba(255,255,255,1) 89%)' }} className="container mt-100 mt-60">
                     <div style={{ listStyle: 'none', display: 'flex', flexDirection: 'row' }} className="row align-items-center">
-                        <Fade direction="left" damping={0.7} triggerOnce className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
+                        <Fade direction="left" damping={0.5} triggerOnce className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
                             <div className="section-title">
                                 <h6 className="fw-normal text-primary">Explore all petitions</h6>
                                 <h4 className="title mb-4">Discover Change-Makers: Browse and Support Petitions Today </h4>
                                 <p className="text-muted">Explore a diverse range of petitions crafted by passionate individuals dedicated to making a difference in their communities. With just a few clicks, you can support causes that resonate with you and contribute to positive change.</p>
                             </div>
                         </Fade>
-                        <Fade direction="right" damping={0.7} triggerOnce className="col-md-6 order-2 order-md-2">
+                        <Fade direction="right" damping={0.5} triggerOnce className="col-md-6 order-2 order-md-2">
                             <div className="text-lg-end align-items-center" style={{ paddingBottom: '3.8rem', paddingTop: '1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                             </div>
@@ -573,6 +597,7 @@ export default function Petitions() {
                     </div>
                 </div>
             </section>
+            
             <FooterFour />
             <ScrollTop />
         </>
