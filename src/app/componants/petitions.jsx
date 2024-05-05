@@ -205,7 +205,7 @@ export default function Petitions() {
                         <div style={{ listStyle: 'none' }} className="row align-items-center">
                             <div className="col-md-6">
                                 <div className="title-heading">
-                                    <h6 className="fw-normal" style={{ color: 'darkblue' }}>Browse Petitions</h6>
+                                    <h6 className="fw-normal" style={{ color: '#393E46' }}>Browse Petitions</h6>
                                     <h4 className="heading fw-semibold text-dark mb-4">Stand Up for What Matters in Your Community</h4>
                                     <p className="text-muted para-desc mb-0">Browse through a curated collection of petitions addressing a wide range of community concerns. From advocating for safer streets to protecting the environment, discover opportunities to lend your voice and make a difference. </p>
                                 </div>
@@ -213,7 +213,7 @@ export default function Petitions() {
                             <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                                 <div className="ms-lg-5">
                                     <div className="text-lg-end">
-                                        <img src='/images/petition3.jpg' style={{ maxWidth: '100%', scale: '0.95', width: '100%', height: '100%', borderRadius: '1rem', boxShadow: '0 0 7px 1px rgba(0, 0, 0, 0.05)' }} className="img-fluid" alt="" />
+                                        <img src='/images/petition3.jpg' style={{ maxWidth: '100%', scale: '0.95', width: '100%', height: '100%', borderRadius: '1rem', boxShadow: '0 0 10px 1px rgba(0, 0, 0, 0.05)' }} className="img-fluid" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -503,10 +503,10 @@ export default function Petitions() {
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '10rem' }}>
-                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                <motion.div whileHover={{ scale: 1.05, backgroundColor:'#F1F1F1',color:'#242424' }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} className="button w-button" style={{marginTop:'0.3rem',backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.4rem',width:'6rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.1rem',fontFamily:'Google sans,sans-serif',fontSize:'14px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
+                                                                    }} className="button w-button" style={{marginTop:'0.3rem',backgroundColor:'#353535',color:'#F7F7F7',paddingTop:'12px' ,padding:'10px 10px', height:'2.4rem',width:'6rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.1rem',fontFamily:'Google sans,sans-serif',fontSize:'14px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
                                                             </Link>
                                                             
                                                         </div>
@@ -560,10 +560,10 @@ export default function Petitions() {
                                                                 </span>
                                                             </div>
                                                             <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
-                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                <motion.div whileHover={{ scale: 1.05, backgroundColor:'#F1F1F1',color:'#242424' }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} className="button w-button" style={{backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.7rem',width:'7rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.2rem',fontFamily:'Google sans,sans-serif',fontSize:'16px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
+                                                                    }} className="button w-button" style={{backgroundColor:'#353535',color:'#F7F7F7',paddingTop:'14px' ,padding:'10px 10px', height:'2.7rem',width:'7rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.2rem',fontFamily:'Google sans,sans-serif',fontSize:'16px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -591,7 +591,7 @@ export default function Petitions() {
                         </Fade>
                         <Fade direction="right" damping={0.5} triggerOnce className="col-md-6 order-2 order-md-2">
                             <div className="text-lg-end align-items-center" style={{ paddingBottom: '3.8rem', paddingTop: '1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
+                                <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '300px', borderRadius: '1.5rem' }} className="img-fluid" alt="" />
                             </div>
                         </Fade>
                     </div>

@@ -115,7 +115,7 @@ export default function MarketingNavbar({ handleSearch }) {
                             <li className="list-inline-item ps-1 mb-0" style={{ fontSize: '20%', height: '100%', display: 'flex', alignItems: 'center' }}>
                                 {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
 
-                                <motion.div whileHover={{ scale: 1.05, color: '#242424',backgroundImage:'linear-gradient(126deg, #b1ecff, #dfbaff 79%)' }}
+                                <motion.div whileHover={{ scale: 1.05, color: '#242424',background:'linear-gradient(126deg, #b1ecff, #dfbaff 79%)' }}
                                     whileTap={{
                                         scale: 0.8,
                                     }} type="submit" className="w-button" style={{ fontWeight: '400', color: '#242424', backgroundColor: 'rgb(177, 236, 255)', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '14px 32px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer',fontFamily:'Google sans, sans-serif' }} onClick={handlePetition}>Create Petition</motion.div>
