@@ -16,6 +16,9 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { display, height, width } from "@mui/system";
+import Stack from '@mui/system/Stack';
+import { styled } from '@mui/system';
+import Grid from '@mui/system/Unstable_Grid';
 
 
 
@@ -26,25 +29,7 @@ import { display, height, width } from "@mui/system";
 
 export default function Petitions() {
 
-    const container = {
-        hidden: { opacity: 1, scale: 0 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                delayChildren: 0.2,
-                staggerChildren: 0.2
-            }
-        }
-    };
 
-    const item = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1
-        }
-    };
     const [filpetitions, setFilPetitions] = useState([
         ...petitionData
     ]);
@@ -53,6 +38,7 @@ export default function Petitions() {
     const [clickedLikes, setClickedLikes] = useState(Array(petitionData.length).fill(false));
     const [clickedDisLikes, setClickedDisLikes] = useState(Array(petitionData.length).fill(false));
     const [searchTerm, setSearchTerm] = useState("");
+
 
     useEffect(() => {
         // Initialize the petitions state with like and dislike counts from petitionData
@@ -118,6 +104,7 @@ export default function Petitions() {
     };
 
     const handleSearch = (e) => {
+
         const initializedPetitions = e.map(petition => ({
             ...petition,
             like: parseInt(petitions.find(p => p.id === petition.id) ? petitions.find(p => p.id === petition.id).like : petition.like),
@@ -144,9 +131,64 @@ export default function Petitions() {
         setShowPopup(!showPopup);
     };
 
-    const category = Array.from(new Array(petitionData.map(item => item.category)));
-    const municipality = Array.from(new Array(petitionData.map(item => item.municipality)));
-    const name = Array.from(new Array(petitionData.map(item => item.name)));
+    const categorySet = new Set(petitionData.map(item => item.category));
+    const municipalitySet = new Set(petitionData.map(item => item.municipality));
+    const category = Array.from(categorySet);
+    const municipality = Array.from(municipalitySet);
+
+    const Item = styled('div')(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#262B32' : '#fff',
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        borderRadius: 4,
+    }));
+    const Item1 = styled('div')(({ theme }) => ({
+        height:'100%',
+        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+        border: '1px solid',
+        borderColor: theme.palette.mode === 'dark' ? '#444d58' : '#ced7e0',
+        padding: theme.spacing(2),
+        borderRadius: '4px',
+        textAlign: 'center',
+        cursor:'pointer',
+        fontFamily:'Google sans, sans-serif'
+    }));
+
+    const [categorybutton, setCategorybutton] = useState(Array(category.length).fill(false));
+    const [municipalitybutton, setMunicipalitybutton] = useState(Array(petitionData.length).fill(false));
+
+
+    const [filpetitionsCat, setFilPetitionsCat] = useState([
+        ...(filpetitions ? filpetitions : (petitions ? petitions : petitionData))
+    ]);
+    const [filpetitionsMun, setFilPetitionsMun] = useState([
+        ...(filpetitions ? filpetitions : (petitions ? petitions : petitionData))
+    ]);
+
+
+    const handleFilterCat = (cat, id) => {
+        const filteredData = (filpetitions ? filpetitions : (petitions ? petitions : petitionData)).filter((petition, index) => {
+            const selectedCategories = category.filter((cate, idx) => (id === idx ? !categorybutton[idx] : categorybutton[idx]));
+            console.log(selectedCategories);
+            return selectedCategories.some(cat => petition.category.toLowerCase() === cat.toLowerCase());
+        });
+        setFilPetitionsCat(filteredData);
+        const newbutton = [...categorybutton];
+        newbutton[id] = !newbutton[id];
+        setCategorybutton(newbutton);
+    }
+
+    const handleFilterMun = (cat, id) => {
+        const filteredData = (filpetitions ? filpetitions : (petitions ? petitions : petitionData)).filter((petition, index) => {
+            const selectedCategories = municipality.filter((cate, idx) => (id === idx ? !municipalitybutton[idx] : municipalitybutton[idx]));
+            console.log(selectedCategories);
+            return selectedCategories.some(cat => petition.municipality.toLowerCase() === cat.toLowerCase());
+        });
+        setFilPetitionsMun(filteredData);
+        const newbutton = [...municipalitybutton];
+        newbutton[id] = !newbutton[id];
+        setMunicipalitybutton(newbutton);
+    }
 
 
     return (
@@ -201,8 +243,9 @@ export default function Petitions() {
                                         fontSize: '0.9rem',
                                         paddingLeft: '35px',
                                         borderRadius: '2rem',
-                                        borderColor: 'lightgrey',
-                                        boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)'
+                                        borderColor: 'transparent',
+                                        backgroundColor:'#F4F4F4',
+                                        
                                     }}
                                     value={searchTerm}
                                     onChange={handlepSearch}
@@ -210,28 +253,26 @@ export default function Petitions() {
                                     placeholder="Search petitions"
                                 ></input>
                             </div>
-                            {/* <div className="" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
+                            <div className="" style={{ width: '40%', position: 'relative', display: 'flex', paddingLeft: '1%', paddingTop: '3px', justifyContent: 'end' }}>
                                 <motion.div whileHover={{ scale: 1.05 }}
                                     whileTap={{
-                                        scale: 0.8,
-                                        borderRadius: "50%"
+                                        scale: 0.9,
                                     }}
                                 >
-                                    <img src="/images/setting.png" onClick={togglePopup} style={{ height: '45px', width: '45px', cursor: 'pointer' }}></img>
+                                    <img src="/images/setting.png" onClick={togglePopup} style={{ height: '40px', width: '40px', cursor: 'pointer' }}></img>
                                 </motion.div>
                             </div>
                             <Drawer open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{ width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{fontSize:'16px', width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
 
-                                    <Dropdown onClick={togglePopup} onKeyDown={togglePopup} style={{ display: 'flex', justifyContent: 'end' }}>
+                                    <Dropdown onClick={togglePopup} onKeyDown={togglePopup} style={{ display: 'flex', justifyContent: 'end',alignItems:'start' }}>
                                         <motion.div whileHover={{ scale: 1.05 }}
                                             whileTap={{
                                                 scale: 0.8,
-                                                borderRadius: "50%"
                                             }}
                                         >
                                             <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(210,47,47,1) 30%, rgba(219,64,64,0.9305847338935574) 18%, rgba(255,115,0,0.9616771708683473) 100%)' }} id="dropdown-basic">
@@ -240,151 +281,50 @@ export default function Petitions() {
                                         </motion.div>
                                     </Dropdown>
 
-                                    <Box
-                                        style={{ paddingTop: '3rem', width: '100%', height: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}
-                                        role="presentation"
-                                    >
-                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '12%' }}>
+                                    <Box sx={{ overflowY: 'scroll',scrollbarWidth:'none',msOverflowStyle:'none', width: '100%', height: '100%' }}>
+                                        <Stack spacing={1}>
+                                            <Item>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
+                                                    <button className="button w-button"  style={{backgroundColor:'#404040',color:'white'}}>
+                                                        Category
+                                                    </button>
+                                                </div>
+                                                <Box>
+                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                        {category.map((cat, index) => (
+                                                            <Grid xs={6} sm={6} md={4} key={index}>
+                                                                <Item1 onClick={() => handleFilterCat(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${categorybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
+                                                            </Grid>
+                                                        ))}
+                                                    </Grid>
+                                                </Box>
+                                                <Divider />
+                                            </Item>
+                                            <Item>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
+                                                    <button className="button w-button" style={{backgroundColor:'#404040',color:'white'}}>
+                                                        Municipality
+                                                    </button>
+                                                </div>
+                                                <Box>
+                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                        {municipality.map((cat, index) => (
+                                                            <Grid xs={6} sm={6} md={4} key={index}>
+                                                                <Item1 onClick={() => handleFilterMun(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${municipalitybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
+                                                            </Grid>
+                                                        ))}
+                                                    </Grid>
+                                                </Box>
+                                                <Divider />
+                                            </Item>
 
-                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '90%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
-                                                <strong>Category</strong>
-                                            </Dropdown.Toggle>
+                                        </Stack>
 
 
-                                            <Dropdown.Menu
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: '10rem',
-                                                    overflow: 'auto',
-                                                    paddingTop: '0px',
-                                                    paddingBottom: '0px'
-                                                }}
-                                            >
-                                                {
-                                                    category[0].map((item, id) => (
-                                                        <motion.div whileHover={{ scale: 1.05 }}
-                                                            whileTap={{
-                                                                scale: 0.9,
-                                                                borderRadius: "50%"
-                                                            }}
-                                                        >
-                                                            <Dropdown.Item
-                                                                key={id}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column',
-                                                                    justifyContent: 'center',
-                                                                    alignItems: 'center',
-                                                                    overflowX: 'hidden scroll',
-                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
-                                                                    borderRadius: '0.3rem',
-                                                                }}
-                                                                value={searchTerm}
-                                                                onChange={handlepSearch}
-                                                            >
-                                                                {item}
-                                                                <Divider style={{ border: '1px solid lightgrey' }} />
-                                                            </Dropdown.Item>
-                                                        </motion.div>
-                                                    ))
-                                                }
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                        <Divider />
-                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '12%' }}>
-                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '80%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
-                                                <strong>Municipality</strong>
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: '10rem',
-                                                    overflow: 'auto',
-                                                    paddingTop: '0px',
-                                                    paddingBottom: '0px'
-                                                }}
-                                            >
-                                                {
-                                                    municipality[0].map((item, id) => (
-                                                        <motion.div whileHover={{ scale: 1.05 }}
-                                                            whileTap={{
-                                                                scale: 0.9,
-                                                                borderRadius: "50%"
-                                                            }}
-                                                        >
-                                                            <Dropdown.Item
-                                                                key={id}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column',
-                                                                    justifyContent: 'center',
-                                                                    alignItems: 'center',
-                                                                    overflowX: 'hidden scroll',
-                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
-                                                                    borderRadius: '0.3rem'
-                                                                }}
-                                                                value={searchTerm}
-                                                                onChange={handlepSearch}
-                                                            >
-                                                                {item}
-                                                                <Divider style={{ border: '1px solid lightgrey' }} />
-                                                            </Dropdown.Item>
-                                                        </motion.div>
-                                                    ))
-                                                }
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                        <Divider />
-                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '12%' }}>
-                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '90%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
-                                                <strong>Name</strong>
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: '10rem',
-                                                    overflow: 'auto',
-                                                    paddingTop: '0px',
-                                                    paddingBottom: '0px'
-                                                }}
-                                            >
-                                                {
-                                                    name[0].map((item, id) => (
-                                                        <motion.div whileHover={{ scale: 1.05 }}
-                                                            whileTap={{
-                                                                scale: 0.9,
-                                                                borderRadius: "50%"
-                                                            }}
-                                                        >
-                                                            <Dropdown.Item
-                                                                key={id}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column',
-                                                                    justifyContent: 'center',
-                                                                    alignItems: 'center',
-                                                                    overflowX: 'hidden scroll',
-                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
-                                                                    borderRadius: '0.3rem'
-                                                                }}
-                                                                value={searchTerm}
-                                                                onChange={handlepSearch}
-                                                            >
-                                                                {item}
-                                                            </Dropdown.Item>
-                                                        </motion.div>
-                                                    ))
-                                                }
-                                            </Dropdown.Menu>
-                                        </Dropdown>
                                     </Box>
                                 </Box>
-                            </Drawer> */}
+                            </Drawer>
+                           
                         </div>
                         :
                         <div style={{ listStyle: 'none', width: '100%', marginTop: '4rem', display: 'flex' }}>
@@ -398,10 +338,10 @@ export default function Petitions() {
                                             fontSize: '0.9rem',
                                             paddingLeft: '35px',
                                             borderRadius: '2rem',
-                                            borderColor: 'lightgrey',
-                                            boxShadow: '0 0 8px 1px rgba(0, 0, 0, 0.2)',
+                                            borderColor: 'transparent',
+                                            backgroundColor:'#F4F4F4',
                                             display: 'flex',
-                                            justifyContent: 'center'
+                                            justifyContent: 'center',
                                         }}
                                         value={searchTerm}
                                         onChange={handlepSearch}
@@ -411,11 +351,10 @@ export default function Petitions() {
                                 </div>
                             </div>
 
-                            {/* <div className="col-md-6 mt-4 pt-2" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
+                            <div className="col-md-6 mt-4 pt-2" style={{ width: '48%', position: 'relative', display: 'flex', paddingLeft: '3%', paddingTop: '3px', justifyContent: 'end' }}>
                                 <motion.div whileHover={{ scale: 1.05 }}
                                     whileTap={{
-                                        scale: 0.8,
-                                        borderRadius: "50%"
+                                        scale: 0.9,
                                     }}
                                 >
                                     <img src="/images/setting.png" onClick={togglePopup} style={{ height: '45px', width: '45px', cursor: 'pointer' }}></img>
@@ -423,16 +362,15 @@ export default function Petitions() {
                             </div>
                             <Drawer open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{ width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{fontSize:'16px', width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
 
-                                    <Dropdown onClick={togglePopup} onKeyDown={togglePopup} style={{ display: 'flex', justifyContent: 'end' }}>
+                                    <Dropdown onClick={togglePopup} onKeyDown={togglePopup} style={{ display: 'flex', justifyContent: 'end',alignItems:'start' }}>
                                         <motion.div whileHover={{ scale: 1.05 }}
                                             whileTap={{
                                                 scale: 0.8,
-                                                borderRadius: "50%"
                                             }}
                                         >
                                             <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(210,47,47,1) 30%, rgba(219,64,64,0.9305847338935574) 18%, rgba(255,115,0,0.9616771708683473) 100%)' }} id="dropdown-basic">
@@ -441,154 +379,49 @@ export default function Petitions() {
                                         </motion.div>
                                     </Dropdown>
 
-                                    <Box
-                                        style={{ paddingTop: '3rem', width: '100%', height: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}
-                                        role="presentation"
-                                    >
-                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '18%' }}>
+                                    <Box sx={{ overflowY: 'scroll',scrollbarWidth:'none',msOverflowStyle:'none', width: '100%', height: '100%' }}>
+                                        <Stack spacing={1}>
+                                            <Item>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
+                                                    <button className="button w-button"  style={{backgroundColor:'#404040',color:'white'}}>
+                                                        Category
+                                                    </button>
+                                                </div>
+                                                <Box>
+                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                        {category.map((cat, index) => (
+                                                            <Grid xs={12} sm={6} md={6} key={index}>
+                                                                <Item1 onClick={() => handleFilterCat(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${categorybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
+                                                            </Grid>
+                                                        ))}
+                                                    </Grid>
+                                                </Box>
+                                                <Divider />
+                                            </Item>
+                                            <Item>
+                                                <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '2rem' }}>
+                                                    <button className="button w-button" style={{backgroundColor:'#404040',color:'white'}}>
+                                                        Municipality
+                                                    </button>
+                                                </div>
+                                                <Box>
+                                                    <Grid container spacing={{ xs: 1, md: 2 }}>
+                                                        {municipality.map((cat, index) => (
+                                                            <Grid xs={12} sm={6} md={6} key={index}>
+                                                                <Item1 onClick={() => handleFilterMun(cat, index)} style={{fontSize:'13px',textAlign:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`,boxShadow:`${municipalitybutton[index]?'inset 0 0 4px 2px #524A4E':' 0 0 4px 2px #524A4E'}` ,backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#F6F5F2'}` }}>{cat}</Item1>
+                                                            </Grid>
+                                                        ))}
+                                                    </Grid>
+                                                </Box>
+                                                <Divider />
+                                            </Item>
 
-                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '100%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
-                                                <strong>Category</strong>
-                                            </Dropdown.Toggle>
+                                        </Stack>
 
 
-                                            <Dropdown.Menu
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: '10rem',
-                                                    overflow: 'auto',
-                                                    paddingTop: '0px',
-                                                    paddingBottom: '0px'
-                                                }}
-                                            >
-                                                {
-                                                    category[0].map((item, id) => (
-                                                        <motion.div whileHover={{ scale: 1.05 }}
-                                                            whileTap={{
-                                                                scale: 0.9,
-                                                                borderRadius: "50%"
-                                                            }}
-                                                        >
-                                                            <Dropdown.Item
-                                                                key={id}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column',
-                                                                    justifyContent: 'center',
-                                                                    alignItems: 'center',
-                                                                    overflowX: 'hidden scroll',
-                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
-                                                                    borderRadius: '0.3rem',
-                                                                }}
-                                                                value={searchTerm}
-                                                                onChange={handlepSearch}
-                                                            >
-                                                                {item}
-                                                                <Divider style={{ border: '1px solid lightgrey' }} />
-                                                            </Dropdown.Item>
-                                                        </motion.div>
-                                                    ))
-                                                }
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                        <Divider />
-                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '18%' }}>
-                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '100%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
-                                                Municipality
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: '10rem',
-                                                    overflow: 'auto',
-                                                    paddingTop: '0px',
-                                                    paddingBottom: '0px'
-                                                }}
-
-                                            >
-                                                {
-                                                    municipality[0].map((item, id) => (
-                                                        <motion.div whileHover={{ scale: 1.05 }}
-                                                            whileTap={{
-                                                                scale: 0.9,
-                                                                borderRadius: "50%"
-                                                            }}
-                                                        >
-                                                            <Dropdown.Item
-                                                                key={id}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column',
-                                                                    justifyContent: 'center',
-                                                                    alignItems: 'center',
-                                                                    overflowX: 'hidden scroll',
-                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
-                                                                    borderRadius: '0.3rem'
-                                                                }}
-                                                                value={searchTerm}
-                                                                onClick={handlepSearch}
-
-                                                            >
-                                                                {item}
-                                                                <Divider style={{ border: '1px solid lightgrey' }} />
-                                                            </Dropdown.Item>
-                                                        </motion.div>
-                                                    ))
-                                                }
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                        <Divider />
-                                        <Dropdown style={{ width: '100%', display: 'flex', justifyContent: 'start', height: '18%' }}>
-                                            <Dropdown.Toggle style={{ background: 'radial-gradient(circle, rgba(56,47,210,0.8689600840336135) 0%, rgba(64,64,219,0.9109768907563025) 38%, rgba(0,212,255,0.9333858543417367) 100%)', fontSize: '100%', width: '50%', height: '100%' }} variant="success" id="dropdown-basic">
-                                                Name
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: '10rem',
-                                                    overflow: 'auto',
-                                                    paddingTop: '0px',
-                                                    paddingBottom: '0px'
-                                                }}
-                                                value={searchTerm}
-                                                onChange={handlepSearch}
-                                            >
-                                                {
-                                                    name[0].map((item, id) => (
-                                                        <motion.div whileHover={{ scale: 1.05 }}
-                                                            whileTap={{
-                                                                scale: 0.9,
-                                                                borderRadius: "50%"
-                                                            }}
-                                                        >
-                                                            <Dropdown.Item
-                                                                key={id}
-                                                                style={{
-                                                                    width: '100%',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column',
-                                                                    justifyContent: 'center',
-                                                                    alignItems: 'center',
-                                                                    overflowX: 'hidden scroll',
-                                                                    boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 1px 3px rgba(0, 0, 0, 0.04)',
-                                                                    borderRadius: '0.3rem'
-                                                                }}
-
-                                                            >
-                                                                {item}
-                                                            </Dropdown.Item>
-                                                        </motion.div>
-                                                    ))
-                                                }
-                                            </Dropdown.Menu>
-                                        </Dropdown>
                                     </Box>
                                 </Box>
-                            </Drawer> */}
+                            </Drawer>
 
                         </div>
                 }
@@ -602,114 +435,118 @@ export default function Petitions() {
 
                             <div className="row" style={{ listStyle: 'none', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
                                 {isMobile ?
-                                    (petitions ? petitions : petitionData).filter(petition => filpetitions.some(p => p.id === petition.id)).map((petition, index) => (
-                                        <Fade direction="up" damping={0.7} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', height: '22rem' }}>
-                                            <div className="card features feature-primary feature-clean feature-transition p-4 py-2 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%' }}>
-                                                <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                                                    <h5>{generateShortDescription(petition.title)}</h5>
-                                                    <h6>{generateShortDescription(petition.municipality)}</h6>
-                                                    <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
-                                                    <div style={{ marginBottom: '1rem', display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-                                                        <div style={{ width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'start' }}>
-                                                            <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-                                                                <motion.div whileHover={{ scale: 1.05 }}
-                                                                    whileTap={{
-                                                                        scale: 0.6,
-                                                                        borderRadius: "50%"
-                                                                    }}>
-                                                                    <img
-                                                                        src={clickedLikes[petition.id] ? '/images/thumbs-up-filled.png' : '/images/thumbs-up.png'}
-                                                                        onClick={() => handleLike(petition.id)}
-                                                                        style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
-                                                                        alt=""
-                                                                    />
-                                                                </motion.div>
-                                                                {/* const petition = petitionData.find(petition => petition.id === id); */}
-                                                                {petition.like}
-                                                            </span>
-                                                            <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-                                                                <motion.div whileHover={{ scale: 1.05 }}
-                                                                    whileTap={{
-                                                                        scale: 0.6,
-                                                                        borderRadius: "50%"
-                                                                    }}>
-                                                                    <img
-                                                                        src={clickedDisLikes[petition.id] ? '/images/negative-vote-filled.png' : '/images/negative-vote.png'}
-                                                                        onClick={() => handleDisLike(petition.id)}
-                                                                        style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
-                                                                        alt=""
-                                                                    />
-                                                                </motion.div>
-                                                                {petition.dislike}
-                                                            </span>
-                                                        </div>
-                                                        <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '12rem' }}>
-                                                            <motion.div whileHover={{ scale: 1.05 }}
-                                                                whileTap={{
-                                                                    scale: 0.9,
-                                                                    borderRadius: "50%"
-                                                                }} style={{ backgroundColor: 'white', boxShadow: '0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)', color: 'black', borderStyle: "hidden", borderRadius: '0.7rem', paddingRight: '0.5rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}><img src="/images/menu.png" alt="My Image" style={{ display: 'flex', alignItems: 'center', height: '1em', marginRight: '0.3em', marginLeft: '0.3em' }} /><p style={{ fontSize: '0.7rem', marginBottom: '0rem', display: 'flex', alignItems: 'center' }}> view more</p></motion.div>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </Fade>
-
-                                    ))
-                                    : (petitions ? petitions : petitionData).filter(petition => filpetitions.some(p => p.id === petition.id)).map((petition, index) => (
-                                        <Fade direction="up" damping={0.7} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '23rem' }}>
-                                            <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%', boxShadow: '0 0 17px 10px rgba(0, 0, 0, 1)' }}>
-                                                <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
-                                                    <h5>{generateShortDescription(petition.title)}</h5>
-                                                    <h6>{generateShortDescription(petition.municipality)}</h6>
-                                                    <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
-                                                    <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-                                                        <div style={{ width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'start' }}>
-                                                            <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-                                                                <motion.div whileHover={{ scale: 1.05 }}
-                                                                    whileTap={{
-                                                                        scale: 0.85,
-                                                                        borderRadius: "50%"
-                                                                    }}>
-                                                                    <img
-                                                                        src={clickedLikes[petition.id] ? '/images/thumbs-up-filled.png' : '/images/thumbs-up.png'}
-                                                                        onClick={() => handleLike(petition.id)}
-                                                                        style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
-                                                                        alt=""
-                                                                    />
+                                    (petitions ? petitions : petitionData).filter(pt =>
+                                        filpetitions.some(p => p.id === pt.id) &&
+                                        (filpetitionsCat.length===0?filpetitions:filpetitionsCat).some(p => p.category === pt.category) &&
+                                        (filpetitionsMun.length===0?filpetitions:filpetitionsMun).some(p => p.municipality === pt.municipality))
+                                        .map((petition, index) => (
+                                            <Fade direction="up" damping={0.7} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', height: '22rem' }}>
+                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-2 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%' }}>
+                                                    <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                                        <b style={{fontSize:'22px'}}>{generateShortDescription(petition.title)}</b>
+                                                        <h6>{generateShortDescription(petition.municipality)}</h6>
+                                                        <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
+                                                        <div style={{ marginBottom: '1rem', display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+                                                            <div style={{ width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'start' }}>
+                                                                <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                    <motion.div whileHover={{ scale: 1.05 }}
+                                                                        whileTap={{
+                                                                            scale: 0.6,
+                                                                        }}>
+                                                                        <img
+                                                                            src={clickedLikes[petition.id] ? '/images/heart-fill.png' : '/images/heart.png'}
+                                                                            onClick={() => handleLike(petition.id)}
+                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            alt=""
+                                                                        />
+                                                                    </motion.div>
                                                                     {/* const petition = petitionData.find(petition => petition.id === id); */}
-                                                                </motion.div>
-                                                                {petition.like}
-                                                            </span>
-                                                            <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                    {petition.like}
+                                                                </span>
+                                                                <span style={{ width: '3.5rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                    <motion.div whileHover={{ scale: 1.05 }}
+                                                                        whileTap={{
+                                                                            scale: 0.6,
+                                                                        }}>
+                                                                        <img
+                                                                            src={clickedDisLikes[petition.id] ? '/images/broken-heart-fill.png' : '/images/broken-heart.png'}
+                                                                            onClick={() => handleDisLike(petition.id)}
+                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            alt=""
+                                                                        />
+                                                                    </motion.div>
+                                                                    {petition.dislike}
+                                                                </span>
+                                                            </div>
+                                                            <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '10rem' }}>
                                                                 <motion.div whileHover={{ scale: 1.05 }}
                                                                     whileTap={{
-                                                                        scale: 0.85,
-                                                                        borderRadius: "50%"
-                                                                    }}>
-                                                                    <img
-                                                                        src={clickedDisLikes[petition.id] ? '/images/negative-vote-filled.png' : '/images/negative-vote.png'}
-                                                                        onClick={() => handleDisLike(petition.id)}
-                                                                        style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
-                                                                        alt=""
-                                                                    />
-                                                                </motion.div>
-                                                                {petition.dislike}
-                                                            </span>
+                                                                        scale: 0.9,
+                                                                    }} className="button w-button" style={{marginTop:'0.3rem',backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.4rem',width:'6rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.1rem',fontFamily:'Google sans,sans-serif',fontSize:'14px', display: 'flex', alignItems: 'center' }}> view more</p></motion.div>
+                                                            </Link>
+                                                            
                                                         </div>
-                                                        <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
-                                                            <motion.div whileHover={{ scale: 1.05 }}
-                                                                whileTap={{
-                                                                    scale: 0.9,
-                                                                    borderRadius: "50%"
-                                                                }} style={{ backgroundColor: 'white', boxShadow: '0px 0px 2px 1px rgba(0, 0, 0, 0.07),inset 0px 0px 10px 1px rgba(0, 0, 0, 0.07)', color: 'black', borderStyle: "hidden", borderRadius: '0.7rem', paddingRight: '0.5rem', padding: '0.3rem', margin: '0.5rem', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}><img src="/images/menu.png" alt="My Image" style={{ display: 'flex', alignItems: 'center', height: '1em', marginRight: '0.3em', marginLeft: '0.3em' }} /><p style={{ marginBottom: '0rem', display: 'flex', alignItems: 'center' }}> view more</p></motion.div>
-                                                        </Link>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </Fade>
+                                            </Fade>
 
-                                    ))}
+                                        ))
+                                    :
+                                    (petitions ? petitions : petitionData).filter(pt =>
+                                        filpetitions.some(p => p.id === pt.id) &&
+                                        (filpetitionsCat.length===0?filpetitions:filpetitionsCat).some(p => p.category === pt.category) &&
+                                        (filpetitionsMun.length===0?filpetitions:filpetitionsMun).some(p => p.municipality === pt.municipality))
+                                        .map((petition, index) => (
+                                            <Fade direction="up" damping={0.7} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '25rem' }}>
+                                                <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%', boxShadow: '0 0 17px 10px rgba(0, 0, 0, 1)' }}>
+                                                    <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                                        <b style={{fontSize:'23px'}}>{generateShortDescription(petition.title)}</b>
+                                                        <h6>{generateShortDescription(petition.municipality)}</h6>
+                                                        <p className="text-muted mt-3">{generateShortDescription(petition.description)}</p>
+                                                        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+                                                            <div style={{alignSelf:'flex-end', width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'start' }}>
+                                                                <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                    <motion.div whileHover={{ scale: 1.05 }}
+                                                                        whileTap={{
+                                                                            scale: 0.85,
+                                                                        }}>
+                                                                        <img
+                                                                            src={clickedLikes[petition.id] ? '/images/heart-fill.png' : '/images/heart.png'}
+                                                                            onClick={() => handleLike(petition.id)}
+                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            alt=""
+                                                                        />
+                                                                        {/* const petition = petitionData.find(petition => petition.id === id); */}
+                                                                    </motion.div>
+                                                                    {petition.like}
+                                                                </span>
+                                                                <span style={{ width: '4rem', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
+                                                                    <motion.div whileHover={{ scale: 1.05 }}
+                                                                        whileTap={{
+                                                                            scale: 0.85,
+                                                                        }}>
+                                                                        <img
+                                                                            src={clickedDisLikes[petition.id] ? '/images/broken-heart-fill.png' : '/images/broken-heart.png'}
+                                                                            onClick={() => handleDisLike(petition.id)}
+                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            alt=""
+                                                                        />
+                                                                    </motion.div>
+                                                                    {petition.dislike}
+                                                                </span>
+                                                            </div>
+                                                            <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '13rem' }}>
+                                                                <motion.div whileHover={{ scale: 1.05 }}
+                                                                    whileTap={{
+                                                                        scale: 0.9,
+                                                                    }} className="button w-button" style={{backgroundColor:'#353535',color:'#F7F7F7',padding:'10px 10px', height:'2.7rem',width:'7rem',display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{ marginBottom: '0.2rem',fontFamily:'Google sans,sans-serif',fontSize:'16px', display: 'flex', alignItems: 'center' }}> view more</p></motion.div>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Fade>
+
+                                        ))}
                             </div>
                         </div>
                     </div>

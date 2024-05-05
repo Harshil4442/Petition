@@ -3171,7 +3171,8 @@ button:not(:disabled) {
 }
 
 #topnav .menu-extras {
-  float: right;
+  float: bottom;
+  display: none;
 }
 
 #topnav.scroll {
@@ -3511,6 +3512,7 @@ button:not(:disabled) {
   }
   #topnav .menu-extras .menu-item {
     border-color: #8492a6;
+    display: block;
   }
   #topnav .navbar-header {
     float: left;
@@ -3546,6 +3548,9 @@ button:not(:disabled) {
   #navigation.open {
     display: block;
     overflow-y: auto;
+  }
+  .navbar-toggle {
+    display: block;
   }
 }
 

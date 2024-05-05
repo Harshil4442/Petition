@@ -13,6 +13,7 @@ export default function MarketingNavbar({ handleSearch }) {
     const navigate = useNavigate();
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isMini = useMediaQuery({ query: '(max-width: 450px)' });
+    const isTab = useMediaQuery({ query: '(max-width: 990px)' });
 
 
     useEffect(() => {
@@ -60,7 +61,6 @@ export default function MarketingNavbar({ handleSearch }) {
 
 
 
-
                 <div className="menu-extras" style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
                     <div className="menu-item">
                         <a href="#" className={`navbar-toggle ${isMenu ? 'open' : ''}`} id="isToggle" onClick={() => toggleMenu()}>
@@ -72,18 +72,26 @@ export default function MarketingNavbar({ handleSearch }) {
                         </a>
                     </div>
                 </div>
-                <div id="navigation" style={{ display: isMenu ? 'block' : 'none', height: '100%' }}>
-                    <ul className="navigation-menu" id="navmenu-nav" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
-                        <li className="has-submenu">
-                            <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Home</Link>
-                        </li>
-                        <li className="has-submenu">
-                            <Link to="/petitions" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Petitions</Link>
-                        </li>
+                {
+                    isTab ? <div></div> :
+                        <div id="navigation" style={{ display: isMenu ? 'block' : 'none', height: '100%' }}>
+                            <ul className="navigation-menu" id="navmenu-nav" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
+                                <li className="has-submenu">
+                                    <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Home</Link>
+                                </li>
+                                <li className="has-submenu">
+                                    <Link to="/petitions" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Petitions</Link>
+                                </li>
+                                <li className="has-submenu">
+                                <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Features</Link>
+                            </li>
+                            <li className="has-submenu">
+                                <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Pricing</Link>
+                            </li>
 
-                    </ul>
-                </div>
-
+                            </ul>
+                        </div>
+                }
 
 
                 {
@@ -98,12 +106,11 @@ export default function MarketingNavbar({ handleSearch }) {
                                     <motion.div whileHover={{ scale: 1.05, backgroundColor: '#8B93FF', color: '#242424' }}
                                         whileTap={{
                                             scale: 0.8,
-                                            borderRadius: "10%"
                                         }} type="submit" className="w-button" style={{ fontWeight: '400', color: '#242424', backgroundColor: 'rgb(177, 236, 255)', display: 'flex', borderStyle: 'none', borderRadius: '50px', fontSize: '16px', flex: '0 auto', order: '0', alignItems: 'center', justifyContent: 'center', padding: '14px 32px', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
                                 </li>
                             </ul>)
 
-                                :
+                        :
                         <ul className="buy-button list-inline mb-0" style={{ height: '100%', paddingTop: '2px' }}>
                             <li className="list-inline-item ps-1 mb-0" style={{ fontSize: '20%', height: '100%', display: 'flex', alignItems: 'center' }}>
                                 {/* <div className="btn btn-icon btn-pills btn-primary d-sm-none d-inline-flex"><FiUser className="fea icon-sm"/></div> */}
@@ -111,7 +118,6 @@ export default function MarketingNavbar({ handleSearch }) {
                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#8B93FF', color: '#242424' }}
                                     whileTap={{
                                         scale: 0.8,
-                                        borderRadius: "10%"
                                     }} type="submit" className="w-button" style={{ fontWeight: '400', color: '#242424', backgroundColor: 'rgb(177, 236, 255)', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '14px 32px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
                             </li>
                         </ul>
@@ -126,6 +132,26 @@ export default function MarketingNavbar({ handleSearch }) {
 
 
             </div>
+            {
+                isTab ?
+                    <div id="navigation" style={{ display: isMenu ? 'flex' : 'none', }}>
+                        <ul className="navigation-menu" id="navmenu-nav" style={{ height: '100%', display: 'flex',flexDirection:'column', alignItems: 'start', justifyContent: 'end' }}>
+                            <li className="has-submenu">
+                                <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Home</Link>
+                            </li>
+                            <li className="has-submenu">
+                                <Link to="/petitions" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Petitions</Link>
+                            </li>
+                            <li className="has-submenu">
+                                <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Features</Link>
+                            </li>
+                            <li className="has-submenu">
+                                <Link to="/" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>Pricing</Link>
+                            </li>
+
+                        </ul>
+                    </div> : <div></div>
+            }
         </header>
     )
 }

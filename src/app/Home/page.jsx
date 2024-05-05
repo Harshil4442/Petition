@@ -9,12 +9,14 @@ import { AnimatedOnScroll } from "react-animated-css-onscroll";
 import { FiCodesandbox, FiSend, FiStar, FiBookmark, FiUsers, FiMessageCircle, AiOutlineCheckCircle } from "../assets/icons/vander"
 import { Fade } from 'react-awesome-reveal';
 import { useMediaQuery } from 'react-responsive';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 export default function IndexMarketing() {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isTab = useMediaQuery({ query: '(max-width: 1201)' });
+    const navigate = useNavigate();
 
 
     const handlePetition = (e) => {
@@ -53,13 +55,11 @@ export default function IndexMarketing() {
                                             <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
                                                 whileTap={{
                                                     scale: 0.8,
-                                                    borderRadius: "50%"
                                                 }} type="submit" className="" style={{ marginBottom: '2rem', color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
                                             :
                                             <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
                                                 whileTap={{
                                                     scale: 0.8,
-                                                    borderRadius: "50%"
                                                 }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
                                     }
                                 </div>
@@ -584,13 +584,11 @@ export default function IndexMarketing() {
                                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
                                                     whileTap={{
                                                         scale: 0.8,
-                                                        borderRadius: "50%"
-                                                    }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Subscribe</motion.div>
+                                                    }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
                                                 :
                                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
                                                     whileTap={{
                                                         scale: 0.8,
-                                                        borderRadius: "50%"
                                                     }} type="submit" className="" style={{ color: '#fff', backgroundColor: '#242424', display: 'inline-block', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', order: '0', alignSelf: 'flex-start', padding: '0.875rem 2rem', lineHeight: 'inherit', cursor: 'pointer' }} onClick={handlePetition}>Create petition</motion.div>
                                         }
 
