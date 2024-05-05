@@ -23,17 +23,13 @@ function FAQSection() {
                         {faq.map((item, index) => (
                             <div key={index} className="faq-block" style={{ width: '100%' }}>
                                 <a className="faq-head w-inline-block" style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row' }} onClick={() => handleClick(index)}>
-                                    <div className="text-size-medium-3 text-color-black faq-title">How much does BusinessChat's subscription costs?</div>
+                                    <div className="text-size-medium-3 text-color-black faq-title">{item.title}</div>
                                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/648416c766311009cc78948a_faq-open-icon.svg" loading="lazy" alt="" className="faq-icon" />
                                 </a>
                                 <div style={{ height: isOpen[index] ? 'auto' : '0px' }} className="faq-answer-block">
                                     <p className="text-size-small faq-para">
-                                        BusinessChat has a Starter and a Professional Plan. The cost of each plan depends on the number of conversations you send every month. <br />
-                                        <br />
-                                        For the starter Plan, the fixed cost is $100 per month and $11 per extra 1000 conversation as a variable cost, that you pay at the end of the month. (the starter plan includes 1000 free conversations).<br />
-                                        <br />
-                                        The advantage with our pricing model is that you don't have to select a certain amount of conversations or contacts per month. In any given month, you only pay for your consumption of conversations and nothing more. For more details <a href="/pricing-plans-businesschat">visit our pricing page</a>
-                                        .<strong></strong>
+                                        {item.answer}
+                                        <a href="/pricing-plans-businesschat">visit our pricing page</a>
                                     </p>
                                 </div>
                             </div>
