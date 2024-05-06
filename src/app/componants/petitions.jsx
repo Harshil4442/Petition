@@ -270,7 +270,7 @@ export default function Petitions() {
                             </div>
                             <Drawer size="lg" open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{backgroundColor:'white', fontSize: '16px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{backgroundColor:'white', fontSize: '18px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
