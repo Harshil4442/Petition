@@ -295,7 +295,7 @@ export default function Petitions() {
                                                 <Divider sx={{ marginBottom: '1rem' }} />
                                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                                                     {category.map((cat, index) => (
-                                                        <Item1 onClick={() => handleFilterCat(cat, index)} style={{ flexWrap: 'wrap', fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: `${categorybutton[index] ? '1 px solid green' : '1 px solid black'}`, boxShadow: `${categorybutton[index] ? 'inset 0 0 4px 1px #524A4E' : ' 0 0 0px 0px #524A4E'}`, backgroundColor: `${categorybutton[index] ? '#F0EBE3' : '#fff'}` }}>
+                                                        <Item1 onClick={() => handleFilterCat(cat, index)} style={{ flexWrap: 'wrap', fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center',  borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}` , color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
                                                             <img
                                                                 src={categorybutton[index] ? '/images/check.png' : '/images/uncheck.png'}
                                                                 style={{
@@ -317,7 +317,7 @@ export default function Petitions() {
 
                                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                                                     {municipality.map((cat, index) => (
-                                                        <Item1 onClick={() => handleFilterMun(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: `${municipalitybutton[index] ? '1 px solid green' : '1 px solid black'}`, boxShadow: `${municipalitybutton[index] ? 'inset 0 0 4px 1px #524A4E' : ' 0 0 0px 0px #524A4E'}`, backgroundColor: `${municipalitybutton[index] ? '#F0EBE3' : '#fff'}` }}>
+                                                        <Item1 onClick={() => handleFilterMun(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center',  borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}` , color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
                                                             <img
                                                                 src={municipalitybutton[index] ? '/images/check.png' : '/images/uncheck.png'}
                                                                 style={{
