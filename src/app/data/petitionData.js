@@ -16,7 +16,7 @@ const petitionData = [
       id:'1',
       title: "Ban Single-Use Plastics in Our Municipality",
       municipality: "Suratt  Corporation",
-      description: "This petition calls for the implementation of a ban on single-use plastics in our municipality to reduce environmental pollution and protect wildlife",
+      description: "This petition calls for the implementation of a ban on single-use plastics in our municipality to reduce environmental pollution and protect wildlife. This petition calls for the implementation of a ban on single-use plastics in our municipality to reduce environmental pollution and protect wildlife. This petition calls for the implementation of a ban on single-use plastics in our municipality to reduce environmental pollution and protect wildlife.",
       address: "Your Address",
       category: "Category of the petition3 petition3",
       name:"Your name",
