@@ -500,11 +500,11 @@ export default function Petitions() {
                                                                     {petition.dislike}
                                                                 </span>
                                                             </div>
-                                                            <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '10rem' }}>
+                                                            <Link to={{ pathname: `/petition-details/${petition.id}` }} duration={500} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'end', alignItems: 'center', width: '11rem' }}>
                                                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#F1F1F1', color: '#242424' }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} className="button w-button" style={{ marginTop: '0.3rem', backgroundColor: '#353535', color: '#F7F7F7', paddingTop: '12px', padding: '10px 10px', height: '2.4rem', width: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{ marginBottom: '0.1rem', fontFamily: 'Google sans,sans-serif', fontSize: '14px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
+                                                                    }} style={{borderRadius:'3rem', backgroundColor: '#353535', color: '#F7F7F7', padding: '10px 10px', height: '2.5rem', width: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{margin:'0px',height:'100%', fontFamily: 'Google sans,sans-serif', fontSize: '14px', display: 'flex', alignItems: 'center',justifyContent:'center' }}> View More</p></motion.div>
                                                             </Link>
 
                                                         </div>
@@ -561,7 +561,7 @@ export default function Petitions() {
                                                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#F1F1F1', color: '#242424' }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} className="button w-button" style={{ backgroundColor: '#353535', color: '#F7F7F7', paddingTop: '14px', padding: '10px 10px', height: '2.7rem', width: '7rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{ marginBottom: '0.2rem', fontFamily: 'Google sans,sans-serif', fontSize: '16px', display: 'flex', alignItems: 'center' }}> View More</p></motion.div>
+                                                                    }} style={{borderRadius:'3rem', backgroundColor: '#353535', color: '#F7F7F7', padding: '10px 10px', height: '2.7rem', width: '7rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{margin:'0px',height:'100%', fontFamily: 'Google sans,sans-serif', fontSize: '16px', display: 'flex', alignItems: 'center',justifyContent:'center' }}> View More</p></motion.div>
                                                             </Link>
                                                         </div>
                                                     </div>
