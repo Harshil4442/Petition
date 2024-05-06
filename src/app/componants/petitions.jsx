@@ -270,7 +270,7 @@ export default function Petitions() {
                             </div>
                             <Drawer size="lg" open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{ fontSize: '16px', width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{backgroundColor:'white', fontSize: '16px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
@@ -286,7 +286,7 @@ export default function Petitions() {
                                         </motion.div>
                                     </Dropdown>
 
-                                    <Box sx={{ marginLeft: '-2.3rem', overflowY: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none', height: '100%' }}>
+                                    <Box sx={{ overflowY: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none', height: '100%' }}>
                                         <Stack spacing={1} >
                                             <Item>
                                                 <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0.7rem' }}>
@@ -376,7 +376,7 @@ export default function Petitions() {
                             </div>
                             <Drawer size="md" open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{ fontSize: '16px', width: '100%', height: '100%', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{backgroundColor:'white', fontSize: '18px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
@@ -392,8 +392,8 @@ export default function Petitions() {
                                         </motion.div>
                                     </Dropdown>
 
-                                    <Box sx={{ marginLeft: '-2.3rem', overflowY: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none', width: '100%', height: '100%' }}>
-                                        <Stack spacing={1}>
+                                    <Box sx={{ overflowY: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none', width: '100%', height: '100%' }}>
+                                        <Stack spacing={1} >
                                             <Item>
                                                 <div style={{ display: 'flex', justifyContent: 'start', paddingBottom: '0.7rem' }}>
                                                     <b>Category</b>
