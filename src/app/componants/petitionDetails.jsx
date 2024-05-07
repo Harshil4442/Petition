@@ -121,12 +121,12 @@ export default function petitionDetails(props) {
                                         <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
                                             whileTap={{
                                                 scale: 0.8,
-                                            }} type="submit" onClick={() => handleLike(petition.id)} style={{ fontSize: '0.8rem', backgroundColor: '#242424', color: '#fff', border: 'transparent', padding: '5px 12px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer', display: 'flex', justifyContent: 'start' }}>UpVote</motion.div></div>
+                                            }} type="submit" onClick={() => handleLike(petition.id)} style={{ fontSize: '0.8rem', backgroundColor: '#242424', color: '#fff', border:'transparent', padding: '5px 12px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer', display: 'flex', justifyContent: 'start',boxShadow:clickedLikes[petition.id]?'none':'0 1px 5px grey' }}>UpVote</motion.div></div>
                                     <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
                                         <motion.div whileHover={{ scale: 1.05, backgroundColor: '#EEF7FF', color: '#242424' }}
                                             whileTap={{
                                                 scale: 0.8,
-                                            }} type="submit" onClick={() => handleDisLike(petition.id)} style={{ fontSize: '0.8rem', backgroundColor: '#242424', color: '#fff', border: 'transparent', padding: '5px 12px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer', display: 'flex', justifyContent: 'end' }}>DownVote</motion.div></div>
+                                            }} type="submit" onClick={() => handleDisLike(petition.id)} style={{ fontSize: '0.8rem', backgroundColor: '#242424', color: '#fff', border: 'transparent', padding: '5px 12px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer', display: 'flex', justifyContent: 'end',boxShadow:clickedDisLikes[petition.id]?'none':'0 1px 5px grey' }}>DownVote</motion.div></div>
                                 </div>
 
                             </div>
