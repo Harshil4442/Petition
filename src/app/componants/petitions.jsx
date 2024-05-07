@@ -20,15 +20,7 @@ import Stack from '@mui/system/Stack';
 import { styled } from '@mui/system';
 import Grid from '@mui/system/Unstable_Grid';
 
-
-
-
-// import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-// import Filter from "./filter";
-
-
 export default function Petitions() {
-
 
     const [filpetitions, setFilPetitions] = useState([
         ...petitionData
@@ -199,9 +191,9 @@ export default function Petitions() {
     return (
         <>
             <MarketingNavbar handleSearch={handleSearch} />
-            <section style={{ boxShadow: ' inset 0px -50px 100px rgba(255, 255, 255, 1)', paddingBottom: '3.5rem', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 d-flex align-items-center" id="home">
+            <section style={{ boxShadow: 'inset 0px -50px 100px rgba(255, 255, 255, 1)', paddingBottom: '3.5rem', background: 'linear-gradient(160deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.7557948179271709) 30%, rgba(255,162,246,0.6333858543417367) 37%, rgba(255,255,255,0.9277836134453782) 91%)' }} className="bg-half-170 d-flex align-items-center" id="home">
                 <div className="container">
-                    <Fade direction="down" damping={0.5} triggerOnce>
+                    <Fade direction="down" damping={0.3} triggerOnce>
                         <div style={{ listStyle: 'none' }} className="row align-items-center">
                             <div className="col-md-6">
                                 <div className="title-heading">
@@ -223,7 +215,7 @@ export default function Petitions() {
             </section>
 
             <section className="container">
-                <Fade direction="up" damping={0.5} triggerOnce className="section-title" style={{ marginLeft: '13px' }}>
+                <Fade direction="up" damping={0.3} triggerOnce className="section-title" style={{ marginLeft: '13px' }}>
                     <h4 className="title mb-4">Browse Petitions </h4>
                     <p className="text-muted">Search petitions by entering any of the following data:</p>
                     <ul className="list-unstyled text-muted">
@@ -236,7 +228,7 @@ export default function Petitions() {
             </section>
 
 
-            <Fade className="container" direction="up" damping={0.5} triggerOnce style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
+            <Fade className="container" direction="up" damping={0.3} triggerOnce style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'center' }}>
                 {
                     isMobile ?
                         <div style={{ listStyle: 'none', width: '100%', display: 'flex', justifyContent: 'center', marginTop: '4.5rem' }}>
@@ -270,7 +262,7 @@ export default function Petitions() {
                             </div>
                             <Drawer size="lg" open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{backgroundColor:'white', fontSize: '18px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{ backgroundColor: 'white', fontSize: '18px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
@@ -295,7 +287,7 @@ export default function Petitions() {
                                                 <Divider sx={{ marginBottom: '1rem' }} />
                                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                                                     {category.map((cat, index) => (
-                                                        <Item1 onClick={() => handleFilterCat(cat, index)} style={{ flexWrap: 'wrap', fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center',  borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}` , color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
+                                                        <Item1 onClick={() => handleFilterCat(cat, index)} style={{ flexWrap: 'wrap', fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}`, color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
                                                             <img
                                                                 src={categorybutton[index] ? '/images/check.png' : '/images/uncheck.png'}
                                                                 style={{
@@ -317,7 +309,7 @@ export default function Petitions() {
 
                                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                                                     {municipality.map((cat, index) => (
-                                                        <Item1 onClick={() => handleFilterMun(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center',  borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}` , color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
+                                                        <Item1 onClick={() => handleFilterMun(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}`, color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
                                                             <img
                                                                 src={municipalitybutton[index] ? '/images/check.png' : '/images/uncheck.png'}
                                                                 style={{
@@ -376,7 +368,7 @@ export default function Petitions() {
                             </div>
                             <Drawer size="md" open={showPopup} onClose={togglePopup}>
                                 <Box
-                                    style={{backgroundColor:'white', fontSize: '18px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
+                                    style={{ backgroundColor: 'white', fontSize: '18px', width: '100%', height: '100%', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}
                                     role="presentation"
 
                                 >
@@ -401,7 +393,7 @@ export default function Petitions() {
                                                 <Divider sx={{ marginBottom: '1rem' }} />
                                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                                                     {category.map((cat, index) => (
-                                                        <Item1 onClick={() => handleFilterCat(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: 'transparent', backgroundColor: `${categorybutton[index] ? '#0081B4' : '#CAEDFF'}` , color: `${categorybutton[index] ? 'white' : '#242424'}` }}>
+                                                        <Item1 onClick={() => handleFilterCat(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: 'transparent', backgroundColor: `${categorybutton[index] ? '#0081B4' : '#CAEDFF'}`, color: `${categorybutton[index] ? 'white' : '#242424'}` }}>
                                                             <img
                                                                 src={categorybutton[index] ? '/images/check.png' : '/images/uncheck.png'}
                                                                 style={{
@@ -423,7 +415,7 @@ export default function Petitions() {
 
                                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                                                     {municipality.map((cat, index) => (
-                                                        <Item1 onClick={() => handleFilterMun(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center',  borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}` , color: `${municipalitybutton[index] ? 'white' : '#242424'}`  }}>
+                                                        <Item1 onClick={() => handleFilterMun(cat, index)} style={{ fontSize: '13px', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderColor: 'transparent', backgroundColor: `${municipalitybutton[index] ? '#0081B4' : '#CAEDFF'}`, color: `${municipalitybutton[index] ? 'white' : '#242424'}` }}>
                                                             <img
                                                                 src={municipalitybutton[index] ? '/images/check.png' : '/images/uncheck.png'}
                                                                 style={{
@@ -462,7 +454,7 @@ export default function Petitions() {
                                         (filpetitionsCat.length === 0 ? filpetitions : filpetitionsCat).some(p => p.category === pt.category) &&
                                         (filpetitionsMun.length === 0 ? filpetitions : filpetitionsMun).some(p => p.municipality === pt.municipality))
                                         .map((petition, index) => (
-                                            <Fade direction="up" damping={0.5} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', height: '22rem' }}>
+                                            <Fade direction="up" damping={0.3} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', height: '22rem' }}>
                                                 <div className="card features feature-primary feature-clean feature-transition p-4 py-2 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%' }}>
                                                     <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                                         <b style={{ fontSize: '22px' }}>{generateShortDescription(petition.title)}</b>
@@ -478,7 +470,7 @@ export default function Petitions() {
                                                                         <img
                                                                             src={clickedLikes[petition.id] ? '/images/heart-fill.png' : '/images/heart.png'}
                                                                             onClick={() => handleLike(petition.id)}
-                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            style={{ width: '2rem', margin: '0.3rem', cursor: 'pointer' }}
                                                                             alt=""
                                                                         />
                                                                     </motion.div>
@@ -493,7 +485,7 @@ export default function Petitions() {
                                                                         <img
                                                                             src={clickedDisLikes[petition.id] ? '/images/broken-heart-fill.png' : '/images/broken-heart.png'}
                                                                             onClick={() => handleDisLike(petition.id)}
-                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            style={{ width: '2rem', margin: '0.3rem', cursor: 'pointer' }}
                                                                             alt=""
                                                                         />
                                                                     </motion.div>
@@ -504,7 +496,7 @@ export default function Petitions() {
                                                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#F1F1F1', color: '#242424' }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} style={{borderRadius:'3rem', backgroundColor: '#353535', color: '#F7F7F7', padding: '10px 10px', height: '2.5rem', width: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{margin:'0px',height:'100%', fontFamily: 'Google sans,sans-serif', fontSize: '14px', display: 'flex', alignItems: 'center',justifyContent:'center' }}> View More</p></motion.div>
+                                                                    }} style={{ borderRadius: '3rem', backgroundColor: '#353535', color: '#F7F7F7', padding: '10px 10px', height: '2.5rem', width: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{ margin: '0px', height: '100%', fontFamily: 'Google sans,sans-serif', fontSize: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}> View More</p></motion.div>
                                                             </Link>
 
                                                         </div>
@@ -519,7 +511,7 @@ export default function Petitions() {
                                         (filpetitionsCat.length === 0 ? filpetitions : filpetitionsCat).some(p => p.category === pt.category) &&
                                         (filpetitionsMun.length === 0 ? filpetitions : filpetitionsMun).some(p => p.municipality === pt.municipality))
                                         .map((petition, index) => (
-                                            <Fade direction="up" damping={0.5} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '25rem' }}>
+                                            <Fade direction="up" damping={0.3} triggerOnce key={index} className="col-md-12 mt-4 pt-2" style={{ textDecoration: 'none', width: '48%', height: '25rem' }}>
                                                 <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden" style={{ height: '100%', boxShadow: '0 0 17px 10px rgba(0, 0, 0, 1)' }}>
                                                     <div className="content mt-4" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                                         <b style={{ fontSize: '23px' }}>{generateShortDescription(petition.title)}</b>
@@ -535,7 +527,7 @@ export default function Petitions() {
                                                                         <img
                                                                             src={clickedLikes[petition.id] ? '/images/heart-fill.png' : '/images/heart.png'}
                                                                             onClick={() => handleLike(petition.id)}
-                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            style={{ width: '2rem', margin: '0.3rem', cursor: 'pointer' }}
                                                                             alt=""
                                                                         />
                                                                         {/* const petition = petitionData.find(petition => petition.id === id); */}
@@ -550,7 +542,7 @@ export default function Petitions() {
                                                                         <img
                                                                             src={clickedDisLikes[petition.id] ? '/images/broken-heart-fill.png' : '/images/broken-heart.png'}
                                                                             onClick={() => handleDisLike(petition.id)}
-                                                                            style={{ width: '2rem', margin: '0.5rem', cursor: 'pointer' }}
+                                                                            style={{ width: '2rem', margin: '0.3rem', cursor: 'pointer' }}
                                                                             alt=""
                                                                         />
                                                                     </motion.div>
@@ -561,7 +553,7 @@ export default function Petitions() {
                                                                 <motion.div whileHover={{ scale: 1.05, backgroundColor: '#F1F1F1', color: '#242424' }}
                                                                     whileTap={{
                                                                         scale: 0.9,
-                                                                    }} style={{borderRadius:'3rem', backgroundColor: '#353535', color: '#F7F7F7', padding: '10px 10px', height: '2.7rem', width: '7rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{margin:'0px',height:'100%', fontFamily: 'Google sans,sans-serif', fontSize: '16px', display: 'flex', alignItems: 'center',justifyContent:'center' }}> View More</p></motion.div>
+                                                                    }} style={{ borderRadius: '3rem', backgroundColor: '#353535', color: '#F7F7F7', padding: '10px 10px', height: '2.7rem', width: '7rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><p style={{ margin: '0px', height: '100%', fontFamily: 'Google sans,sans-serif', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}> View More</p></motion.div>
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -580,14 +572,14 @@ export default function Petitions() {
 
                 <div style={{ boxShadow: ' inset 0px -100px 100px rgba(255, 255, 255, 1), inset 0px 100px 100px rgba(255, 255, 255, 1)', background: ' linear-gradient(30deg, rgba(255,255,255,1) 9%, rgba(100,230,243,0.269432773109244) 10%, rgba(255,255,255,1) 89%)' }} className="container mt-100 mt-60">
                     <div style={{ listStyle: 'none', display: 'flex', flexDirection: 'row' }} className="row align-items-center">
-                        <Fade direction="left" damping={0.5} triggerOnce className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
+                        <Fade direction="up" damping={0.3} triggerOnce className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
                             <div className="section-title">
                                 <h6 className="fw-normal text-primary">Explore all petitions</h6>
                                 <h4 className="title mb-4">Discover Change-Makers: Browse and Support Petitions Today </h4>
                                 <p className="text-muted">Explore a diverse range of petitions crafted by passionate individuals dedicated to making a difference in their communities. With just a few clicks, you can support causes that resonate with you and contribute to positive change.</p>
                             </div>
                         </Fade>
-                        <Fade direction="right" damping={0.5} triggerOnce className="col-md-6 order-2 order-md-2">
+                        <Fade direction="up" damping={0.3} triggerOnce className="col-md-6 order-2 order-md-2">
                             <div className="text-lg-end align-items-center" style={{ paddingBottom: '3.8rem', paddingTop: '1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <img src='/images/petition4.jpg' style={{ maxWidth: '97%', width: '470px', height: '300px', borderRadius: '1.5rem' }} className="img-fluid" alt="" />
                             </div>

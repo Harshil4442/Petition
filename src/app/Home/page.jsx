@@ -28,7 +28,7 @@ export default function IndexMarketing() {
         <>
             <MarketingNavbar flag={true} />
             <section style={{ width: '100%', marginTop: '5.5rem', marginBottom: '0rem', paddingBottom: '3rem', paddingTop: '6rem', backgroundImage: 'linear-gradient(120deg, #b1ecff, #ffbef9 50%, #faf8f1)' }} className="bg-half-170 bg-soft-primary d-flex align-items-center justify-content-center" id="home">
-                <Fade direction="down" damping={0.4} triggerOnce style={{ width: '100%', marginLeft: '6.1%', marginRight: '6.1%' }} >
+                <Fade direction="down" damping={0.3} triggerOnce style={{ width: '100%', marginLeft: '6.1%', marginRight: '6.1%' }} >
                     <div className="row align-items-center justify-content-between" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                         {/* <div className="col-md-12" style={{display:'flex',alignItems:'center',justifyContent:`${isTab?'center':'start'}`,flexDirection:`${isTab?'column':'row'}`}}> */}
                         <div className='col-md-6' >
@@ -135,14 +135,14 @@ export default function IndexMarketing() {
                 <div className="position-relative" style={{ marginLeft: '6.1%', marginRight: '6.1%' }}>
                     <div className="row" >
                         <div className="col-lg-8">
-                            <Fade direction="up" damping={0.4} triggerOnce style={{ listStyle: 'none', padding: 0, marginLeft: "13px" }} className="section-title mb-4 pb-2">
+                            <Fade direction="up" damping={0.3} triggerOnce style={{ listStyle: 'none', padding: 0, marginLeft: "13px" }} className="section-title mb-4 pb-2">
                                 <div>
                                     <h4 className="title mb-4">Empower Your Voice <br /> Shape Your Community</h4>
                                     <p className="text-muted para-desc mb-0">Join our platform to amplify your voice, spark change, and shape the future of your municipality.</p>
                                 </div>
                             </Fade>
                             <div className="row" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                <Fade direction="left" damping={0.4} triggerOnce className="col-md-6 mt-4 pt-2">
+                                <Fade direction="left" damping={0.3} triggerOnce className="col-md-6 mt-4 pt-2">
                                     <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
                                         <FiCodesandbox className="fea icon-lg fea-icon" />
                                         <div className="content mt-4">
@@ -153,7 +153,7 @@ export default function IndexMarketing() {
                                         </div>
                                     </div>
                                 </Fade>
-                                <Fade direction="left" damping={0.4} triggerOnce className="col-md-6 mt-4 pt-2">
+                                <Fade direction="left" damping={0.3} triggerOnce className="col-md-6 mt-4 pt-2">
 
                                     <div >
                                         <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
@@ -167,7 +167,7 @@ export default function IndexMarketing() {
                                         </div>
                                     </div>
                                 </Fade>
-                                <Fade direction="left" damping={0.4} triggerOnce className="col-md-6 mt-4 pt-2">
+                                <Fade direction="left" damping={0.3} triggerOnce className="col-md-6 mt-4 pt-2">
 
                                     <div>
                                         <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
@@ -181,7 +181,7 @@ export default function IndexMarketing() {
                                         </div>
                                     </div>
                                 </Fade>
-                                <Fade direction="left" damping={0.4} triggerOnce className="col-md-6 mt-4 pt-2">
+                                <Fade direction="left" damping={0.3} triggerOnce className="col-md-6 mt-4 pt-2">
                                     <div >
                                         <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
                                             <FiBookmark className="fea icon-lg fea-icon" />
@@ -197,7 +197,7 @@ export default function IndexMarketing() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <Fade direction="right" damping={0.4} triggerOnce>
+                            <Fade direction="right" damping={0.3} triggerOnce>
                                 <div className="row" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                     <div className="col-lg-12 col-md-6 mt-4 pt-2">
                                         <div className="card features feature-primary feature-clean feature-transition p-4 py-5 border-0 shadow rounded-lg overflow-hidden">
@@ -243,7 +243,7 @@ export default function IndexMarketing() {
                     <div class="mesh-bleu-3"></div>
                 </div>
                 <div>
-                    <Fade direction="up" damping={0.4} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.3} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center" style={{ backgroundColor: 'transparent' }}>
                                 <div className="col-md-6 order-2 order-md-1" style={{ backgroundColor: 'transparent', marginBottom: '2rem' }}>
@@ -298,7 +298,7 @@ export default function IndexMarketing() {
                     <div class="mesh-bleu-3"></div>
                 </div>
                 <div className="padding-section-large">
-                    <Fade direction="up" damping={0.4} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.3} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center" style={{ backgroundColor: 'transparent' }}>
                                 <div className="col-md-6 order-2 order-md-2" style={{ backgroundColor: 'transparent', marginBottom: '2rem' }}>
@@ -355,7 +355,7 @@ export default function IndexMarketing() {
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
                 <div className="">
-                    <Fade direction="up" damping={0.4} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.3} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center justify-content-center" style={{ backgroundColor: 'transparent' }}>
                                 <h2 style={{ display: 'flex', justifyContent: 'center', paddingBottom: '2rem' }}>Whatsapp Marketing in numbers</h2>
@@ -398,7 +398,7 @@ export default function IndexMarketing() {
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
                 <div>
-                    <Fade direction="up" damping={0.4} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.3} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center" style={{ backgroundColor: 'transparent' }}>
                                 <div className="col-md-6 order-2 order-md-1" style={{ backgroundColor: 'transparent', marginBottom: '2rem' }}>
@@ -461,7 +461,7 @@ export default function IndexMarketing() {
             <section style={{ paddingTop: '3rem', paddingBottom: '6rem', marginTop: '0rem', marginBottom: '0rem', width: '100%', paddingLeft: '6.1%', paddingRight: '6.1%' }} className="section" id="features">
 
                 <div>
-                    <Fade direction="up" damping={0.4} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.3} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center" style={{ backgroundColor: 'transparent' }}>
 
@@ -527,7 +527,7 @@ export default function IndexMarketing() {
                 </div>
             </section>
 
-            <Fade direction="up" damping={0.4} triggerOnce>
+            <Fade direction="up" damping={0.3} triggerOnce>
                 <div className="send-campaign">
                     <div className="padding-section-large">
                         <div className="container-medium">
@@ -564,7 +564,7 @@ export default function IndexMarketing() {
                 </div>
             </Fade>
 
-            <Fade direction="up" damping={0.4} triggerOnce>
+            <Fade direction="up" damping={0.3} triggerOnce>
             <FAQ/>
             </Fade>
 
@@ -574,7 +574,7 @@ export default function IndexMarketing() {
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
                 <div className="">
-                    <Fade direction="up" damping={0.4} triggerOnce style={{ backgroundColor: 'transparent' }}>
+                    <Fade direction="up" damping={0.3} triggerOnce style={{ backgroundColor: 'transparent' }}>
                         <div className="mt-4 mt-2" style={{ backgroundColor: 'transparent' }}>
                             <div className="row align-items-center justify-content-center" style={{ backgroundColor: 'transparent' }}>
 

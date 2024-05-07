@@ -17,14 +17,14 @@ export default function IndexMarketing() {
     return (
         <>
             <MarketingNavbar />
-            <section className="bg-half-170 d-flex align-items-center"  style={{paddingBottom:'4rem',background:'linear-gradient(138deg, rgba(177,221,255,1) 19%, rgba(232,185,255,0.9557948179271709) 38%, rgba(255,170,247,1) 62%, rgba(253,201,255,0.9277836134453782) 96%)'}} id="home">
+            <section className="bg-half-170 d-flex align-items-center"  style={{paddingBottom:'4rem',backgroundImage:'linear-gradient(120deg, #b1ecff, #ffbef9 50%, #faf8f1)'}} id="home">
                 <Fade damping={0.7} triggerOnce direction="down" className="container align-items-center" >
                     <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <div className="col-12 col-md-10 col-lg-10" style={{ position: 'relative', display: 'inline-block' }}>
 
                             <div style={{
                                 padding: '2rem', background: '#F2F3F4', borderRadius: '1rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)',
-                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.785)),url(/images/form-back.jpg)', // Specify the path to your background image
+                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.855)),url(/images/form-back.jpg)', // Specify the path to your background image
                                 backgroundSize: 'cover', // Ensure the image covers the entire background
                                 backgroundPosition: 'center', // Center the image
                                 backgroundRepeat: 'no-repeat',
