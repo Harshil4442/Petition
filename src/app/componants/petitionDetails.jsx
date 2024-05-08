@@ -99,18 +99,26 @@ export default function petitionDetails(props) {
                     <div className="row" style={{ paddingTop: '5rem' }}>
 
                         <div className="col-md-8" >
+                        
                             <img style={{ borderRadius: '1rem', scale: '0.99', maxWidth: '100%', maxHeight: '100%', marginBottom: '2rem' }} src="\images\petition-details.jpg"></img>
                             <div className="">
+                                
                                 <button style={{ color: '#242424', fontSize: '0.7rem', fontWeight: '600', marginBottom: '1rem', backgroundColor: '#FFDEFB', border: 'transparent', borderRadius: '1.5rem', padding: '0.5rem' }}>{petition.municipality}</button>
                                 <h1 className="heading-style-h2"  >{petition.title}</h1>
                                 <div style={{ marginTop: '1rem', marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}> <img style={{ borderRadius: '1rem', width: '2.5rem', height: 'auto', marginRight: '0.7rem' }} src="\images\profile.png"></img><p style={{ padding: '0px', fontSize: '1.1rem', fontWeight: '500', borderRadius: '0.4rem', backgroundColor: 'white', background: 'transparent' }} className="text-muted mt-3">Started by <b>{petition.name}</b>    </p></div>
-                                <div style={{ marginTop: '2.1rem' }}><b style={{ fontSize: '1.25rem', fontWeight: '600' }}>Description<br /></b> <p style={{ padding: '0px', fontWeight: '500', borderRadius: '0.4rem', backgroundColor: 'white', background: 'transparent' }} className="text-muted mt-3">{petition.description}</p></div>
+                                <div style={{ marginTop: '2.1rem' }}><b style={{ fontSize: '1.25rem', fontWeight: '600' }}>Description<br /></b>
+                                
+                                 <p style={{ padding: '0px', fontWeight: '500', borderRadius: '0.4rem', backgroundColor: 'white', background: 'transparent' }} className="text-muted mt-3">{petition.description}</p></div>
 
                             </div>
+                            
                         </div>
 
                         <div className="col-md-4" style={{ padding: '10px 5px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-
+                        <div class="background-mesh-3" style={{ width: '30%' }}>
+                    <div class="mesh-bleu-3"></div>
+                    {/* <div class="mesh-purple-3"></div> */}
+                </div>
                             <div style={{ width: isMobile ? '95%' : '85%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
                                 <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`, borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
                                 <div style={{ width: `${(((petition.dislike) / (petition.like + petition.dislike)) * 100)}%` }}></div>
@@ -189,7 +197,7 @@ export default function petitionDetails(props) {
                 <div className="container mt-100 mt-60">
                     <div className="row align-items-center">
 
-
+                                            
                         <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
                             <div className="section-title">
                                 <h6 className="fw-normal text-primary">Explore all petitions</h6>
@@ -200,6 +208,10 @@ export default function petitionDetails(props) {
                         </div>
                         <div className="col-md-6 order-2 order-md-2" style={{ display: 'flex', justifyContent: 'center' }}>
                             <div className="text-lg-end align-items-center justify-content-center">
+                            <div class="background-mesh-3" style={{ width: '30%' }}>
+                    <div class="mesh-purple-3"></div>
+                    <div class="mesh-bleu-3"></div>
+                </div>
                                 <img src='/images/petition3.jpg' style={{ maxWidth: '93vw', width: '400px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                             </div>
                         </div>
