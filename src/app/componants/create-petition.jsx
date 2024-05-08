@@ -22,15 +22,8 @@ export default function IndexMarketing() {
                     <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <div className="col-12 col-md-12 col-lg-12" style={{ position: 'relative', display: 'inline-block' }}>
 
-                            <div style={{
-                                padding: '2rem', background: '#F2F3F4', borderRadius: '1rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)',
-                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.855)),url(/images/form-back.jpg)', // Specify the path to your background image
-                                backgroundSize: 'cover', // Ensure the image covers the entire background
-                                backgroundPosition: 'center', // Center the image
-                                backgroundRepeat: 'no-repeat',
-                            }}>
+                           
                                 <Form />
-                            </div>
                         </div>
 
                         

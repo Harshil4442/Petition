@@ -93,14 +93,14 @@ export default function petitionDetails(props) {
             <MarketingNavbar />
 
             <section className="section" id="features" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', fontFamily: 'Google sans, sans-serif' }}>
-            
-            <div className="brodcast-line2" style={{top:'40%'}}>
-                                                <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
-                                            </div>
+
+                <div className="brodcast-line2" style={{ top: '40%' }}>
+                    <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
+                </div>
                 <div className="container" >
 
 
-                    <div className="row" style={{ paddingTop: '5rem' }}>
+                    <div className="row" style={{ paddingTop: '2rem' }}>
                         <div class="background-mesh-3" style={{ width: '30%' }}>
                             <div class="mesh-purple-3"></div>
                             <div class="mesh-bleu-3"></div>
@@ -116,34 +116,34 @@ export default function petitionDetails(props) {
                             </div>
                         </div>
 
-                        <div className="col-md-4" style={{ padding: isMobile ? '1rem 1rem' : '0 0' }}>
-                            <div className="blue-pink-gradient" style={{ padding: '2.5rem 10px', borderRadius: '2rem', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                        <div className={`col-md-3 ${isMobile?'':'position-fixed'}`} style={{ right:isMobile?'auto':'9%', padding: isMobile ? '1rem 1rem' : '0 0' }}>
+                            <div className="blue-pink-gradient" style={{ padding: '2rem 1px', borderRadius: '2rem', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                                 <div style={{ width: isMobile ? '95%' : '85%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
-                                    <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`, borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
+                                    <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`, borderRadius: '0.2rem', backgroundColor: '#242424' }}></div>
                                     <div style={{ width: `${(((petition.dislike) / (petition.like + petition.dislike)) * 100)}%` }}></div>
                                 </div>
                                 <div style={{ width: isMobile ? '95%' : '85%', display: 'flex', flexDirection: 'column' }}>
                                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                                        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#0E46A3', display: 'flex', justifyContent: 'start' }}>{petition.like}</b>
+                                        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#242424', display: 'flex', justifyContent: 'start' }}>{petition.like}</b>
                                             <motion.div
                                                 whileHover={{ scale: 1.005, color: '#242424', background: 'linear-gradient(126deg, #EEEEEE, #EEEEEE  79%)' }}
                                                 whileTap={{ scale: 0.95 }}
                                                 type="submit"
                                                 className="w-button"
                                                 onClick={() => handleLike(petition.id)}
-                                                style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '10px 28px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
+                                                style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '15px', order: '0', alignItems: 'center', padding: '8px 20px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
                                             >
                                                 Upvote
                                             </motion.div>
                                         </div>
-                                        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#0E46A3', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
+                                        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#242424', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
                                             <motion.div
                                                 whileHover={{ scale: 1.005, color: '#242424', background: 'linear-gradient(126deg, #EEEEEE, #EEEEEE  79%)' }}
                                                 whileTap={{ scale: 0.95 }}
                                                 type="submit"
                                                 className="w-button"
                                                 onClick={() => handleDisLike(petition.id)}
-                                                style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '10px 28px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
+                                                style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '15px', order: '0', alignItems: 'center', padding: '8px 20px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
                                             >
                                                 Downvote
                                             </motion.div></div>
@@ -164,24 +164,25 @@ export default function petitionDetails(props) {
                                         </div>
                                     </div>
                                     <Divider />
-                                    <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
-                                        <div className="categories-2">
-                                            
-                                            <div className="" style={{ fontWeight: '600' }}>Contact</div>
-                                            <div className="w-dyn-list" style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
-                                                <div style={{ margin: '0.3rem 0.2rem', backgroundColor: '#F6F5F2', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
-                                                    <div className="body-default-medium">{petition.email}</div>
+                                    <div style={{ width: '100%', marginTop: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                                        
+                                            <div className="" style={{ fontWeight: '600',paddingBottom:'0.5rem' }}>Contact</div>
+                                            <div className="" style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
+                                                <div style={{display:'flex',  padding: '0rem 0rem', borderRadius: '1rem' }} className="">
+                                                <img style={{  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\email.png"></img>
+                                                    <div style={{fontSize:'13px'}}>{petition.email}</div>
                                                 </div>
-                                                <div style={{ margin: '0.3rem 0.2rem', backgroundColor: '#F6F5F2', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
-                                                    <div className="body-default-medium">{petition.contact}</div>
+                                                <div style={{ display:'flex', padding: '0rem 0rem', borderRadius: '1rem' }} className="">
+                                                <img style={{  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\phone.png"></img>
+                                                    <div style={{fontSize:'13px'}}>{petition.contact}</div>
                                                 </div>
-                                                <div style={{ margin: '0.3rem 0.2rem', backgroundColor: '#F6F5F2', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
-                                                    <div className="body-default-medium">{petition.address}</div>
+                                                <div style={{ display:'flex', padding: '0rem 0rem', borderRadius: '1rem' }} className="">
+                                                <img style={{  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\maps-and-flags.png"></img>
+                                                    <div style={{fontSize:'13px'}}>{petition.address}</div>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
-                                    <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
+                                    <div style={{ width: '100%', marginTop: '1rem', display: 'flex', flexDirection: 'column' }}>
                                         <Link to="/petitions" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ fontWeight: '500', textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>
 
                                             <p style={{ textAlign: 'end', fontSize: '0.75rem', padding: '0px 5px', margin: '0px' }}>Browse more petitions<MdArrowDownward /></p>
@@ -194,7 +195,7 @@ export default function petitionDetails(props) {
                     </div>
                 </div>
 
-                
+
 
                 <div className="container mt-100 mt-60">
                     <div className="row align-items-center">
