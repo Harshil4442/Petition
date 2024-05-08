@@ -299,6 +299,9 @@ export default function VerticalLinearStepper() {
             '& .css-d393pd': {
               color: '#31363F', // circle color (ACTIVE)
             },
+            '& .css-4ff9q7.Mui-active': {
+              backgroundColor: '#31363F', // circle color (ACTIVE)
+            },
           }}
           >
             <StepLabel
