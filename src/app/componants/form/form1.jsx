@@ -297,7 +297,7 @@ export default function VerticalLinearStepper() {
               backgroundColor: '#31363F', // circle color (ACTIVE)
             },
             '& .css-d393pd': {
-              backgroundColor: '#31363F', // circle color (ACTIVE)
+              color: '#31363F', // circle color (ACTIVE)
             },
           }}
           >
