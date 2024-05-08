@@ -94,8 +94,10 @@ export default function petitionDetails(props) {
 
             <section className="section" id="features" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', fontFamily: 'Google sans, sans-serif' }}>
                 <div className="container" >
+                 
+                    
                     <div className="row">
-                        <div className="col-md-12" style={{ margin: '3rem 0rem' }}>
+                        <div className="col-md-12" style={{ margin: '2rem 0rem' }}>
                             <div className="text-center">
                                 <b className="text-center" style={{ fontWeight: '700', fontSize: '2.3rem' }}>{petition.title}</b>
                                 <p style={{ color: '#7D7C7C' }}>{petition.municipality}</p>
@@ -110,19 +112,28 @@ export default function petitionDetails(props) {
 
                             </div>
                         </div>
-                        <div className="col-md-4" style={{ padding: '15px 5px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                            <div style={{ width: isMobile ? '95%' : '80%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
-                                <div style={{ width: `${((petition.like / (petition.like + petition.dislike)) * 100)}%`,borderRadius: '0.2rem', backgroundColor: '#842B8F' }}></div>
+                               
+                        <div className="col-md-4" style={{ padding: '0px 5px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                        <div style={{
+                                padding:'2.5rem 10px',marginTop:'0rem',width:'100%',display: 'flex', alignItems: 'center', flexDirection: 'column' , background: '#F2F3F4', borderRadius: '1rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)',
+                                // backgroundColor:'#CAF4FF',
+                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),url(/images/form-back.jpg)', // Specify the path to your background image
+                                backgroundSize: 'cover', // Ensure the image covers the entire background
+                                backgroundPosition: 'center', // Center the image
+                                backgroundRepeat: 'no-repeat',
+                            }}>
+                            <div style={{ width: isMobile ? '95%' : '95%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
+                                <div style={{ width: `${((petition.like / (petition.like + petition.dislike)) * 100)}%`,borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
                                 <div style={{ width: `${((petition.dislike / (petition.like + petition.dislike)) * 100)}%` }}></div>
                             </div>
-                            <div style={{ width: isMobile ? '95%' : '80%', display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ width: isMobile ? '95%' : '95%', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize:'2rem',color:'#842B8F', display: 'flex', justifyContent: 'start' }}>{petition.like}</b>
+                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize:'2rem',color:'#0E46A3', display: 'flex', justifyContent: 'start' }}>{petition.like}</b>
                                         <motion.div whileHover={{ scale: 1.005, backgroundColor: '#242424', color: '#EEEEEE' }}
                                             whileTap={{
                                                 scale: 0.95,
                                             }} type="submit" onClick={() => handleLike(petition.id)} style={{width:'6rem',textAlign:'center', fontSize: '1rem', backgroundColor: '#EEEEEE', color: '#242424', border:'transparent', padding: '5px 0px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer', boxShadow:clickedLikes[petition.id]?'none':'0 1px 3px grey' }}>UpVote</motion.div></div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize:'2rem',color:'#842B8F', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
+                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize:'2rem',color:'#0E46A3', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
                                         <motion.div whileHover={{ scale: 1.005, backgroundColor: '#242424', color: '#EEEEEE' }}
                                             whileTap={{
                                                 scale: 0.95,
@@ -130,7 +141,7 @@ export default function petitionDetails(props) {
                                 </div>
 
                             </div>
-                            <div style={{ width: isMobile ? '95%' : '80%',}}>
+                            <div style={{ width: isMobile ? '95%' : '95%',}}>
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
                                     <h6 style={{ margin: '1px 2px' }}>Category</h6>
                                     <Divider />
@@ -157,31 +168,29 @@ export default function petitionDetails(props) {
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
-                <img src='/images/square/square-warning.png' width={500} height={500} className="img-fluid rounded-pill bg-image-position" alt="" />
-                <img src='/images/square/square-success.png' width={140} height={140} className="img-fluid rounded-lg avatar avatar-large bg-image-position-2 spin-anything" alt="" />
-
-
+              
 
 
                 <div className="container mt-100 mt-60">
                     <div className="row align-items-center">
 
 
-                        <Fade direction="up" damping={0.3} className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
+                        <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
                             <div className="section-title">
                                 <h6 className="fw-normal text-primary">Explore all petitions</h6>
                                 <h4 className="title mb-4">Discover Change-Makers: Browse and Support Petitions Today </h4>
 
                                 <p className="text-muted">Explore a diverse range of petitions crafted by passionate individuals dedicated to making a difference in their communities. With just a few clicks, you can support causes that resonate with you and contribute to positive change.</p>
                             </div>
-                        </Fade>
-                        <Fade direction="up" damping={0.3} className="col-md-6 order-2 order-md-2" style={{ display: 'flex', justifyContent: 'center' }}>
+                        </div>
+                        <div className="col-md-6 order-2 order-md-2" style={{ display: 'flex', justifyContent: 'center' }}>
                             <div className="text-lg-end align-items-center justify-content-center">
                                 <img src='/images/petition3.jpg' style={{ maxWidth: '93vw', width: '400px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
                             </div>
-                        </Fade>
+                        </div>
                     </div>
                 </div>
             </section>
