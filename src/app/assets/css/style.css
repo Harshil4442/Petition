@@ -2572,6 +2572,23 @@ button:not(:disabled) {
   font-size: 14px;
 }
 
+@media (max-width: 467px) {
+  .form-group{
+    padding: 0px !important;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .form-group{
+    padding: 0px 20px;
+  }
+}
+
+.form-group{
+  padding: 0px 70px;
+}
+
 .form-control {
   border: 1px solid #242424 !important;
   font-size: 14px;

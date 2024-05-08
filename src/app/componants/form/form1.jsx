@@ -10,6 +10,10 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 
+import { useTheme } from '@mui/material/styles';
+import MobileStepper from '@mui/material/MobileStepper';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
@@ -43,10 +47,19 @@ const steps = [
 
 export default function VerticalLinearStepper() {
   const [showDelayedComponent, setShowDelayedComponent] = useState(false);
+  const maxSteps = steps.length;
+  const theme = useTheme();
+  const navigate = useNavigate();
+
 
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = (step) => {
+        console.log(step);
+        if(step==='Publish'){
+          navigate("/");
+          return;
+        }
          let errors = {};
          let isValid = true;
          setShowErrors(false);
@@ -72,6 +85,7 @@ export default function VerticalLinearStepper() {
           }
          
          }
+
          if(!validNext(step))
          setActiveStep((prevActiveStep) => prevActiveStep + 1);
     
@@ -160,14 +174,15 @@ export default function VerticalLinearStepper() {
   const inputs=(step)=>{
     if(step==='Name of Author'){
       return(
-        <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'1  rem'}}>
-
+        <div className="form-group" style={{marginTop:'2rem',marginBottom:'1rem'}}>
+            
          <input
-         value={formData.name}
+          value={formData.name}
            className="form-control"
            id="name"
            placeholder='Name'
            onChange={handleChange}
+           style={{height:'4rem'}}
          />
          {showErrors && formData.name === "" && <small className="text-danger">This field is required</small>}
        </div>
@@ -176,7 +191,7 @@ export default function VerticalLinearStepper() {
     if(step==='Contact details'){
       return(
         <>
-        <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+        <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Address<span className="text-danger">*</span></h6></label>
          <input
           value={formData.address}
@@ -187,7 +202,7 @@ export default function VerticalLinearStepper() {
          />
          {showErrors && formData.address === "" && <small className="text-danger">This field is required</small>}
        </div>
-       <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
                 <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Contact number<span className="text-danger">*</span></h6></label>
                 <input
                 value={formData.contactNumber}
@@ -199,7 +214,7 @@ export default function VerticalLinearStepper() {
                 />
                 {showErrors && formData.contactNumber === "" && <small className="text-danger">This field is required</small>}
               </div>
-              <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+              <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
                 <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Email<span className="text-danger">*</span></h6></label>
                 <input
                 value={formData.email}
@@ -221,7 +236,7 @@ export default function VerticalLinearStepper() {
     if(step==='Petition details'){
       return(
         <>
-       <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
                 <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Title<span className="text-danger">*</span></h6></label>
                 <input
                   type="text"
@@ -233,7 +248,7 @@ export default function VerticalLinearStepper() {
                 />
               {showErrors && formData.title === "" && <small className="text-danger">This field is required</small>}      
        </div>
-       <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Name of Municipal Corporation<span className="text-danger">*</span></h6></label>
          <input
          value={formData.municipalCorpName}
@@ -244,7 +259,7 @@ export default function VerticalLinearStepper() {
          />
          {showErrors && formData.municipalCorpName === "" && <small className="text-danger">This field is required</small>}
        </div>
-        <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+        <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Category<span className="text-danger">*</span></h6></label>
          <input
          value={formData.category}
@@ -255,7 +270,7 @@ export default function VerticalLinearStepper() {
          />
          {showErrors && formData.category === "" && <small className="text-danger">This field is required</small>}
        </div>
-       <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
+       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlTextarea1" style={{marginBottom:'0.3rem'}}><h6>Description<span className="text-danger">*</span></h6></label>
          <textarea
            value={formData.description}
@@ -271,79 +286,110 @@ export default function VerticalLinearStepper() {
       )
     }
   };
-  const navigate = useNavigate();
 
   
 
   return (
-    <Box sx={{ maxWidth: 400 }}>
-      <Stepper  activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
-          <Step key={step.label}
-          sx={{
-            '& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active': {
-              color: '#242424', // circle color (COMPLETED)
-            },
-            '& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed': {
-              color: '#31363F', // circle color (ACTIVE)
-            },
-            '& .css-1agspv7-MuiButtonBase-root-MuiButton-root': {
-              backgroundColor: '#31363F', // circle color (ACTIVE)
-            },
-            '& .css-d86p8x-MuiButtonBase-root-MuiButton-root': {
-              color: '#31363F', // circle color (ACTIVE)
-            },
-            '& .css-fuu7kn': {
-              backgroundColor: '#31363F', // circle color (ACTIVE)
-            },
-            '& .css-d393pd': {
-              color: '#31363F', // circle color (ACTIVE)
-            },
-            '& .css-4ff9q7.Mui-active': {
-              backgroundColor: '#31363F', // circle color (ACTIVE)
-            },
-          }}
+    <Box sx={{ maxWidth: '100%', flexGrow: 1,display:'flex',flexDirection:'column',alignItems:'center'}}>
+      
+      <MobileStepper
+        variant="text"
+        steps={maxSteps}
+        position="static"
+        activeStep={activeStep}
+        sx={{width:'100%',borderRadius:'0.6rem'}}
+        nextButton={
+          <Button
+            size="small"
+            onClick={()=>handleNext(steps[activeStep].label)}
+            sx={{color:'#242424'}}
           >
-            <StepLabel
-              optional={
-                index === 3 ? (
-                  <Typography variant="caption">Last step</Typography>
-                ) : null
-              }
-            >
-              {step.label}
-            </StepLabel>
-            <StepContent >
-                {inputs(step.label)}
-              <Box sx={{ mb: 2 }}>
-                <div style={{paddingLeft:'20px'}}>
-                  <Button
-                    variant="contained"
-                    onClick={()=>handleNext(step.label)}
-                    sx={{ mt: 5, mr: 1 }}
-                    style={{fontSize:'0.7rem'}}
-                  >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
-                  </Button>
-
-                  <Button
-                    disabled={index === 0}
-                    onClick={handleBack}
-                    sx={{ mt: 5, mr: 1 }}
-                    style={{fontSize:'0.7rem'}}
-                  >
-                    Back
-                  </Button>
-                </div>
-              </Box>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-          navigate("/")
-      )}
+            {activeStep === maxSteps - 1?<p style={{fontSize:'13px',margin:'0px'}}>Submit</p>:<p style={{fontSize:'13px',margin:'0px'}}>Next</p>}
+            {theme.direction === 'rtl' ? (
+              <KeyboardArrowLeft />
+            ) : (
+              <KeyboardArrowRight />
+            )}
+          </Button>
+        }
+        backButton={
+          <Button size="small" onClick={handleBack} sx={{color:'#242424'}} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? (
+              <KeyboardArrowRight />
+            ) : (
+              <KeyboardArrowLeft />
+            )}
+            Back
+          </Button>
+        }
+      />
+      <Paper
+        square
+        elevation={0}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          height: 50,
+          pl: 2,
+          mt:4,
+          
+          pb:0,
+          bgcolor: 'transparent',
+        }}
+      >
+        <h5 style={{margin:'0'}}>{steps[activeStep].label}</h5>
+      </Paper>
+      <Box sx={{  maxWidth: '100%', width: '100%', p: 0 }}>
+        {inputs(steps[activeStep].label)}
+      </Box>
+      
     </Box>
+    // <Box sx={{ maxWidth: 400 }}>
+    //   <Stepper  activeStep={activeStep} orientation="vertical">
+    //     {steps.map((step, index) => (
+    //       <Step key={step.label}>
+    //         <StepLabel
+    //           optional={
+    //             index === 3 ? (
+    //               <Typography variant="caption">Last step</Typography>
+    //             ) : null
+    //           }
+    //         >
+    //           {step.label}
+    //         </StepLabel>
+    //         <StepContent >
+    //             {inputs(step.label)}
+    //           <Box sx={{ mb: 2 }}>
+    //             <div style={{paddingLeft:'20px'}}>
+    //               <Button
+    //                 variant="contained"
+    //                 onClick={()=>handleNext(step.label)}
+    //                 sx={{ mt: 5, mr: 1 }}
+    //                 style={{fontSize:'0.7rem'}}
+    //               >
+    //                 {index === steps.length - 1 ? 'Finish' : 'Continue'}
+    //               </Button>
+
+    //               <Button
+    //                 disabled={index === 0}
+    //                 onClick={handleBack}
+    //                 sx={{ mt: 5, mr: 1 }}
+    //                 style={{fontSize:'0.7rem'}}
+    //               >
+    //                 Back
+    //               </Button>
+    //             </div>
+    //           </Box>
+    //         </StepContent>
+    //       </Step>
+    //     ))}
+    //   </Stepper>
+    //   {activeStep === steps.length && (
+    //       navigate("/")
+    //   )}
+    // </Box>
+
+    
   );
 }
 
