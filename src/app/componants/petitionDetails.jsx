@@ -197,25 +197,7 @@ export default function petitionDetails(props) {
 
 
 
-                <div className="container mt-100 mt-60">
-                    <div className="row align-items-center">
-
-
-                        <div className="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0 order-1 order-md-1">
-                            <div className="section-title">
-                                <h6 className="fw-normal text-primary">Explore all petitions</h6>
-                                <h4 className="title mb-4">Discover Change-Makers: Browse and Support Petitions Today </h4>
-
-                                <p className="text-muted">Explore a diverse range of petitions crafted by passionate individuals dedicated to making a difference in their communities. With just a few clicks, you can support causes that resonate with you and contribute to positive change.</p>
-                            </div>
-                        </div>
-                        <div className="col-md-6 order-2 order-md-2" style={{ display: 'flex', justifyContent: 'center' }}>
-                            <div className="text-lg-end align-items-center justify-content-center">
-                                <img src='/images/petition3.jpg' style={{ maxWidth: '93vw', width: '400px', height: '300px', borderRadius: '1.5rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)' }} className="img-fluid" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </section>
             <FooterFour />
             <ScrollTop />
