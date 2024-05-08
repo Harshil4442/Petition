@@ -293,6 +293,12 @@ export default function VerticalLinearStepper() {
             '& .css-d86p8x-MuiButtonBase-root-MuiButton-root': {
               color: '#31363F', // circle color (ACTIVE)
             },
+            '& .css-fuu7kn': {
+              backgroundColor: '#31363F', // circle color (ACTIVE)
+            },
+            '& .css-d393pd': {
+              backgroundColor: '#31363F', // circle color (ACTIVE)
+            },
           }}
           >
             <StepLabel
@@ -316,7 +322,7 @@ export default function VerticalLinearStepper() {
                   >
                     {index === steps.length - 1 ? 'Finish' : 'Continue'}
                   </Button>
-                  
+
                   <Button
                     disabled={index === 0}
                     onClick={handleBack}
