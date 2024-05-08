@@ -169,23 +169,30 @@ export default function petitionDetails(props) {
                                             <div className="" style={{ fontWeight: '600',paddingBottom:'0.5rem' }}>Contact</div>
                                             <div className="" style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
                                                 <div style={{display:'flex',  padding: '0rem 0rem', borderRadius: '1rem' }} className="">
-                                                <img style={{  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\email.png"></img>
+                                                <img style={{scale:'0.8',  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\email.png"></img>
                                                     <div style={{fontSize:'13px'}}>{petition.email}</div>
                                                 </div>
                                                 <div style={{ display:'flex', padding: '0rem 0rem', borderRadius: '1rem' }} className="">
-                                                <img style={{  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\phone.png"></img>
+                                                <img style={{scale:'0.8',  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\phone.png"></img>
                                                     <div style={{fontSize:'13px'}}>{petition.contact}</div>
                                                 </div>
                                                 <div style={{ display:'flex', padding: '0rem 0rem', borderRadius: '1rem' }} className="">
-                                                <img style={{  width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\maps-and-flags.png"></img>
+                                                <img style={{ scale:'0.8', width: '1.3rem', height: 'auto', marginRight: '0.7rem' }} src="\images\maps-and-flags.png"></img>
                                                     <div style={{fontSize:'13px'}}>{petition.address}</div>
                                                 </div>
                                             </div>
                                     </div>
                                     <div style={{ width: '100%', marginTop: '1rem', display: 'flex', flexDirection: 'column' }}>
                                         <Link to="/petitions" activeclass="active" spy="true" smooth="true" duration={500} className="sub-menu-item" style={{ fontWeight: '500', textDecoration: 'none', textTransform: 'capitalize', fontSize: '16px' }}>
-
-                                            <p style={{ textAlign: 'end', fontSize: '0.75rem', padding: '0px 5px', margin: '0px' }}>Browse more petitions<MdArrowDownward /></p>
+                                        <motion.div
+                                                whileHover={{ scale: 1.005, color: '#242424', background: 'linear-gradient(126deg, #EEEEEE, #EEEEEE  79%)' }}
+                                                whileTap={{ scale: 0.95 }}
+                                                type="submit"
+                                                className="w-button"
+                                                style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '12px', order: '0', alignItems: 'center', padding: '8px 20px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
+                                            >
+                                                Browse more petitions<MdArrowDownward />
+                                            </motion.div>
                                         </Link>
                                         <Divider />
                                     </div>
