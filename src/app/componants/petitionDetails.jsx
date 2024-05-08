@@ -162,7 +162,7 @@ export default function petitionDetails(props) {
                                             <div className="" style={{ fontWeight: '600' }}>Categories</div>
                                             <div className="w-dyn-list" style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
                                                 {petition.category.split(' ').map((part, index) => (
-                                                    <div key={index} style={{ margin: '0.3rem 0.2rem', backgroundColor: '#F0EBE3', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
+                                                    <div key={index} style={{ margin: '0.3rem 0.2rem', backgroundColor: '#EEEEEE', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
                                                         <div className="body-default-medium">{part}</div>
                                                     </div>
                                                 ))}

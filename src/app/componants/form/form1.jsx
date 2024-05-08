@@ -38,10 +38,6 @@ const steps = [
     description:
       'An ad group contains one or more ads which target a shared set of keywords.',
   },
-  {
-    label: 'Publish',
-    description: `Publish your petition.`,
-  },
 ];
 
 
@@ -55,11 +51,7 @@ export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = (step) => {
-        console.log(step);
-        if(step==='Publish'){
-          navigate("/");
-          return;
-        }
+        
          let errors = {};
          let isValid = true;
          setShowErrors(false);
@@ -91,6 +83,10 @@ export default function VerticalLinearStepper() {
     
          if (!isValid) {
           setFormErrors(errors);
+          return;
+        }
+        if(step==='Petition details'){
+          navigate("/");
           return;
         }
   };
@@ -177,12 +173,14 @@ export default function VerticalLinearStepper() {
         <div className="form-group" style={{marginTop:'2rem',marginBottom:'1rem'}}>
             
          <input
+      
+         
           value={formData.name}
            className="form-control"
            id="name"
            placeholder='Name'
            onChange={handleChange}
-           style={{height:'4rem'}}
+           
          />
          {showErrors && formData.name === "" && <small className="text-danger">This field is required</small>}
        </div>
@@ -194,17 +192,22 @@ export default function VerticalLinearStepper() {
         <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Address<span className="text-danger">*</span></h6></label>
          <input
+      
+         
           value={formData.address}
+        
            className="form-control"
            id="address"
            placeholder='Address'
            onChange={handleChange}
-         />
+           />
          {showErrors && formData.address === "" && <small className="text-danger">This field is required</small>}
        </div>
        <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
                 <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Contact number<span className="text-danger">*</span></h6></label>
                 <input
+            
+                
                 value={formData.contactNumber}
                   type='tel'
                   className="form-control"
@@ -217,6 +220,8 @@ export default function VerticalLinearStepper() {
               <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
                 <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Email<span className="text-danger">*</span></h6></label>
                 <input
+            
+                
                 value={formData.email}
                   type="email"
                   className="form-control"
@@ -239,6 +244,8 @@ export default function VerticalLinearStepper() {
        <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
                 <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Title<span className="text-danger">*</span></h6></label>
                 <input
+            
+                
                   type="text"
                   value={formData.title}
                   className="form-control"
@@ -251,6 +258,8 @@ export default function VerticalLinearStepper() {
        <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Name of Municipal Corporation<span className="text-danger">*</span></h6></label>
          <input
+      
+         
          value={formData.municipalCorpName}
            className="form-control"
            id="municipalCorpName"
@@ -262,7 +271,9 @@ export default function VerticalLinearStepper() {
         <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Category<span className="text-danger">*</span></h6></label>
          <input
-         value={formData.category}
+      
+         
+          value={formData.category}
            className="form-control"
            id="category"
            placeholder='Category'
@@ -291,7 +302,9 @@ export default function VerticalLinearStepper() {
 
   return (
     <Box sx={{ maxWidth: '100%', flexGrow: 1,display:'flex',flexDirection:'column',alignItems:'center'}}>
-      
+      <div className="brodcast-line2" style={{ top: '40%' }}>
+                    <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
+                </div>
       <MobileStepper
         variant="text"
         steps={maxSteps}
@@ -339,7 +352,7 @@ export default function VerticalLinearStepper() {
       >
         <h5 style={{margin:'0'}}>{steps[activeStep].label}</h5>
       </Paper>
-      <Box sx={{  maxWidth: '100%', width: '100%', p: 0 }}>
+      <Box sx={{  maxWidth: '100%', width: '100%',display:'flex',flexDirection:'column',alignItems:'center', p: 0 }}>
         {inputs(steps[activeStep].label)}
       </Box>
       
@@ -467,6 +480,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Title<span className="text-danger">*</span></h6></label>
 //         <input
+
 //           type="text"
 //           value={formData.title}
 //           className="form-control bg-transparent"
@@ -488,6 +502,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Name of Municipal Corporation<span className="text-danger">*</span></h6></label>
 //         <input
+
 //         value={formData.municipalCorpName}
 //           className="form-control bg-transparent"
 //           id="municipalCorpName"
@@ -498,6 +513,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Address<span className="text-danger">*</span></h6></label>
 //         <input
+
 //         value={formData.address}
 //           className="form-control bg-transparent"
 //           id="address"
@@ -508,6 +524,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Category<span className="text-danger">*</span></h6></label>
 //         <input
+
 //         value={formData.category}
 //           className="form-control bg-transparent"
 //           id="category"
@@ -518,6 +535,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Name<span className="text-danger">*</span></h6></label>
 //         <input
+
 //         value={formData.name}
 //           className="form-control bg-transparent"
 //           id="name"
@@ -528,6 +546,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Contact number<span className="text-danger">*</span></h6></label>
 //         <input
+
 //         value={formData.contactNumber}
 //           type='tel'
 //           className="form-control bg-transparent"
@@ -539,6 +558,7 @@ export default function VerticalLinearStepper() {
 //       <div className="form-group" style={{marginTop:'2rem',marginBottom:'2rem'}}>
 //         <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Email<span className="text-danger">*</span></h6></label>
 //         <input
+
 //         value={formData.email}
 //           type="email"
 //           className="form-control bg-transparent"
