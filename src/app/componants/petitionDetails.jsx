@@ -139,7 +139,7 @@ export default function petitionDetails(props) {
                                                 scale: 0.95,
                                             }} type="submit" onClick={() => handleDisLike(petition.id)} style={{width:'6rem',textAlign:'center', fontSize: '1rem', backgroundColor: '#EEEEEE', color: '#242424', border: 'transparent', padding: '5px 0px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer',boxShadow:clickedDisLikes[petition.id]?'none':'0 1px 3px grey' }}>DownVote</motion.div></div>
                                 </div>
-
+                                
                             </div>
                             <div style={{ width: isMobile ? '95%' : '95%',}}>
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>

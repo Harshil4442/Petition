@@ -41,8 +41,8 @@ export default function MarketingNavbar({ handleSearch }) {
                 </a>
 
                 <div className="menu-extras" style={{ height: '100%', alignItems: 'center', display: 'flex', width: isMini ? '100%' : 'auto', justifyContent: 'end' }}>
-                    <div className="menu-item">
-                        <button className={`navbar-toggle ${isMenu ? 'open' : ''}`} onClick={toggleMenu}>
+                    <div className="menu-item" style={{backgroundColor:'transparent'}}>
+                        <button className={`navbar-toggle ${isMenu ? 'open' : ''}`} onClick={toggleMenu} style={{backgroundColor:'transparent'}}>
                             <div className="lines">
                                 <span></span>
                                 <span></span>
