@@ -133,7 +133,7 @@ export default function petitionDetails(props) {
                                                 onClick={() => handleLike(petition.id)}
                                                 style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '10px 28px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
                                             >
-                                                UpVote
+                                                Upvote
                                             </motion.div>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#0E46A3', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
@@ -145,7 +145,7 @@ export default function petitionDetails(props) {
                                                 onClick={() => handleDisLike(petition.id)}
                                                 style={{ fontWeight: '400', color: '#EEEEEE', backgroundColor: '#242424', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '10px 28px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
                                             >
-                                                DownVote
+                                                Downvote
                                             </motion.div></div>
                                     </div>
 
