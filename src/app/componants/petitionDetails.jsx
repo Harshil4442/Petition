@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useRef} from "react";
 import MarketingNavbar from "../componants/navbar/marketingNavbarHome";
 import FooterFour from "../componants/footer/footerFour";
 import ScrollTop from "../componants/scrollTop";
@@ -12,21 +12,19 @@ import Divider from '@mui/joy/Divider';
 import { MdArrowDownward, MdArrowRightAlt } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
 
-
-
-
-
-
-
 export default function petitionDetails(props) {
     const { id } = useParams();
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const [petitions, setPetitions] = useState([]);
-    const [clicked, setc] = useState(true);
+    const [clicked, setClicked] = useState(true);
     const [clickedLikes, setClickedLikes] = useState(Array(petitionData.length).fill(false));
     const [clickedDisLikes, setClickedDisLikes] = useState(Array(petitionData.length).fill(false));
+    const containerRef = useRef(null);
+    const [fixed, setFixed] = useState(true);
+
 
     const petition = (petitions.length ? petitions : petitionData).find(petition => petition.id === id);
+
     useEffect(() => {
         // Initialize the petitions state with like and dislike counts from petitionData
         if (clicked) {
@@ -36,13 +34,9 @@ export default function petitionDetails(props) {
                 dislike: parseInt(petition.dislike)
             }));
             setPetitions(initializedPetitions);
-
-            setc(false);
+            setClicked(false);
         }
     }, [clicked]);
-
-
-    const isMini = useMediaQuery({ query: '(max-width: 450px)' });
 
     const handleLike = (index) => {
         if (!clickedLikes[index]) {
@@ -60,8 +54,6 @@ export default function petitionDetails(props) {
                 const newClickedDisLikes1 = [...clickedDisLikes];
                 newClickedDisLikes1[index] = false;
                 setClickedDisLikes(newClickedDisLikes1);
-            } else {
-                return;
             }
         }
     };
@@ -86,7 +78,21 @@ export default function petitionDetails(props) {
         }
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (containerRef.current) {
+                const containerBottom = containerRef.current.getBoundingClientRect().bottom;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const isFixed = scrollTop >= containerBottom;
+                setFixed(isFixed);
+            }
+        };
 
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <>
@@ -97,7 +103,7 @@ export default function petitionDetails(props) {
                 <div className="brodcast-line2" style={{ top: '40%' }}>
                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/6480171142a0ce741b56ccaf_Line-2.svg" loading="lazy" alt="Decorative line " className="img-fluid" />
                 </div>
-                <div className="container" >
+                <div ref={containerRef} className="container" >
 
 
                     <div className="row" style={{ paddingTop: '2rem' }}>
@@ -116,7 +122,7 @@ export default function petitionDetails(props) {
                             </div>
                         </div>
 
-                        <div className={`col-md-3 ${isMobile?'':'position-fixed'}`} style={{ right:isMobile?'auto':'9%', padding: isMobile ? '1rem 1rem' : '0 0' }}>
+                        <div className={`col-md-4 ${isMobile?'':!fixed?'position-fixed':''}`} style={{display:'flex',alignItems:'end',justifyContent:'center', right:isMobile?'auto':!fixed?'1.7%':'0%', padding: isMobile ? '1rem 1rem' : '0 0' }}>
                             <div className="blue-pink-gradient" style={{ padding: '2rem 1px', borderRadius: '2rem', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                                 <div style={{ width: isMobile ? '95%' : '85%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
                                     <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`, borderRadius: '0.2rem', backgroundColor: '#242424' }}></div>
