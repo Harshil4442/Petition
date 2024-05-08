@@ -161,10 +161,12 @@ export default function VerticalLinearStepper() {
     if(step==='Name of Author'){
       return(
         <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'1  rem'}}>
+
          <input
          value={formData.name}
            className="form-control"
            id="name"
+           placeholder='Name'
            onChange={handleChange}
          />
          {showErrors && formData.name === "" && <small className="text-danger">This field is required</small>}
@@ -177,9 +179,10 @@ export default function VerticalLinearStepper() {
         <div className="form-group" style={{paddingLeft:'10px',marginTop:'2rem',marginBottom:'2rem'}}>
          <label htmlFor="exampleFormControlInput1" style={{marginBottom:'0.3rem'}}><h6>Address<span className="text-danger">*</span></h6></label>
          <input
-         value={formData.address}
+          value={formData.address}
            className="form-control"
            id="address"
+           placeholder='Address'
            onChange={handleChange}
          />
          {showErrors && formData.address === "" && <small className="text-danger">This field is required</small>}
@@ -191,6 +194,7 @@ export default function VerticalLinearStepper() {
                   type='tel'
                   className="form-control"
                   id="contactNumber"
+                  placeholder='Contact number'
                   onChange={handleChange}
                 />
                 {showErrors && formData.contactNumber === "" && <small className="text-danger">This field is required</small>}
@@ -202,6 +206,7 @@ export default function VerticalLinearStepper() {
                   type="email"
                   className="form-control"
                   id="email"
+                  placeholder='Email Id'
                   onChange={handleChange}
                 />
                 {showErrors && formData.email === "" && <small className="text-danger">This field is required</small>}
@@ -223,6 +228,7 @@ export default function VerticalLinearStepper() {
                   value={formData.title}
                   className="form-control"
                   id="title"
+                  placeholder='Title'
                   onChange={handleChange}
                 />
               {showErrors && formData.title === "" && <small className="text-danger">This field is required</small>}      
@@ -233,6 +239,7 @@ export default function VerticalLinearStepper() {
          value={formData.municipalCorpName}
            className="form-control"
            id="municipalCorpName"
+           placeholder='Name of Municipal Corporation'
            onChange={handleChange}
          />
          {showErrors && formData.municipalCorpName === "" && <small className="text-danger">This field is required</small>}
@@ -243,6 +250,7 @@ export default function VerticalLinearStepper() {
          value={formData.category}
            className="form-control"
            id="category"
+           placeholder='Category'
            onChange={handleChange}
          />
          {showErrors && formData.category === "" && <small className="text-danger">This field is required</small>}
@@ -253,6 +261,7 @@ export default function VerticalLinearStepper() {
            value={formData.description}
            className="form-control border-b"
            id="description"
+           placeholder='Description'
            onChange={handleChange}
            rows="2"
          ></textarea>
@@ -270,7 +279,22 @@ export default function VerticalLinearStepper() {
     <Box sx={{ maxWidth: 400 }}>
       <Stepper  activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
-          <Step key={step.label}>
+          <Step key={step.label}
+          sx={{
+            '& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active': {
+              color: '#242424', // circle color (COMPLETED)
+            },
+            '& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed': {
+              color: '#31363F', // circle color (ACTIVE)
+            },
+            '& .css-1agspv7-MuiButtonBase-root-MuiButton-root': {
+              backgroundColor: '#31363F', // circle color (ACTIVE)
+            },
+            '& .css-d86p8x-MuiButtonBase-root-MuiButton-root': {
+              color: '#31363F', // circle color (ACTIVE)
+            },
+          }}
+          >
             <StepLabel
               optional={
                 index === 3 ? (
@@ -288,6 +312,7 @@ export default function VerticalLinearStepper() {
                     variant="contained"
                     onClick={()=>handleNext(step.label)}
                     sx={{ mt: 5, mr: 1 }}
+                    style={{fontSize:'0.7rem'}}
                   >
                     {index === steps.length - 1 ? 'Finish' : 'Continue'}
                   </Button>
@@ -295,6 +320,7 @@ export default function VerticalLinearStepper() {
                     disabled={index === 0}
                     onClick={handleBack}
                     sx={{ mt: 5, mr: 1 }}
+                    style={{fontSize:'0.7rem'}}
                   >
                     Back
                   </Button>

@@ -2573,14 +2573,14 @@ button:not(:disabled) {
 }
 
 .form-control {
-  border-bottom: 1px solid black !important;
+  border: 1px solid #242424 !important;
   font-size: 14px;
   line-height: 26px;
   background-color: #ffffff;
   border-radius: 6px;
-  border-top: none !important;
+  /* border-top: none !important;
   border-left: none !important;
-  border-right: none !important;
+  border-right: none !important; */
 }
 
 .form-control:focus {
