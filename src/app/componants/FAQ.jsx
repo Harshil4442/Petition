@@ -26,7 +26,7 @@ function FAQSection() {
                                     <div className="text-size-medium-3 text-color-black faq-title">{item.title}</div>
                                     <img src="https://assets-global.website-files.com/64649e6768f2f33bbec372fd/648416c766311009cc78948a_faq-open-icon.svg" loading="lazy" alt="" className="faq-icon" />
                                 </a>
-                                <div style={{ height: isOpen[index] ? 'auto' : '0px' }} className="faq-answer-block">
+                                <div style={{ height: isOpen[index] ? 'auto' : '0px',paddingTop:isOpen[index]?'20px':'0px' }} className='faq-answer-block'>
                                     <p className="text-size-small faq-para">
                                         {item.answer}
                                         <a href="/pricing-plans-businesschat">visit our pricing page</a>

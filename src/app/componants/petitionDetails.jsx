@@ -117,14 +117,14 @@ export default function petitionDetails(props) {
                         <div style={{
                                 padding:'2.5rem 10px',marginTop:'0rem',width:'100%',display: 'flex', alignItems: 'center', flexDirection: 'column' , background: '#F2F3F4', borderRadius: '1rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)',
                                 // backgroundColor:'#CAF4FF',
-                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),url(/images/form-back.jpg)', // Specify the path to your background image
+                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),url(/images/form-back.jpg)', // Specify the path to your background image
                                 backgroundSize: 'cover', // Ensure the image covers the entire background
                                 backgroundPosition: 'center', // Center the image
                                 backgroundRepeat: 'no-repeat',
                             }}>
                             <div style={{ width: isMobile ? '95%' : '95%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
-                                <div style={{ width: `${((petition.like / (petition.like + petition.dislike)) * 100)}%`,borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
-                                <div style={{ width: `${((petition.dislike / (petition.like + petition.dislike)) * 100)}%` }}></div>
+                                <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`,borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
+                                <div style={{ width: `${(((petition.dislike)/ (petition.like + petition.dislike)) * 100)}%` }}></div>
                             </div>
                             <div style={{ width: isMobile ? '95%' : '95%', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
@@ -145,14 +145,14 @@ export default function petitionDetails(props) {
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
                                     <h6 style={{ margin: '1px 2px' }}>Category</h6>
                                     <Divider />
-                                    <div style={{border:'1px solid #B4B4B8',borderRadius:'0.4rem',display:'flex',alignItems:'start',justifyContent:'start'}}>
+                                    <div style={{border:'1px solid #B4B4B8',borderRadius:'0.4rem',display:'flex',alignItems:'start',justifyContent:'start',backgroundColor:'white'}}>
                                     <p style={{ padding: '10px 5px',fontSize:'14px',color:'#45474B' }}>{petition.category}</p>
                                     </div>
                                 </div>
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
                                     <h6 style={{ margin: '1px 2px' }}>Contact us</h6>
                                     <Divider />
-                                    <div style={{border:'1px solid #B4B4B8',borderRadius:'0.4rem',display:'flex',flexDirection:'column',alignItems:'start',justifyContent:'start'}}>
+                                    <div style={{border:'1px solid #B4B4B8',borderRadius:'0.4rem',display:'flex',flexDirection:'column',alignItems:'start',justifyContent:'start',backgroundColor:'white'}}>
 
                                     <p style={{ padding: '0px 5px', margin: '0px',fontSize:'14px',color:'#45474B' }}>{petition.email}</p>
                                     <p style={{ padding: '0px 5px', margin: '0px',fontSize:'14px',color:'#45474B' }}>{petition.contact}</p>

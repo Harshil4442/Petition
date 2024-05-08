@@ -61,7 +61,7 @@ const petitionData = [
     name: "Your name",
     contact: "Mobile number",
     email: "mail id",
-    like: 0,
+    like: 1,
     dislike: 0
   }
 ];
