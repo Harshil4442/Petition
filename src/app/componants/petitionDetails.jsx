@@ -94,69 +94,82 @@ export default function petitionDetails(props) {
 
             <section className="section" id="features" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', fontFamily: 'Google sans, sans-serif' }}>
                 <div className="container" >
-                 
-                    
-                    <div className="row">
-                        <div className="col-md-12" style={{ margin: '2rem 0rem' }}>
-                            <div className="text-center">
-                                <b className="text-center" style={{ fontWeight: '700', fontSize: '2.3rem' }}>{petition.title}</b>
-                                <p style={{ color: '#7D7C7C' }}>{petition.municipality}</p>
-                            </div>
-                        </div>
+
+
+                    <div className="row" style={{ paddingTop: '5rem' }}>
+
                         <div className="col-md-8" >
                             <img style={{ borderRadius: '1rem', scale: '0.99', maxWidth: '100%', maxHeight: '100%', marginBottom: '2rem' }} src="\images\petition-details.jpg"></img>
-                            <div className="text-start">
-                                <b className="text-start" style={{ fontWeight: '600', fontSize: '1.6rem' }}>Why this petition matters</b>
+                            <div className="">
+                                <button style={{ color: '#242424', fontSize: '0.7rem', fontWeight: '600', marginBottom: '1rem', backgroundColor: '#FFDEFB', border: 'transparent', borderRadius: '1.5rem', padding: '0.5rem' }}>{petition.municipality}</button>
+                                <h1 className="heading-style-h2"  >{petition.title}</h1>
                                 <div style={{ marginTop: '1rem', marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}> <img style={{ borderRadius: '1rem', width: '2.5rem', height: 'auto', marginRight: '0.7rem' }} src="\images\profile.png"></img><p style={{ padding: '0px', fontSize: '1.1rem', fontWeight: '500', borderRadius: '0.4rem', backgroundColor: 'white', background: 'transparent' }} className="text-muted mt-3">Started by <b>{petition.name}</b>    </p></div>
                                 <div style={{ marginTop: '2.1rem' }}><b style={{ fontSize: '1.25rem', fontWeight: '600' }}>Description<br /></b> <p style={{ padding: '0px', fontWeight: '500', borderRadius: '0.4rem', backgroundColor: 'white', background: 'transparent' }} className="text-muted mt-3">{petition.description}</p></div>
 
                             </div>
                         </div>
-                               
-                        <div className="col-md-4" style={{ padding: '0px 5px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                        <div style={{
-                                padding:'2.5rem 10px',marginTop:'0rem',width:'100%',display: 'flex', alignItems: 'center', flexDirection: 'column' , background: '#F2F3F4', borderRadius: '1rem', boxShadow: '0 0 20px 3px rgba(0, 0, 0, 0.1)',
-                                // backgroundColor:'#CAF4FF',
-                                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),url(/images/form-back.jpg)', // Specify the path to your background image
-                                backgroundSize: 'cover', // Ensure the image covers the entire background
-                                backgroundPosition: 'center', // Center the image
-                                backgroundRepeat: 'no-repeat',
-                            }}>
-                            <div style={{ width: isMobile ? '95%' : '95%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
-                                <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`,borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
-                                <div style={{ width: `${(((petition.dislike)/ (petition.like + petition.dislike)) * 100)}%` }}></div>
+
+                        <div className="col-md-4" style={{ padding: '10px 5px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+
+                            <div style={{ width: isMobile ? '95%' : '85%', height: '0.5rem', display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '0.2rem' }}>
+                                <div style={{ width: `${(((petition.like) / (petition.like + petition.dislike)) * 100)}%`, borderRadius: '0.2rem', backgroundColor: '#0E46A3' }}></div>
+                                <div style={{ width: `${(((petition.dislike) / (petition.like + petition.dislike)) * 100)}%` }}></div>
                             </div>
-                            <div style={{ width: isMobile ? '95%' : '95%', display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ width: isMobile ? '95%' : '85%', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize:'2rem',color:'#0E46A3', display: 'flex', justifyContent: 'start' }}>{petition.like}</b>
-                                        <motion.div whileHover={{ scale: 1.005, backgroundColor: '#242424', color: '#EEEEEE' }}
-                                            whileTap={{
-                                                scale: 0.95,
-                                            }} type="submit" onClick={() => handleLike(petition.id)} style={{width:'6rem',textAlign:'center', fontSize: '1rem', backgroundColor: '#EEEEEE', color: '#242424', border:'transparent', padding: '5px 0px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer', boxShadow:clickedLikes[petition.id]?'none':'0 1px 3px grey' }}>UpVote</motion.div></div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize:'2rem',color:'#0E46A3', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
-                                        <motion.div whileHover={{ scale: 1.005, backgroundColor: '#242424', color: '#EEEEEE' }}
-                                            whileTap={{
-                                                scale: 0.95,
-                                            }} type="submit" onClick={() => handleDisLike(petition.id)} style={{width:'6rem',textAlign:'center', fontSize: '1rem', backgroundColor: '#EEEEEE', color: '#242424', border: 'transparent', padding: '5px 0px', margin: '0.8rem 0rem', borderRadius: '1rem', cursor: 'pointer',boxShadow:clickedDisLikes[petition.id]?'none':'0 1px 3px grey' }}>DownVote</motion.div></div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#0E46A3', display: 'flex', justifyContent: 'start' }}>{petition.like}</b>
+                                        <motion.div
+                                            whileHover={{ scale: 1.005, color: '#242424', background: 'linear-gradient(126deg, #b1ecff, #dfbaff 79%)' }}
+                                            whileTap={{ scale: 0.95 }}
+                                            type="submit"
+                                            className="w-button"
+                                            onClick={()=>handleLike(petition.id)}
+                                            style={{ fontWeight: '400', color: '#242424', backgroundColor: 'rgb(177, 236, 255)', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '10px 28px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
+                                        >
+                                            UpVote
+                                        </motion.div>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '50%' }}><b style={{ fontSize: '2rem', color: '#0E46A3', display: 'flex', justifyContent: 'end' }}>{petition.dislike}</b>
+                                        <motion.div
+                                            whileHover={{ scale: 1.005, color: '#242424', background: 'linear-gradient(126deg, #b1ecff, #dfbaff 79%)' }}
+                                            whileTap={{ scale: 0.95 }}
+                                            type="submit"
+                                            className="w-button"
+                                            onClick={()=>handleDisLike(petition.id)}
+                                            style={{ fontWeight: '400', color: '#242424', backgroundColor: 'rgb(177, 236, 255)', display: 'flex', borderStyle: 'none', borderRadius: '50px', flex: '0 auto', fontSize: '16px', order: '0', alignItems: 'center', padding: '10px 28px', justifyContent: 'center', lineHeight: 'inherit', cursor: 'pointer', fontFamily: 'Google sans, sans-serif' }}
+                                        >
+                                            DownVote
+                                        </motion.div></div>
                                 </div>
-                                
+
                             </div>
-                            <div style={{ width: isMobile ? '95%' : '95%',}}>
+                            <div style={{ width: isMobile ? '95%' : '85%', }}>
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
-                                    <h6 style={{ margin: '1px 2px' }}>Category</h6>
-                                    <Divider />
-                                    <div style={{border:'1px solid #B4B4B8',borderRadius:'0.4rem',display:'flex',alignItems:'start',justifyContent:'start',backgroundColor:'white'}}>
-                                    <p style={{ padding: '10px 5px',fontSize:'14px',color:'#45474B' }}>{petition.category}</p>
+                                    <div className="categories-2">
+                                        <div className="category">Categories</div>
+                                        <div className="w-dyn-list" style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
+                                            {petition.category.split(' ').map((part, index) => (
+                                                <div key={index} style={{margin:'0.3rem 0.2rem', backgroundColor: '#d8ffdb', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
+                                                    <div className="body-default-medium">{part}</div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
-                                    <h6 style={{ margin: '1px 2px' }}>Contact us</h6>
-                                    <Divider />
-                                    <div style={{border:'1px solid #B4B4B8',borderRadius:'0.4rem',display:'flex',flexDirection:'column',alignItems:'start',justifyContent:'start',backgroundColor:'white'}}>
-
-                                    <p style={{ padding: '0px 5px', margin: '0px',fontSize:'14px',color:'#45474B' }}>{petition.email}</p>
-                                    <p style={{ padding: '0px 5px', margin: '0px',fontSize:'14px',color:'#45474B' }}>{petition.contact}</p>
-                                    <p style={{ padding: '0px 5px', margin: '0px',fontSize:'14px',color:'#45474B' }}>{petition.address}</p>
+                                    <div className="categories-2">
+                                        <div className="category">Contact</div>
+                                        <div className="w-dyn-list" style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
+                                                <div style={{margin:'0.3rem 0.2rem', backgroundColor: '#F6F5F2', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
+                                                    <div className="body-default-medium">{petition.email}</div>
+                                                </div>
+                                                <div style={{margin:'0.3rem 0.2rem', backgroundColor: '#F6F5F2', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
+                                                    <div className="body-default-medium">{petition.contact}</div>
+                                                </div>
+                                                <div style={{margin:'0.3rem 0.2rem', backgroundColor: '#F6F5F2', padding: '0.3rem 0.8rem', borderRadius: '1rem' }} className="tags-3">
+                                                    <div className="body-default-medium">{petition.address}</div>
+                                                </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div style={{ width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column' }}>
@@ -168,10 +181,9 @@ export default function petitionDetails(props) {
                                 </div>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
-              
+
 
 
                 <div className="container mt-100 mt-60">
